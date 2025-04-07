@@ -1,11 +1,13 @@
 import { SafeAreaView, ScrollView, StyleSheet, View, Text } from "react-native"
 import TarefaListaItem from "./TarefasListaItem"
-import { layouts } from "../assets/styles/StylesGlobal"
+import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
 
-export default function TarefasLista() {
+export default function TarefasLista(props) {
     return (
         <View>
-            <Text style={layouts.textoTitulo01}>Minhas Tarefas</Text>
+            <Text style={[layouts.textoTitulo01, {color: paletaCores.cinza.escuro}]}>
+                {props?.tituloLista}
+            </Text>
             <ScrollView>
                 <TarefaListaItem titulo='Dar banho no cachorro' />
                 <TarefaListaItem titulo='Comprar uma calça nova' />

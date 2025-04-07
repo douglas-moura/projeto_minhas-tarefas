@@ -4,6 +4,9 @@ export const layouts = StyleSheet.create({
     sessao: {
         padding: 20,
     },
+    container: {
+        marginBottom: 16,
+    },
     textoTitulo01: {
         fontSize: 24,
         fontWeight: 'bold',

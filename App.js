@@ -15,7 +15,7 @@ const user = {
 
 export default function App() {
     return (
-        <NavigationContainer style={styles.container}>
+        <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen
                     name='Home'
@@ -32,10 +32,5 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
+    
 })

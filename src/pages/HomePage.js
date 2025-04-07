@@ -5,7 +5,12 @@ import TarefasLista from "../components/TarefasLista"
 export default function HomePage() {
     return (
         <SafeAreaView style={[layouts.sessao]}>
-            <TarefasLista />
+            <View style={layouts.container}>
+                <TarefasLista tituloLista='Minha Tarefas' />
+            </View>
+            <View style={layouts.container}>
+                <TarefasLista tituloLista='Conluídas' />
+            </View>
         </SafeAreaView>
     )
 }
