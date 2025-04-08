@@ -1,6 +1,22 @@
 import { StyleSheet } from 'react-native'
 
+export const paletaCores = StyleSheet.create({
+    primaria: {
+        medio: '#1A8EF4',
+    },
+    cinza: {
+        claro: '#ededed',
+        medio: '#c2c2c2',
+        escuro: '#555',
+    },
+    branco: '#fff',
+})
+
 export const layouts = StyleSheet.create({
+    pagina: {
+        flex: 1,
+        backgroundColor: paletaCores.cinza.claro,
+    },
     sessao: {
         padding: 20,
     },
@@ -19,12 +35,4 @@ export const layouts = StyleSheet.create({
     textoParagrafo: {
         fontSize: 16,
     }
-})
-
-export const paletaCores = StyleSheet.create({
-    cinza: {
-        claro: '#ddd',
-        medio: '#c2c2c2',
-        escuro: '#555',
-    },
 })
