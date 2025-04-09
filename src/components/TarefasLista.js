@@ -1,4 +1,4 @@
-import { SafeAreaView, ScrollView, StyleSheet, View, Text } from "react-native"
+import { SafeAreaView, ScrollView, StyleSheet, Image, View, Text } from "react-native"
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
 import TarefaListaItem from "./TarefasListaItem"
 
@@ -12,9 +12,10 @@ const tarefas = [
 export default function TarefasLista(props) {
     return (
         <SafeAreaView>
-            <Text style={[layouts.textoTitulo01, {color: paletaCores.cinza.escuro}]}>
-                {props?.tituloLista}
-            </Text>
+            <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: 14}}>
+                <Image style={styles.logoTitulo} source={require('../assets/img/simbolo.png')} />
+                <Text style={[layouts.textoTitulo01, {color: paletaCores.cinza.escuro}]}>{props?.tituloLista}</Text>
+            </View>
             <ScrollView>
                 {tarefas.map((item, index) => (
                     <TarefaListaItem key={index} status={item.status} titulo={item.titulo} />
@@ -23,3 +24,12 @@ export default function TarefasLista(props) {
         </SafeAreaView>
     )
 }
+
+const styles = StyleSheet.create({
+    logoTitulo: {
+        width: 32,
+        height: 32,
+        marginRight: 8,
+        transform: [{rotate:'5deg'}],
+    }
+})

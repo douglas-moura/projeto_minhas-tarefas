@@ -1,9 +1,9 @@
-import { SafeAreaView, StyleSheet, View, Text } from "react-native"
+import { SafeAreaView, StyleSheet, View, Image, Text } from "react-native"
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
 import TarefasLista from "../components/TarefasLista"
 import TopBar from "../components/TopBar"
 
-export default function HomePage(props) {
+export default function HomePage() {
     return (
         <SafeAreaView style={layouts.pagina}>
             <View style={[layouts.sessao, {backgroundColor: paletaCores.primaria.medio,}]}>
@@ -17,5 +17,5 @@ export default function HomePage(props) {
 }
 
 const styles = StyleSheet.create({
-    
+
 })

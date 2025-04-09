@@ -26,7 +26,7 @@ export const layouts = StyleSheet.create({
     textoTitulo01: {
         fontSize: 24,
         fontWeight: 'bold',
-        marginBottom: 12,
+        //marginBottom: 12,
     },
     textoTitulo02: {
         fontSize: 20,
