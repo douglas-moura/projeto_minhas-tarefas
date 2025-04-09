@@ -3,7 +3,6 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { paletaCores } from './src/assets/styles/StylesGlobal'
-
 import Icon from 'react-native-vector-icons/Feather'
 import HomePage from './src/pages/HomePage'
 import PerfilPage from './src/pages/PerfilPage'

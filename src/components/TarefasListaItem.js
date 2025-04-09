@@ -1,35 +1,54 @@
-import { SafeAreaView, StyleSheet, View, Text } from "react-native"
+import { Pressable, StyleSheet, View, Text } from "react-native"
 import { layouts, paletaCores } from '../assets/styles/StylesGlobal'
+import Icon from 'react-native-vector-icons/Feather'
 
 export default function TarefasListaItem(props) {
     return (
-        <SafeAreaView style={props.titulo ? styles.item : null}>
-            <Text style={layouts.textoParagrafo}>{props?.titulo}</Text>
+        <Pressable style={styles.item}>
+            <Text style={[layouts.textoParagrafo, props.status ? styles.tarefaCheck : null]}>{props?.titulo}</Text>
             <View style={layouts.textoParagrafo}>
-                {props.titulo ? <View style={styles.checkbox} /> : null}
+                <Icon
+                    name="check"
+                    style={[
+                        styles.checkbox, 
+                        props?.status ? styles.check : styles.noCheck
+                    ]}
+                />
             </View>
-        </SafeAreaView>
+        </Pressable>
     )
 }
 
 const styles = StyleSheet.create({
     item: {
         padding: 20,
-        marginBottom: 8,
-        borderWidth: 0,
-        borderColor: paletaCores.cinza.medio,
+        marginBottom: 12,
+        borderWidth: 1,
+        borderColor: paletaCores.cinza.claro,
         borderRadius: 6,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#fff',
-        elevation: 2,
-        margin: 2,
+        //elevation: 2,
+        //margin: 2,
+    },
+    tarefaCheck: {
+        opacity: 0.3,
     },
     checkbox: {
-        padding: 10,
+        fontSize: 16,
+        padding: 4,
         borderWidth: 1,
-        borderColor: paletaCores.cinza.medio,
         borderRadius: 4,
+        color: paletaCores.branco,
+    },
+    check: {
+        borderColor: paletaCores.primaria.medio,
+        backgroundColor: paletaCores.primaria.medio,
+    },
+    noCheck: {
+        backgroundColor: paletaCores.branco,
+        borderColor: paletaCores.cinza.claro,
     }
 })

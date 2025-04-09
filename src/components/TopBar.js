@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, View, Text } from "react-native"
+import { SafeAreaView, StyleSheet, View, Text, Image } from "react-native"
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
 
 export default function TopBar() {
@@ -9,16 +9,16 @@ export default function TopBar() {
             alignItems: 'center',
         }}>
             <Text style={[layouts.textoTitulo02, {color: paletaCores.branco}]}>Olá, Nome</Text>
-            <View style={styles.fotoPerfil} />
+            <Image style={styles.fotoPerfil} source={require('../assets/img/foto-perfil.jpg')} />
         </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
     fotoPerfil: {
-        height: 36,
-        width: 36,
+        height: 40,
+        width: 40,
         backgroundColor: paletaCores.branco,
-        borderRadius: '100%'
+        borderRadius: 50,
     }
 })

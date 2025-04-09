@@ -15,7 +15,7 @@ export const paletaCores = StyleSheet.create({
 export const layouts = StyleSheet.create({
     pagina: {
         flex: 1,
-        backgroundColor: paletaCores.cinza.claro,
+        backgroundColor: paletaCores.branco,
     },
     sessao: {
         padding: 20,
