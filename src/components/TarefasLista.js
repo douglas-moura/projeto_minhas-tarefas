@@ -1,5 +1,6 @@
-import { SafeAreaView, ScrollView, StyleSheet, Image, View, Text } from "react-native"
+import { SafeAreaView, ScrollView, StyleSheet, Image, View, Text, Pressable } from "react-native"
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
+import { useState } from "react"
 import TarefaListaItem from "./TarefasListaItem"
 
 const tarefas = [
@@ -18,7 +19,7 @@ export default function TarefasLista(props) {
             </View>
             <ScrollView>
                 {tarefas.map((item, index) => (
-                    <TarefaListaItem key={index} status={item.status} titulo={item.titulo} />
+                    <TarefaListaItem key={index} infosTarefa={item} />
                 ))}
             </ScrollView>
         </SafeAreaView>

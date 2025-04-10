@@ -1,17 +1,25 @@
 import { Pressable, StyleSheet, View, Text } from "react-native"
 import { layouts, paletaCores } from '../assets/styles/StylesGlobal'
+import { useState } from "react"
 import Icon from 'react-native-vector-icons/Feather'
 
 export default function TarefasListaItem(props) {
+    const [status, setStatus] = useState(false)
+
+    const concluirTarefa = () => {
+        console.log(props.infosTarefa)
+        return setStatus(status == true)
+    }
+
     return (
-        <Pressable style={styles.item}>
-            <Text style={[layouts.textoParagrafo, props.status ? styles.tarefaCheck : null]}>{props?.titulo}</Text>
+        <Pressable style={styles.item} onPress={concluirTarefa}>
+            <Text style={[layouts.textoParagrafo, props?.infosTarefa.status ? styles.tarefaCheck : null]}>{props?.infosTarefa.titulo}</Text>
             <View style={layouts.textoParagrafo}>
                 <Icon
                     name="check"
                     style={[
                         styles.checkbox, 
-                        props?.status ? styles.check : styles.noCheck
+                        props?.infosTarefa.status ? styles.check : styles.noCheck
                     ]}
                 />
             </View>
