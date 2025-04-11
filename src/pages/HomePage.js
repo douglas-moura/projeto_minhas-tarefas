@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, View, Image, Text } from "react-native"
+import { SafeAreaView, StyleSheet, View } from "react-native"
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
 import TarefasLista from "../components/TarefasLista"
 import TopBar from "../components/TopBar"

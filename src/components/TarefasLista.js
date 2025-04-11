@@ -1,16 +1,25 @@
 import { SafeAreaView, ScrollView, StyleSheet, Image, View, Text, Pressable } from "react-native"
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import TarefaListaItem from "./TarefasListaItem"
 
-const tarefas = [
-    {id: '0', titulo: 'Dar banho no cachorro', status: true, data: '22/01/25'},
-    {id: '1', titulo: 'Comprar uma calça nova', status: false, data: '18/02/25'},
-    {id: '2', titulo: 'Atualizar curriculo', status: false, data: '02/03/25'},
-    {id: '3', titulo: 'Estudar mais React Native e Expo', status: false, data: '20/03/25'},
-]
-
 export default function TarefasLista(props) {
+    const [tarefas, setTarefas] = useState(null)
+    
+    useEffect(() => {
+        const getTarefa = async () => {
+            try {
+                const response = await fetch('http://192.168.15.151:3000/users_tarefas?user_id=0')
+                const data = await response.json()
+                setTarefas(data[0].tarefas)
+            } catch(err) {
+                console.error(err)
+            }
+        }
+
+        getTarefa()
+    }, [tarefas])
+
     return (
         <SafeAreaView>
             <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: 14}}>

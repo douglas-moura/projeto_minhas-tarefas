@@ -10,13 +10,6 @@ import PerfilPage from './src/pages/PerfilPage'
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
 
-const user = {
-    infosPessoais: {
-        nome: 'Douglas',
-        sobrenome: 'Moura',
-    }
-}
-
 const Tabs = () => {
     return (
         <Tab.Navigator screenOptions={{headerShown: false}}>
