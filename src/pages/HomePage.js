@@ -12,7 +12,7 @@ export default function HomePage({navigation}) {
                 <TopBar navigation={navigation} />
             </View>
             <View style={layouts.sessao}>
-                <TarefasLista tituloLista='Minha Tarefas' />
+                <TarefasLista tituloLista='Minha Tarefas' navigation={navigation} />
             </View>
         </SafeAreaView>
     )

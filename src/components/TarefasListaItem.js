@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         padding: 20,
         marginBottom: 12,
         borderWidth: 1,
-        borderColor: paletaCores.cinza.claro,
+        borderColor: paletaCores.cinza.medio,
         borderRadius: 6,
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         //margin: 2,
     },
     tarefaCheck: {
-        opacity: 0.3,
+        opacity: 0.2,
     },
     checkbox: {
         fontSize: 16,
@@ -57,6 +57,6 @@ const styles = StyleSheet.create({
     },
     noCheck: {
         backgroundColor: paletaCores.branco,
-        borderColor: paletaCores.cinza.claro,
+        borderColor: paletaCores.cinza.medio,
     }
 })

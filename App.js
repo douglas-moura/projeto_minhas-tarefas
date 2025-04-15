@@ -1,11 +1,14 @@
-import { StyleSheet, StatusBar, View } from 'react-native'
+import { StyleSheet, StatusBar, Alert, ActivityIndicator } from 'react-native'
+import { useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { paletaCores } from './src/assets/styles/StylesGlobal'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 import Icon from 'react-native-vector-icons/Feather'
 import HomePage from './src/pages/HomePage'
 import PerfilPage from './src/pages/PerfilPage'
+import NovaTarefaPage from './src/pages/NovaTarefaPage'
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -21,13 +24,6 @@ const Tabs = () => {
                 }}
             />
             <Tab.Screen 
-                name="Nova Tarefa"
-                component={PerfilPage}
-                options={{
-                    tabBarIcon: ({ color }) => <Icon name="plus" color={color} size={20} />
-                }}
-            />
-            <Tab.Screen 
                 name="Perfil"
                 component={PerfilPage}
                 options={{
@@ -39,11 +35,15 @@ const Tabs = () => {
 }
 
 export default function App() {
+
+    const [usuario, setUsuario] = useState(null)
+
     return (
         <NavigationContainer>
             <StatusBar barStyle='light-content' backgroundColor={paletaCores.primaria.medio} />
             <Stack.Navigator screenOptions={{headerShown: false}} style={styles.appContainer}>
                 <Stack.Screen name='AppMain' component={Tabs} />
+                <Stack.Screen name='Nova Tarefa' component={NovaTarefaPage} />
             </Stack.Navigator>
         </NavigationContainer>
     )

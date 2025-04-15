@@ -25,7 +25,7 @@ export default function TopBar({navigation}) {
             justifyContent: 'space-between',
             alignItems: 'center',
         }}>
-            <Text style={[layouts.textoTitulo02, {color: paletaCores.branco}]}>
+            <Text style={[layouts.textoTitulo03, {color: paletaCores.branco}]}>
                 Olá, {usuarioData ? usuarioData[0].nome : 'Usuário'}
             </Text>
             <Pressable onPress={() => navigation.navigate("Perfil")}>

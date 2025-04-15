@@ -1,36 +1,35 @@
 import { SafeAreaView, ScrollView, StyleSheet, Image, View, Text, Pressable } from "react-native"
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
 import { useState, useEffect } from "react"
+import { getTarefas } from "../functions/getTarefas"
 import TarefaListaItem from "./TarefasListaItem"
 
-export default function TarefasLista(props) {
+export default function TarefasLista({tituloLista, navigation}) {
     const [tarefas, setTarefas] = useState(null)
     
     useEffect(() => {
-        const getTarefa = async () => {
-            try {
-                const response = await fetch('http://192.168.15.151:3000/users_tarefas?user_id=0')
-                const data = await response.json()
-                setTarefas(data[0].tarefas)
-            } catch(err) {
-                console.error(err)
-            }
+        const fetchData = async () => {
+            const tarefas = await getTarefas()
+            setTarefas(tarefas)
         }
-
-        getTarefa()
-    }, [tarefas])
+        
+        fetchData()
+    }, [])
 
     return (
-        <SafeAreaView>
-            <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: 14}}>
+        <SafeAreaView style={{heigth: 'auto'}}>
+            <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: 18}}>
                 <Image style={styles.logoTitulo} source={require('../assets/img/simbolo.png')} />
-                <Text style={[layouts.textoTitulo01, {color: paletaCores.cinza.escuro}]}>{props?.tituloLista}</Text>
+                <Text style={[layouts.textoTitulo02, {color: paletaCores.cinza.escuro}]}>{tituloLista}</Text>
             </View>
-            <ScrollView>
-                {tarefas.map((item, index) => (
+            <ScrollView showsVerticalScrollIndicator={false} style={{height: '75%'}}>
+                {tarefas && tarefas.map((item, index) => (
                     <TarefaListaItem key={index} infosTarefa={item} />
                 ))}
             </ScrollView>
+            <Pressable style={styles.btnNovaTarefa} onPress={() => navigation.navigate("Nova Tarefa")} >
+                <Text style={styles.textoBtnNovatarefa}>Nova Tarefa</Text>
+            </Pressable>
         </SafeAreaView>
     )
 }
@@ -41,5 +40,17 @@ const styles = StyleSheet.create({
         height: 32,
         marginRight: 8,
         transform: [{rotate:'5deg'}],
+    },
+    btnNovaTarefa: {
+        backgroundColor: paletaCores.primaria.medio,
+        //width: "40%",
+        padding: 20,
+        borderRadius: 6,
+    },
+    textoBtnNovatarefa: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        color: paletaCores.branco,
     }
 })

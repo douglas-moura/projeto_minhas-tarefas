@@ -1,51 +1,71 @@
 {
-    "usuarios": [
+  "usuarios": [
+    {
+      "id": "0",
+      "nome": "Douglas",
+      "sobrenome": "Moura"
+    }
+  ],
+  "users_tarefas": [
+    {
+      "id": "0",
+      "tarefas": [
         {
-            "id": "0",
-            "nome": "Douglas",
-            "sobrenome": "Moura"
-        }
-    ],
-    "users_tarefas": [
-        {
-            "user_id": "0",
-            "tarefas": [
-                {
-                    "titulo": "Dar banho no cachorro",
-                    "data": "22/01/25",
-                    "status": false
-                },
-                {
-                    "titulo": "Comprar uma calça nova",
-                    "data": "18/02/25",
-                    "status": false
-                },
-                {
-                    "titulo": "Atualizar curriculo",
-                    "data": "02/03/25",
-                    "status": true
-                },
-                {
-                    "titulo": "Estudar mais React Native e Expo",
-                    "data": "20/03/25",
-                    "status": false
-                }
-            ]
+          "titulo": "Dar banho no cachorro",
+          "data": "22/01/25",
+          "status": true
         },
         {
-            "user_id": "1",
-            "tarefas": [
-                {
-                    "titulo": "Dar banho no cachorro",
-                    "status": true,
-                    "data": "22/01/25"
-                },
-                {
-                    "titulo": "Comprar uma calça nova",
-                    "status": true,
-                    "data": "18/02/25"
-                }
-            ]
+          "titulo": "Comprar uma calça nova",
+          "data": "18/02/25",
+          "status": false
+        },
+        {
+          "titulo": "Atualizar curriculo",
+          "data": "02/03/25",
+          "status": true
+        },
+        {
+          "titulo": "Estudar mais React Native e Expo",
+          "data": "20/03/25",
+          "status": false
+        },
+        {
+          "titulo": "Ju rfr chegar",
+          "data": "Crgdhthe",
+          "status": false
+        },
+        {
+          "titulo": "Hehehe",
+          "data": "Abacaxi",
+          "status": false
+        },
+        {
+          "titulo": "Durma",
+          "data": "Precisamos",
+          "status": false
+        },
+        {
+          "titulo": "Hahahahah",
+          "data": "Hahaha tava",
+          "status": false
         }
-    ]
+      ]
+    },
+    {
+      "id": "1",
+      "tarefas": [
+        {
+          "titulo": "Dar banho no cachorro",
+          "status": true,
+          "data": "22/01/25"
+        },
+        {
+          "titulo": "Comprar uma calça nova",
+          "status": true,
+          "data": "18/02/25"
+        }
+      ]
+    }
+  ]
 }
