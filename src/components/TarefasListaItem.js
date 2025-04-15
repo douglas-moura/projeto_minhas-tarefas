@@ -13,7 +13,10 @@ export default function TarefasListaItem(props) {
 
     return (
         <Pressable style={styles.item} onPress={concluirTarefa}>
-            <Text style={[layouts.textoParagrafo, props?.infosTarefa.status ? styles.tarefaCheck : null]}>{props?.infosTarefa.titulo}</Text>
+            <View>
+                <Text style={[layouts.textoParagrafo, props?.infosTarefa.status ? styles.tarefaCheck : null]}>{props?.infosTarefa.titulo}</Text>
+                <Text style={styles.tarefaDescr}>{props?.infosTarefa.data}</Text>
+            </View>
             <View style={layouts.textoParagrafo}>
                 <Icon
                     name="check"
@@ -58,5 +61,9 @@ const styles = StyleSheet.create({
     noCheck: {
         backgroundColor: paletaCores.branco,
         borderColor: paletaCores.cinza.medio,
+    },
+    tarefaDescr: {
+        color: paletaCores.primaria.medio,
+        fontSize: 12,
     }
 })
