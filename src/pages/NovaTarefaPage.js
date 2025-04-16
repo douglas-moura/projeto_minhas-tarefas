@@ -1,11 +1,24 @@
+import { useState, useEffect } from "react"
 import { SafeAreaView, ScrollView, StyleSheet, View, Text, Pressable, TextInput } from "react-native"
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
-import { useState } from "react"
 import { adicionarTarefa } from "../functions/adicionarTarefa"
+import { getTarefas } from "../functions/getTarefas"
 
 export default function NovaTarefaPage({ navigation }) {
     const [novaTarefaTitulo, setNovaTarefaTitulo] = useState(null)
     const [novaTarefaDescr, setNovaTarefaDescr] = useState(null)
+    const [tarefas, setTarefas] = useState(null)
+        
+    useEffect(() => {
+        const fetchData = async () => {
+            const tarefasLista = await getTarefas()
+            setTarefas(tarefasLista)
+        }
+        
+        fetchData()
+
+    }, [])
+    console.log(tarefas.length)
 
     return (
         <SafeAreaView style={layouts.pagina}>
@@ -44,7 +57,7 @@ export default function NovaTarefaPage({ navigation }) {
                         <Pressable
                             style={[layouts.btn, layouts.btnPrimario, styles.btnsAddTarefas]}
                             onPress={() => {
-                                adicionarTarefa("0", {titulo: novaTarefaTitulo, data: new Date(), descr: novaTarefaDescr, status: false})
+                                adicionarTarefa("0", {tarefa_id: tarefas.length, titulo: novaTarefaTitulo, data: new Date(), descr: novaTarefaDescr, status: false})
                             }}
                         >
                             <Text style={layouts.btnTextoPrimario}>Salvar</Text>
