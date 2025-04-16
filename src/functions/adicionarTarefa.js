@@ -7,7 +7,7 @@ export const adicionarTarefa = async (userId, novaTarefa) => {
 
         if (!userData) throw new Error('Usuário não encontrado')
             
-        const realId = userData.id;
+        const realId = userData.id
 
         // 2. Adicionar nova tarefa no array local
         const tarefasAtualizadas = [...(userData.tarefas || []), novaTarefa]        

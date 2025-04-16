@@ -44,7 +44,7 @@ export default function NovaTarefaPage({ navigation }) {
                         <Pressable
                             style={[layouts.btn, layouts.btnPrimario, styles.btnsAddTarefas]}
                             onPress={() => {
-                                adicionarTarefa("0", {titulo: novaTarefaTitulo, data: novaTarefaDescr, status: false})
+                                adicionarTarefa("0", {titulo: novaTarefaTitulo, data: new Date(), descr: novaTarefaDescr, status: false})
                             }}
                         >
                             <Text style={layouts.btnTextoPrimario}>Salvar</Text>
