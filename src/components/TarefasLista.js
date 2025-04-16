@@ -10,8 +10,8 @@ export default function TarefasLista({tituloLista, navigation}) {
     
     useEffect(() => {
         const fetchData = async () => {
-            const tarefas = await getTarefas()
-            setTarefas(tarefas)
+            const tarefasLista = await getTarefas()
+            setTarefas(tarefasLista)
         }
         
         fetchData()

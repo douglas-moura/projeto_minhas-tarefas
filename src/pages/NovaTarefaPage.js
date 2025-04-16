@@ -18,7 +18,6 @@ export default function NovaTarefaPage({ navigation }) {
         fetchData()
 
     }, [])
-    console.log(tarefas.length)
 
     return (
         <SafeAreaView style={layouts.pagina}>
@@ -57,7 +56,7 @@ export default function NovaTarefaPage({ navigation }) {
                         <Pressable
                             style={[layouts.btn, layouts.btnPrimario, styles.btnsAddTarefas]}
                             onPress={() => {
-                                adicionarTarefa("0", {tarefa_id: tarefas.length, titulo: novaTarefaTitulo, data: new Date(), descr: novaTarefaDescr, status: false})
+                                adicionarTarefa("0", navigation, {tarefa_id: tarefas.length, titulo: novaTarefaTitulo, data: new Date(), descr: novaTarefaDescr, status: false})
                             }}
                         >
                             <Text style={layouts.btnTextoPrimario}>Salvar</Text>

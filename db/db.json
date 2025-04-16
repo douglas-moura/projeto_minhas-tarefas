@@ -24,7 +24,7 @@
           "titulo": "Comprar uma calça",
           "data": "18/02/25",
           "descr": "Estou sem calças, preciso de uma nova urgente",
-          "status": true,
+          "status": false,
           "tags": [
             "tarefa urgente"
           ]
@@ -57,6 +57,34 @@
           "titulo": "Revista Ibirité tem",
           "data": "2025-04-16T20:27:40.693Z",
           "descr": "Tudo estão havido iguais hahaha",
+          "status": false
+        },
+        {
+          "tarefa_id": 7,
+          "titulo": "Triste havido havido",
+          "data": "2025-04-16T21:08:29.484Z",
+          "descr": "Fechar cinco igual isso UFF usufruir",
+          "status": false
+        },
+        {
+          "tarefa_id": 8,
+          "titulo": "Hehehe negão Shell",
+          "data": "2025-04-16T21:13:07.132Z",
+          "descr": "Jesus acaba mais outros Yamaha itens",
+          "status": false
+        },
+        {
+          "tarefa_id": 9,
+          "titulo": "Hehehe negão Shell",
+          "data": "2025-04-16T21:14:05.291Z",
+          "descr": "Jesus acaba mais outros Yamaha itens",
+          "status": false
+        },
+        {
+          "tarefa_id": 10,
+          "titulo": "Att gata cubos",
+          "data": "2025-04-16T21:14:38.527Z",
+          "descr": "FF joguei igual ditadura Google ganhar tudo",
           "status": false
         }
       ],
