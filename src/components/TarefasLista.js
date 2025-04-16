@@ -15,7 +15,7 @@ export default function TarefasLista({tituloLista, navigation}) {
         }
         
         fetchData()
-    }, [])
+    }, [tarefas])
 
     return (
         <SafeAreaView style={{heigth: 'auto'}}>

@@ -8,62 +8,68 @@
   ],
   "users_tarefas": [
     {
-      "id": "0",
       "tarefas": [
         {
-          "titulo": "Dar banho no cachorro",
+          "tarefa_id": "0",
+          "titulo": "Banho no cachorro",
           "data": "22/01/25",
-          "status": true
+          "descr": "Agendar banho e tosa do cachorro no petshop",
+          "status": true,
+          "tags": [
+            "tarefa urgente"
+          ]
         },
         {
-          "titulo": "Comprar uma calça nova",
+          "tarefa_id": "1",
+          "titulo": "Comprar uma calça",
           "data": "18/02/25",
-          "status": false
+          "descr": "Estou sem calças, preciso de uma nova urgente",
+          "status": true,
+          "tags": [
+            "tarefa urgente"
+          ]
         },
         {
+          "tarefa_id": "2",
           "titulo": "Atualizar curriculo",
           "data": "02/03/25",
+          "descr": "Atualizar cargos, cursos e portfolios no curriculo",
           "status": true
         },
         {
-          "titulo": "Estudar mais React Native e Expo",
+          "tarefa_id": "3",
+          "titulo": "Estudar React Native/Expo",
           "data": "20/03/25",
+          "descr": "Preciso estudar e dominar esta ferrementa logo",
           "status": false
         },
         {
-          "titulo": "Ju rfr chegar",
-          "data": "Crgdhthe",
+          "titulo": "Triste joguei cheguei",
+          "descr": "Estarei discurso PP gastei difícil",
           "status": false
         },
         {
-          "titulo": "Hehehe",
-          "data": "Abacaxi",
+          "titulo": "Esse ônibus tchau",
+          "descr": "FF fechei igual afaste Sarah jogo",
           "status": false
         },
         {
-          "titulo": "Durma",
-          "data": "Precisamos",
-          "status": false
-        },
-        {
-          "titulo": "Hahahahah",
-          "data": "Hahaha tava",
+          "titulo": "Revista Ibirité tem",
+          "data": "2025-04-16T20:27:40.693Z",
+          "descr": "Tudo estão havido iguais hahaha",
           "status": false
         }
-      ]
+      ],
+      "id": "0"
     },
     {
       "id": "1",
       "tarefas": [
         {
           "titulo": "Dar banho no cachorro",
-          "status": true,
-          "data": "22/01/25"
-        },
-        {
-          "titulo": "Comprar uma calça nova",
-          "status": true,
-          "data": "18/02/25"
+          "data": "22/01/25",
+          "descr": "descricao",
+          "status": true
         }
       ]
     }
