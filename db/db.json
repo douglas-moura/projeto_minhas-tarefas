@@ -1,16 +1,21 @@
 {
   "usuarios": [
     {
-      "id": "0",
+      "id": 0,
       "nome": "Douglas",
-      "sobrenome": "Moura"
+      "sobrenome": "Moura",
+      "nasc": "1997-04-22T21:13:07.132Z",
+      "genero": 1,
+      "tel": "+55 11 98765-4321",
+      "email": "douglas@email.com",
+      "senha": "1234"
     }
   ],
   "users_tarefas": [
     {
       "tarefas": [
         {
-          "tarefa_id": "0",
+          "tarefa_id": 0,
           "titulo": "Banho no cachorro",
           "data": "22/01/25",
           "descr": "Agendar banho e tosa do cachorro no petshop",
@@ -20,7 +25,7 @@
           ]
         },
         {
-          "tarefa_id": "1",
+          "tarefa_id": 1,
           "titulo": "Comprar uma calça",
           "data": "18/02/25",
           "descr": "Estou sem calças, preciso de uma nova urgente",
@@ -30,33 +35,17 @@
           ]
         },
         {
-          "tarefa_id": "2",
+          "tarefa_id": 2,
           "titulo": "Atualizar curriculo",
           "data": "02/03/25",
           "descr": "Atualizar cargos, cursos e portfolios no curriculo",
           "status": true
         },
         {
-          "tarefa_id": "3",
+          "tarefa_id": 3,
           "titulo": "Estudar React Native/Expo",
           "data": "20/03/25",
           "descr": "Preciso estudar e dominar esta ferrementa logo",
-          "status": false
-        },
-        {
-          "titulo": "Triste joguei cheguei",
-          "descr": "Estarei discurso PP gastei difícil",
-          "status": false
-        },
-        {
-          "titulo": "Esse ônibus tchau",
-          "descr": "FF fechei igual afaste Sarah jogo",
-          "status": false
-        },
-        {
-          "titulo": "Revista Ibirité tem",
-          "data": "2025-04-16T20:27:40.693Z",
-          "descr": "Tudo estão havido iguais hahaha",
           "status": false
         },
         {
@@ -71,7 +60,7 @@
           "titulo": "Hehehe negão Shell",
           "data": "2025-04-16T21:13:07.132Z",
           "descr": "Jesus acaba mais outros Yamaha itens",
-          "status": false
+          "status": true
         },
         {
           "tarefa_id": 9,

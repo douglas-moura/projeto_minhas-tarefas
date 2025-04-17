@@ -25,8 +25,7 @@ export const adicionarTarefa = async (userId, navigation, novaTarefa) => {
         })        
 
         if (!respostaAtualizacao.ok) throw new Error('Erro ao atualizar tarefa')
-
-        console.log('Tarefa adicionada com sucesso!')
+            console.log('Tarefa adicionada com sucesso!')
 
         setTimeout(() => {
             navigation.navigate('AppMain')

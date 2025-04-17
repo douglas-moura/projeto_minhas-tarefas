@@ -1,43 +1,46 @@
 import { Pressable, StyleSheet, View, Text } from "react-native"
 import { layouts, paletaCores } from '../assets/styles/StylesGlobal'
 import { concluirTarefa } from "../functions/concluirTarefa"
-import { useEffect } from "react"
 import { formatarData } from "../functions/formatarData"
+import { useState } from "react"
 import Icon from 'react-native-vector-icons/Feather'
 
 export default function TarefasListaItem(props) {
-    useEffect(() => {
-        console.log('Componente apareceu');
-      
-        return () => {
-          console.log('Componente vai desaparecer');
-        }
-    }, []);
+    const [statusItem, setStatusItem] = useState(props?.infosTarefa.status)
+
+    const atualizarLista = () => {
+        setTimeout(() => {
+            setStatusItem(!statusItem)
+        }, 500)
+    }
 
     return (
-        <Pressable style={styles.tarefa} onPress={() => {concluirTarefa("0", props?.infosTarefa.tarefa_id)}}>
-            <Text style={[styles.tarefaData, props?.infosTarefa.status ? styles.tarefaCheck : null]}>
+        <Pressable style={styles.tarefa} onPress={() => {
+            concluirTarefa("0", props?.infosTarefa.tarefa_id)
+            atualizarLista()
+        }}>
+            <Text style={[styles.tarefaData, statusItem ? styles.tarefaCheck : null]}>
                 {formatarData(props?.infosTarefa.data)}
             </Text>
             <View style={styles.tarefaContent}>
                 <View>
-                    <Text style={[layouts.textoTitulo03, props?.infosTarefa.status ? styles.tarefaCheck : null]}>
+                    <Text style={[layouts.textoTitulo03, statusItem ? styles.tarefaCheck : null]}>
                         {props?.infosTarefa.titulo}
                     </Text>
-                    <Text style={[styles.tarefaDescr, props?.infosTarefa.status ? styles.tarefaCheck : null]}>
+                    <Text style={[styles.tarefaDescr, statusItem ? styles.tarefaCheck : null]}>
                         {props?.infosTarefa.descr}
                     </Text>
                 </View>
                 <View>
                     <Icon
                         name="check"
-                        style={[styles.checkbox, props?.infosTarefa.status ? styles.check : styles.noCheck]}
+                        style={[styles.checkbox, statusItem ? styles.check : styles.noCheck]}
                     />
                 </View>
             </View>
             {props?.infosTarefa.tags ?
                 <View style={styles.tarefaTags}>
-                    <Text style={[styles.tarefaObs, props?.infosTarefa.status ? styles.tarefaObsCheck : null]}>
+                    <Text style={[styles.tarefaObs, statusItem ? styles.tarefaObsCheck : null]}>
                         {props?.infosTarefa.tags}
                     </Text>
                 </View>

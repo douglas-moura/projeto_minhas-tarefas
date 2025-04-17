@@ -24,9 +24,9 @@ export const concluirTarefa = async (userId, tarefaId) => {
             }),
         })        
 
-        if (!respostaAtualizacao.ok) throw new Error('Erro ao atualizar tarefa')
+        if (!respostaAtualizacao.ok) throw new Error('Erro ao concluir tarefa')
 
-        console.log('Tarefa adicionada com sucesso!')
+        console.log('Tarefa concluida com sucesso!')
     } catch (erro) {
         console.error('Msg erro:', erro.message)
     }

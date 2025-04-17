@@ -20,14 +20,18 @@ const Tabs = () => {
                 name="Inicio"
                 component={HomePage}
                 options={{
-                    tabBarIcon: ({ color }) => <Icon name="home" color={color} size={20} />
+                    tabBarIcon: ({ color }) => <Icon name="home" color={color} size={20} />,
+                    animation: 'fade',
+                    presentation: 'modal',
                 }}
             />
             <Tab.Screen 
                 name="Perfil"
                 component={PerfilPage}
                 options={{
-                    tabBarIcon: ({ color }) => <Icon name="user" color={color} size={20} />
+                    tabBarIcon: ({ color }) => <Icon name="user" color={color} size={20} />,
+                    animation: 'fade',
+                    presentation: 'modal',
                 }}
             />
         </Tab.Navigator>
@@ -42,8 +46,8 @@ export default function App() {
         <NavigationContainer>
             <StatusBar barStyle='light-content' backgroundColor={paletaCores.primaria.medio} />
             <Stack.Navigator screenOptions={{headerShown: false}} style={styles.appContainer}>
-                <Stack.Screen name='AppMain' component={Tabs} />
-                <Stack.Screen name='Nova Tarefa' component={NovaTarefaPage} />
+                <Stack.Screen name='AppMain' component={Tabs} options={{}} />
+                <Stack.Screen name='Nova Tarefa' component={NovaTarefaPage} options={{}}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
