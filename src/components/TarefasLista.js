@@ -2,15 +2,16 @@ import { SafeAreaView, ScrollView, StyleSheet, Image, View, Text, Pressable } fr
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
 import { useState, useEffect } from "react"
 import { getTarefas } from "../functions/getTarefas"
-import Icon from 'react-native-vector-icons/Feather'
+import { localhost } from "../../infos_local"
 import TarefaListaItem from "./TarefasListaItem"
+import Icon from "react-native-vector-icons/Feather"
 
 export default function TarefasLista({tituloLista, navigation}) {
     const [tarefas, setTarefas] = useState(null)
     
     useEffect(() => {
         const fetchData = async () => {
-            const tarefasLista = await getTarefas()
+            const tarefasLista = await getTarefas(localhost)
             setTarefas(tarefasLista)
         }
         

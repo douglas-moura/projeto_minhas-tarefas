@@ -1,22 +1,18 @@
 import { SafeAreaView, StyleSheet, Pressable, Text, Image } from "react-native"
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
 import { useEffect, useState } from "react"
+import { localhost } from "../../infos_local"
 
 export default function TopBar({navigation}) {  
     const [usuarioData, setUsuarioData] = useState(null)
-
+    
     useEffect(() => {
-        const getUsuario = async () => {
-            try {
-                const response = await fetch('http://192.168.15.151:3000/usuarios')
-                const data = await response.json()
-                setUsuarioData(data)        
-            } catch(err) {
-                console.error(err)
-            }
+        const buscarUsuario = async () => {
+            const usuario = await getUsuario(localhost)
+            setUsuarioData(usuario)        
         }
 
-        getUsuario()
+        buscarUsuario()
     }, [])
 
     return (

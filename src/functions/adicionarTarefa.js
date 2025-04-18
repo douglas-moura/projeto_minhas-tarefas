@@ -1,7 +1,7 @@
-export const adicionarTarefa = async (userId, navigation, novaTarefa) => {
+export const adicionarTarefa = async (userId, navigation, novaTarefa, host) => {
     try {
         // 1. Buscar os dados do user específico
-        const res = await fetch(`http://192.168.15.151:3000/users_tarefas?id=${userId}`)
+        const res = await fetch(`http://${host}:3000/users_tarefas?id=${userId}`)
         const data = await res.json()
         const userData = data[0]
 
@@ -13,7 +13,7 @@ export const adicionarTarefa = async (userId, navigation, novaTarefa) => {
         const tarefasAtualizadas = [...(userData.tarefas || []), novaTarefa]        
 
         // 3. Atualizar no servidor com PUT
-        const respostaAtualizacao = await fetch(`http://192.168.15.151:3000/users_tarefas/${realId}`, {
+        const respostaAtualizacao = await fetch(`http://${host}:3000/users_tarefas/${realId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

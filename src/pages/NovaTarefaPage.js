@@ -3,6 +3,7 @@ import { SafeAreaView, ScrollView, StyleSheet, View, Text, Pressable, TextInput 
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
 import { adicionarTarefa } from "../functions/adicionarTarefa"
 import { getTarefas } from "../functions/getTarefas"
+import { localhost } from "../../infos_local"
 
 export default function NovaTarefaPage({ navigation }) {
     const [novaTarefaTitulo, setNovaTarefaTitulo] = useState(null)
@@ -11,7 +12,7 @@ export default function NovaTarefaPage({ navigation }) {
         
     useEffect(() => {
         const fetchData = async () => {
-            const tarefasLista = await getTarefas()
+            const tarefasLista = await getTarefas(localhost)
             setTarefas(tarefasLista)
         }
         

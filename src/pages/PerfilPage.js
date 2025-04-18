@@ -1,8 +1,9 @@
 import { SafeAreaView, ScrollView, StyleSheet, View, Text, Image } from "react-native"
 import { layouts, paletaCores } from '../assets/styles/StylesGlobal'
-import { getUsuario } from "../functions/getUsuario";
-import { useState } from "react";
+import { getUsuario } from "../functions/getUsuario"
+import { useState } from "react"
 import { formatarData } from "../functions/formatarData"
+import { localhost } from "../../infos_local"
 import Icon from 'react-native-vector-icons/Feather'
 
 export default function PerfilPage() {
@@ -15,7 +16,7 @@ export default function PerfilPage() {
     const [tel, setTel] = useState(null)
 
     const buscarUsuario = async () => {
-        const usuario = await getUsuario()
+        const usuario = await getUsuario(localhost)
         if(usuario) {
             setNome(usuario.nome)
             setSobrenome(usuario.sobrenome)
@@ -43,12 +44,9 @@ export default function PerfilPage() {
     
     buscarUsuario()
 
-    console.log(nome)    
-
     return (
         <SafeAreaView style={layouts.pagina}>
             <ScrollView>
-
                 <View style={[layouts.sessao, styles.sessaoFotoPerfil]}>
                     <View style={{position: 'relative', width: 180, height: 180}}>
                         <Icon name="star" style={styles.perfilIcone} />
@@ -62,15 +60,15 @@ export default function PerfilPage() {
                         <Text style={[layouts.textoTitulo03, {marginBottom: 10}]}>Informações Pessoais</Text>
                         <View style={styles.infoLinha}>
                             <Text style={styles.infoDescr}>Nascimento:</Text>
-                            <Text>{idade}</Text>
+                            <Text style={{color: paletaCores.cinza.escuro}}>{idade}</Text>
                         </View>
                         <View style={styles.infoLinha}>
                             <Text style={styles.infoDescr}>Telefone:</Text>
-                            <Text>{tel}</Text>
+                            <Text style={{color: paletaCores.cinza.escuro}}>{tel}</Text>
                         </View>
                         <View style={styles.infoLinha}>
                             <Text style={styles.infoDescr}>Gênero:</Text>
-                            <Text>{sexo}</Text>
+                            <Text style={{color: paletaCores.cinza.escuro}}>{sexo}</Text>
                         </View>
                     </View>
                     <View style={styles.infoContainer}>

@@ -1,9 +1,10 @@
 import { Pressable, StyleSheet, View, Text } from "react-native"
-import { layouts, paletaCores } from '../assets/styles/StylesGlobal'
+import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
 import { concluirTarefa } from "../functions/concluirTarefa"
 import { formatarData } from "../functions/formatarData"
 import { useState } from "react"
-import Icon from 'react-native-vector-icons/Feather'
+import { localhost } from "../../infos_local"
+import Icon from "react-native-vector-icons/Feather"
 
 export default function TarefasListaItem(props) {
     const [statusItem, setStatusItem] = useState(props?.infosTarefa.status)
@@ -16,7 +17,7 @@ export default function TarefasListaItem(props) {
 
     return (
         <Pressable style={styles.tarefa} onPress={() => {
-            concluirTarefa("0", props?.infosTarefa.tarefa_id)
+            concluirTarefa("0", props?.infosTarefa.tarefa_id, localhost)
             atualizarLista()
         }}>
             <Text style={[styles.tarefaData, statusItem ? styles.tarefaCheck : null]}>

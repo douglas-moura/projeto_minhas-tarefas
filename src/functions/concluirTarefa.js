@@ -1,7 +1,7 @@
-export const concluirTarefa = async (userId, tarefaId) => {
+export const concluirTarefa = async (userId, tarefaId, host) => {
     try {
         // busca o usuario
-        const tarefasUser = await fetch(`http://192.168.15.151:3000/users_tarefas?id=${userId}`)
+        const tarefasUser = await fetch(`http://${host}:3000/users_tarefas?id=${userId}`)
         const data = await tarefasUser.json()
 
         // pega as tarefas deste usuario
@@ -14,7 +14,7 @@ export const concluirTarefa = async (userId, tarefaId) => {
         })
 
         // 3. Atualizar no servidor com PUT
-        const respostaAtualizacao = await fetch(`http://192.168.15.151:3000/users_tarefas/${userId}`, {
+        const respostaAtualizacao = await fetch(`http://${host}:3000/users_tarefas/${userId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
