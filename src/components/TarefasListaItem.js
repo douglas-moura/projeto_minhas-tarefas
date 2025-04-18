@@ -16,7 +16,7 @@ export default function TarefasListaItem(props) {
     }
 
     return (
-        <Pressable style={styles.tarefa} onPress={() => {
+        <Pressable style={[styles.tarefa, statusItem ? {backgroundColor: paletaCores.cinza.pelicula} : null]} onPress={() => {
             concluirTarefa("0", props?.infosTarefa.tarefa_id, localhost)
             atualizarLista()
         }}>
@@ -25,7 +25,7 @@ export default function TarefasListaItem(props) {
             </Text>
             <View style={styles.tarefaContent}>
                 <View>
-                    <Text style={[layouts.textoTitulo03, statusItem ? styles.tarefaCheck : null]}>
+                    <Text style={[layouts.textoTitulo03, styles.tituloTarefa, statusItem ? styles.tarefaCheck : null]}>
                         {props?.infosTarefa.titulo}
                     </Text>
                     <Text style={[styles.tarefaDescr, statusItem ? styles.tarefaCheck : null]}>
@@ -54,10 +54,10 @@ const styles = StyleSheet.create({
     tarefa: {
         padding: 20,
         marginBottom: 14,
-        borderWidth: 1.2,
+        borderWidth: 1,
         borderColor: paletaCores.cinza.medio,
         borderRadius: 6,
-        backgroundColor: '#fff',
+        backgroundColor: paletaCores.branco,
         //elevation: 2,
         //margin: 2,
     },
@@ -73,6 +73,9 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
+    },
+    tituloTarefa: {
+        color: paletaCores.cinza.escuro,
     },
     tarefaDescr: {
         color: paletaCores.primaria.medio,

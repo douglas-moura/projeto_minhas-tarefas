@@ -6,11 +6,12 @@ export const paletaCores = StyleSheet.create({
         medio: '#1A8EF4',
     },
     cinza: {
+        pelicula: '#f9f9f9',
         claro: '#f3f3f3',
         medio: '#d7d7d7',
-        escuro: '#555',
+        escuro: '#666666',
     },
-    branco: '#fff',
+    branco: '#ffffff',
 })
 
 export const layouts = StyleSheet.create({
@@ -27,15 +28,18 @@ export const layouts = StyleSheet.create({
     textoTitulo01: {
         fontSize: 28,
         fontWeight: 'bold',
+        color: paletaCores.cinza.escuro,
         //marginBottom: 12,
     },
     textoTitulo02: {
         fontSize: 24,
         fontWeight: 'bold',
+        color: paletaCores.cinza.escuro,
     },
     textoTitulo03: {
         fontSize: 20,
         fontWeight: 'bold',
+        color: paletaCores.cinza.escuro,
     },
     textoParagrafo: {
         fontSize: 16,

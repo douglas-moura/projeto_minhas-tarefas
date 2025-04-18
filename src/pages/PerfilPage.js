@@ -57,7 +57,7 @@ export default function PerfilPage() {
                     <Text style={[layouts.textoTitulo01, {textAlign: 'center'}]}>{nome} {sobrenome}</Text>
                     <Text style={styles.infoEmail}>{email}</Text>
                     <View style={styles.infoContainer}>
-                        <Text style={[layouts.textoTitulo03, {marginBottom: 10}]}>Informações Pessoais</Text>
+                        <Text style={[layouts.textoTitulo03, styles.tituloContainer]}>Informações Pessoais</Text>
                         <View style={styles.infoLinha}>
                             <Text style={styles.infoDescr}>Nascimento:</Text>
                             <Text style={{color: paletaCores.cinza.escuro}}>{idade}</Text>
@@ -72,7 +72,7 @@ export default function PerfilPage() {
                         </View>
                     </View>
                     <View style={styles.infoContainer}>
-                    <Text style={[layouts.textoTitulo03, {marginBottom: 10}]}>Dados da Conta</Text>
+                        <Text style={[layouts.textoTitulo03, styles.tituloContainer]}>Dados da Conta</Text>
                         <Text>Teste</Text>
                         <Text>Teste</Text>
                         <Text>Teste</Text>
@@ -124,18 +124,24 @@ const styles = StyleSheet.create({
         color: paletaCores.primaria.medio,
         fontSize: 16
     },
+    tituloContainer: {
+        marginBottom: 10, 
+        color: paletaCores.primaria.medio
+    },
     infoContainer: {
         marginVertical: 12,
         padding: 24,
         borderRadius: 6,
-        borderWidth: 0.5,
-        borderColor: paletaCores.cinza.escuro,
+        borderWidth: 1,
+        borderColor: paletaCores.cinza.medio,
+        backgroundColor: paletaCores.branco,
     },
     infoLinha: {
         flexDirection: "row",
         marginVertical: 6,
     },
     infoDescr: {
+        color: paletaCores.cinza.escuro,
         fontWeight: "bold",
         marginRight: 6,
         width: 80,
