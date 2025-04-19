@@ -13,8 +13,7 @@ export default function TarefasLista({tituloLista, navigation}) {
         const fetchData = async () => {
             const tarefasLista = await getTarefas(localhost)
             setTarefas(tarefasLista)
-        }
-        
+        }        
         fetchData()
     }, [tarefas])
 

@@ -1,18 +1,18 @@
 import { SafeAreaView, StyleSheet, Pressable, Text, Image } from "react-native"
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
 import { useEffect, useState } from "react"
+import { getUsuario } from "../functions/getUsuario"
 import { localhost } from "../../infos_local"
 
 export default function TopBar({navigation}) {  
-    const [usuarioData, setUsuarioData] = useState(null)
+    const [usuario, setUsuario] = useState(null)
     
     useEffect(() => {
-        const buscarUsuario = async () => {
-            const usuario = await getUsuario(localhost)
-            setUsuarioData(usuario)        
+        const fetchData = async () => {
+            const usuarioData = await getUsuario(localhost)
+            setUsuario(usuarioData)
         }
-
-        buscarUsuario()
+        fetchData() 
     }, [])
 
     return (
@@ -22,7 +22,7 @@ export default function TopBar({navigation}) {
             alignItems: 'center',
         }}>
             <Text style={[layouts.textoTitulo03, {color: paletaCores.branco}]}>
-                Olá, {usuarioData ? usuarioData[0].nome : 'Usuário'}
+                Olá, {usuario ? usuario.nome : 'Usuário'}
             </Text>
             <Pressable onPress={() => navigation.navigate("Perfil")}>
                 <Image style={styles.fotoPerfil} source={require('../assets/img/foto-perfil.jpg')} />
