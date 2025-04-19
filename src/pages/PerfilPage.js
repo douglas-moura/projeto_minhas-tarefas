@@ -45,42 +45,42 @@ export default function PerfilPage() {
     buscarUsuario()
 
     return (
-        <SafeAreaView style={layouts.pagina}>
+        <SafeAreaView style={[layouts.pagina, {backgroundColor: paletaCores.primaria.medio}]}>
             <ScrollView>
-                <View style={[layouts.sessao, styles.sessaoFotoPerfil]}>
-                    <View style={{position: 'relative', width: 180, height: 180}}>
-                        <Icon name="star" style={styles.perfilIcone} />
-                        <Image style={styles.fotoPerfil} source={require('../assets/img/foto-perfil.jpg')} />
-                    </View>
-                </View>
                 <View style={layouts.sessao}>
-                    <Text style={[layouts.textoTitulo01, {textAlign: 'center'}]}>{nome} {sobrenome}</Text>
-                    <Text style={styles.infoEmail}>{email}</Text>
+                    <Text style={[layouts.textoTitulo01, {color: paletaCores.branco}]}>Perfil</Text>
+                </View>
+                <View style={[layouts.sessao, styles.infoSessao]}>
                     <View style={styles.infoContainer}>
-                        <Text style={[layouts.textoTitulo03, styles.tituloContainer]}>Informações Pessoais</Text>
-                        <View style={styles.infoLinha}>
-                            <Text style={styles.infoDescr}>Nascimento:</Text>
-                            <Text style={{color: paletaCores.cinza.escuro}}>{idade}</Text>
+                        <View style={styles.fotoPerfilContainer}>
+                            <Icon name="star" style={styles.perfilIcone} />
+                            <Image style={styles.fotoPerfil} source={require('../assets/img/foto-perfil.jpg')} />
                         </View>
-                        <View style={styles.infoLinha}>
-                            <Text style={styles.infoDescr}>Telefone:</Text>
-                            <Text style={{color: paletaCores.cinza.escuro}}>{tel}</Text>
-                        </View>
-                        <View style={styles.infoLinha}>
-                            <Text style={styles.infoDescr}>Gênero:</Text>
-                            <Text style={{color: paletaCores.cinza.escuro}}>{sexo}</Text>
-                        </View>
+                        <Text style={[layouts.textoTitulo01, {color: paletaCores.preto}]}>{nome} {sobrenome}</Text>
+                        <Text style={styles.infoEmail}>{email}</Text>
                     </View>
                     <View style={styles.infoContainer}>
-                        <Text style={[layouts.textoTitulo03, styles.tituloContainer]}>Dados da Conta</Text>
-                        <Text>Teste</Text>
-                        <Text>Teste</Text>
-                        <Text>Teste</Text>
-                        <Text>Teste</Text>
-                        <Text>Teste</Text>
-                        <Text>Teste</Text>
-                        <Text>Teste</Text>
-                        <Text>Teste</Text>
+                        <Text style={[layouts.textoTitulo03, styles.tituloContainer]}>Minha Conta</Text>
+                        <View style={styles.infoLinha}>
+                            <Icon name="user" style={styles.infoIcone} />
+                            <Text style={styles.infoDescr}>Dados Pessoais</Text>
+                        </View>
+                        <View style={styles.infoLinha}>
+                            <Icon name="bar-chart-2" style={styles.infoIcone} />
+                            <Text style={styles.infoDescr}>Informações da Conta</Text>
+                        </View>
+                        <View style={styles.infoLinha}>
+                            <Icon name="settings" style={styles.infoIcone} />
+                            <Text style={styles.infoDescr}>Preferências</Text>
+                        </View>
+                        <View style={styles.infoLinha}>
+                            <Icon name="help-circle" style={styles.infoIcone} />
+                            <Text style={styles.infoDescr}>Ajuda e Suporte</Text>
+                        </View>
+                        <View style={styles.infoLinha}>
+                            <Icon name="log-out" style={styles.infoIcone} />
+                            <Text style={styles.infoDescr}>Sair</Text>
+                        </View>
                     </View>
                 </View>
             </ScrollView>
@@ -89,61 +89,63 @@ export default function PerfilPage() {
 }
 
 const styles = StyleSheet.create({
-    sessaoFotoPerfil: {
-        backgroundColor: paletaCores.primaria.medio,
-        height: 250,
-        borderWidth: 0,
-        borderColor: "red",
-        alignItems: "center",
-        justifyContent: "center"
+    fotoPerfilContainer: {
+        position: "relative",
+        width: 60,
+        height: 60,
+        marginBottom: 16,
     },
     fotoPerfil: {
-        borderWidth: 4,
+        borderWidth: 0,
         borderColor: paletaCores.branco,
         borderRadius: 200,
-        width: 180,
-        height: 180,
+        width: "100%",
+        height: "100%",
     },
     perfilIcone: {
-        position: 'absolute',
-        fontSize: 18,
+        position: "absolute",
+        fontSize: 14,
         color: paletaCores.branco,
         zIndex: 100,
-        padding: 8,
+        padding: 6,
         backgroundColor: 'orange',
         borderWidth: 3,
-        top: 10,
-        left: 135,
+        top: "-10%",
+        left: "75%",
         borderColor: paletaCores.branco,
         borderRadius: 100,
     },
     infoEmail: {
         marginTop: 4,
-        marginBottom: 28,
-        textAlign: "center",
-        color: paletaCores.primaria.medio,
-        fontSize: 16
+        color: paletaCores.cinza.escuro,
+    },
+    infoSessao: {
+        height: "100%",
+        backgroundColor: paletaCores.branco,
+        borderStartStartRadius: 40,
+        borderEndStartRadius: 40,
     },
     tituloContainer: {
         marginBottom: 10, 
         color: paletaCores.primaria.medio
     },
     infoContainer: {
-        marginVertical: 12,
-        padding: 24,
-        borderRadius: 6,
-        borderWidth: 1,
-        borderColor: paletaCores.cinza.medio,
-        backgroundColor: paletaCores.branco,
+        marginBottom: 36,
     },
     infoLinha: {
+        paddingVertical: 24,
         flexDirection: "row",
-        marginVertical: 6,
+        alignItems: "center",
+        borderBottomWidth: 1,
+        borderBottomColor: paletaCores.cinza.medio,
+    },
+    infoIcone: {
+        fontSize: 28,
+        color: paletaCores.cinza.escuro,
+        marginRight: 16,
     },
     infoDescr: {
         color: paletaCores.cinza.escuro,
-        fontWeight: "bold",
-        marginRight: 6,
-        width: 80,
+        fontSize: 20,
     }
 })

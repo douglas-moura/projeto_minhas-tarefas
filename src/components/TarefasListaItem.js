@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
         width: "70%",
         borderBottomWidth: 0.5,
         borderColor: paletaCores.cinza.medio,
+        color: paletaCores.cinza.escuro,
         paddingBottom: 6,
     },
     tarefaContent: {
@@ -75,10 +76,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     tituloTarefa: {
-        color: paletaCores.cinza.escuro,
+        color: paletaCores.preto,
     },
     tarefaDescr: {
-        color: paletaCores.primaria.medio,
+        color: paletaCores.cinza.escuro,
         fontSize: 12,
     },
     tarefaTags: {

@@ -22,7 +22,7 @@ export default function TarefasLista({tituloLista, navigation}) {
         <SafeAreaView style={{heigth: 'auto'}}>
             <View style={{flexDirection: 'row', alignItems: 'center', marginBottom: 18}}>
                 <Image style={styles.logoTitulo} source={require('../assets/img/simbolo.png')} />
-                <Text style={[layouts.textoTitulo02, {color: paletaCores.cinza.escuro}]}>{tituloLista}</Text>
+                <Text style={[layouts.textoTitulo02, {color: paletaCores.preto}]}>{tituloLista}</Text>
             </View>
             <ScrollView showsVerticalScrollIndicator={false} style={{height: '76%'}}>
                 {tarefas && tarefas.map((item, index) => (

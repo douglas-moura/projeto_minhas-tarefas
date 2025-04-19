@@ -9,9 +9,10 @@ export const paletaCores = StyleSheet.create({
         pelicula: '#f9f9f9',
         claro: '#f3f3f3',
         medio: '#d7d7d7',
-        escuro: '#666666',
+        escuro: '#888888',
     },
     branco: '#ffffff',
+    preto: '#252525',
 })
 
 export const layouts = StyleSheet.create({
