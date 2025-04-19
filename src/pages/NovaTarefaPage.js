@@ -15,9 +15,7 @@ export default function NovaTarefaPage({ navigation }) {
             const tarefasLista = await getTarefas(localhost)
             setTarefas(tarefasLista)
         }
-        
         fetchData()
-
     }, [])
 
     return (
@@ -57,7 +55,10 @@ export default function NovaTarefaPage({ navigation }) {
                         <Pressable
                             style={[layouts.btn, layouts.btnPrimario, styles.btnsAddTarefas]}
                             onPress={() => {
-                                adicionarTarefa("0", navigation, {tarefa_id: tarefas.length, titulo: novaTarefaTitulo, data: new Date(), descr: novaTarefaDescr, status: false})
+                                adicionarTarefa("0", localhost, {tarefa_id: tarefas.length, titulo: novaTarefaTitulo, data: new Date(), descr: novaTarefaDescr, status: false})
+                                setTimeout(() => {
+                                    navigation.navigate('AppMain')
+                                }, 1000)
                             }}
                         >
                             <Text style={layouts.btnTextoPrimario}>Salvar</Text>

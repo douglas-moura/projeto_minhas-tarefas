@@ -1,10 +1,10 @@
-export const adicionarTarefa = async (userId, navigation, novaTarefa, host) => {
+export const adicionarTarefa = async (userId, host, novaTarefa) => {
     try {
         // 1. Buscar os dados do user específico
         const res = await fetch(`http://${host}:3000/users_tarefas?id=${userId}`)
         const data = await res.json()
         const userData = data[0]
-
+        
         if (!userData) throw new Error('Usuário não encontrado')
             
         const realId = userData.id
@@ -25,11 +25,7 @@ export const adicionarTarefa = async (userId, navigation, novaTarefa, host) => {
         })        
 
         if (!respostaAtualizacao.ok) throw new Error('Erro ao atualizar tarefa')
-            console.log('Tarefa adicionada com sucesso!')
-
-        setTimeout(() => {
-            navigation.navigate('AppMain')
-        }, 1000)
+        console.log('Tarefa adicionada com sucesso!')
     } catch (erro) {
         console.error('Erro:', erro.message)
     }
