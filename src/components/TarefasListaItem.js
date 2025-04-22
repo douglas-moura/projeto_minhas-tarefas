@@ -24,7 +24,7 @@ export default function TarefasListaItem(props) {
                 {formatarData(props?.infosTarefa.data)}
             </Text>
             <View style={styles.tarefaContent}>
-                <View>
+                <View style={{width: '85%', borderWidth: 0}}>
                     <Text style={[layouts.textoTitulo03, styles.tituloTarefa, statusItem ? styles.tarefaCheck : null]}>
                         {props?.infosTarefa.titulo}
                     </Text>

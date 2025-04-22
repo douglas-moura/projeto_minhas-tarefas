@@ -5,6 +5,7 @@ import { useState } from "react"
 import { formatarData } from "../functions/formatarData"
 import { localhost } from "../../infos_local"
 import Icon from 'react-native-vector-icons/Feather'
+import Rodape from "../components/Rodape"
 
 export default function PerfilPage() {
 
@@ -82,6 +83,7 @@ export default function PerfilPage() {
                             <Text style={styles.infoDescr}>Sair</Text>
                         </View>
                     </View>
+                    <Rodape />
                 </View>
             </ScrollView>
         </SafeAreaView>
