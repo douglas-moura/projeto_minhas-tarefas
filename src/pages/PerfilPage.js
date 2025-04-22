@@ -6,9 +6,17 @@ import { formatarData } from "../functions/formatarData"
 import { localhost } from "../../infos_local"
 import Icon from 'react-native-vector-icons/Feather'
 import Rodape from "../components/Rodape"
+import ItemMenuPerfil from "../components/ItemMenuPerfil"
 
-export default function PerfilPage() {
+const menuPerfil = [
+    {icone: 'user', texto: 'Dados Pessoais', page: 'PerfilDadosPessoais'},
+    {icone: 'bar-chart-2', texto: 'Informações da Conta', page: 'PerfilInformacoes'},
+    {icone: 'settings', texto: 'Preferências', page: 'PerfilPreferencias'},
+    {icone: 'help-circle', texto: 'Ajuda e Suporte', page: 'PerfilAjuda'},
+    {icone: 'log-out', texto: 'Sair', page: 'Login'},
+]
 
+export default function PerfilPage({navigation}) {
     const [nome, setNome] = useState(null)
     const [sobrenome, setSobrenome] = useState(null)
     const [email, setEmail] = useState(null)
@@ -62,26 +70,15 @@ export default function PerfilPage() {
                     </View>
                     <View style={styles.infoContainer}>
                         <Text style={[layouts.textoTitulo03, styles.tituloContainer]}>Minha Conta</Text>
-                        <View style={styles.infoLinha}>
-                            <Icon name="user" style={styles.infoIcone} />
-                            <Text style={styles.infoDescr}>Dados Pessoais</Text>
-                        </View>
-                        <View style={styles.infoLinha}>
-                            <Icon name="bar-chart-2" style={styles.infoIcone} />
-                            <Text style={styles.infoDescr}>Informações da Conta</Text>
-                        </View>
-                        <View style={styles.infoLinha}>
-                            <Icon name="settings" style={styles.infoIcone} />
-                            <Text style={styles.infoDescr}>Preferências</Text>
-                        </View>
-                        <View style={styles.infoLinha}>
-                            <Icon name="help-circle" style={styles.infoIcone} />
-                            <Text style={styles.infoDescr}>Ajuda e Suporte</Text>
-                        </View>
-                        <View style={styles.infoLinha}>
-                            <Icon name="log-out" style={styles.infoIcone} />
-                            <Text style={styles.infoDescr}>Sair</Text>
-                        </View>
+                        {menuPerfil && menuPerfil.map((item, index) => (
+                            <ItemMenuPerfil
+                                key={index}
+                                icone={item.icone}
+                                texto={item.texto}
+                                page={item.page}
+                                navigation={navigation}
+                            />
+                        ))}
                     </View>
                     <Rodape />
                 </View>

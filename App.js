@@ -9,6 +9,7 @@ import Icon from 'react-native-vector-icons/Feather'
 import HomePage from './src/pages/HomePage'
 import PerfilPage from './src/pages/PerfilPage'
 import NovaTarefaPage from './src/pages/NovaTarefaPage'
+import PerfilDadosPessoais from './src/pages/menuPerfil/PerfilDadosPessoais'
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -21,8 +22,8 @@ const Tabs = () => {
                 component={HomePage}
                 options={{
                     tabBarIcon: ({ color }) => <Icon name="home" color={color} size={20} />,
-                    animation: 'fade',
-                    presentation: 'modal',
+                    //animation: 'fade',
+                    //presentation: 'modal',
                 }}
             />
             <Tab.Screen 
@@ -30,8 +31,8 @@ const Tabs = () => {
                 component={PerfilPage}
                 options={{
                     tabBarIcon: ({ color }) => <Icon name="user" color={color} size={20} />,
-                    animation: 'fade',
-                    presentation: 'modal',
+                    //animation: 'fade',
+                    //presentation: 'modal',
                 }}
             />
         </Tab.Navigator>
@@ -48,6 +49,7 @@ export default function App() {
             <Stack.Navigator screenOptions={{headerShown: false}} style={styles.appContainer}>
                 <Stack.Screen name='AppMain' component={Tabs} options={{}} />
                 <Stack.Screen name='Nova Tarefa' component={NovaTarefaPage} options={{}}/>
+                <Stack.Screen name='PerfilDadosPessoais' component={PerfilDadosPessoais} options={{}}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

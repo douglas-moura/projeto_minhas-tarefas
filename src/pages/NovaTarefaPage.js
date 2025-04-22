@@ -65,7 +65,7 @@ export default function NovaTarefaPage({ navigation }) {
                         </Pressable>
                         <Pressable
                             style={[layouts.btn, layouts.btnSecundario, styles.btnsAddTarefas]}
-                            onPress={() => navigation.navigate("AppMain")}
+                            onPress={() => navigation.goBack()}
                         >
                             <Text style={layouts.btnTextoSecundario}>Cancelar</Text>
                         </Pressable>
