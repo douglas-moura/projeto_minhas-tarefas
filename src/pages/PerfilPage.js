@@ -35,21 +35,6 @@ export default function PerfilPage({navigation}) {
             setTel(usuario.tel)
         }        
     }
-
-    const definirGenero = (num) => {
-        switch (num) {
-            case 0:
-                return "Feminino"
-                break
-            case 1:
-                return "Masculino"
-                break
-        
-            default:
-                return "Não informado"
-                break
-        }
-    }
     
     buscarUsuario()
 

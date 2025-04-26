@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
     },
     icone: {
-        marginRight: 12,
+        marginRight: 24,
         color: paletaCores.cinza.escuro,
         fontSize: 22,
     },
