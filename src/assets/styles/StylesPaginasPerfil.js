@@ -5,18 +5,19 @@ export const layouts = StyleSheet.create({
     tituloPaginaContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginBottom: 40,
+        marginVertical: 20,
     },
     tituloIcone: {
         marginRight: 10,
-        fontSize: 32,
+        fontSize: 28,
         color: paletaCores.primaria.medio,
     },
     infoLinha: {
         padding: 18,
         marginBottom: 14,
-        borderWidth: 1,
+        borderWidth: 0,
         borderColor: paletaCores.cinza.claro,
+        backgroundColor: paletaCores.primaria.pelicula,
         borderRadius: 10,
         alignItems: 'center',
         flexDirection: 'row',

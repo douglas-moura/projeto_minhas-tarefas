@@ -2,8 +2,10 @@ import { StyleSheet } from 'react-native'
 
 export const paletaCores = StyleSheet.create({
     primaria: {
+        pelicula: '#F5FBFF',
         claro: '#D0F2FE',
         medio: '#1A8EF4',
+        escuro: '#0D52AF',
     },
     cinza: {
         pelicula: '#f9f9f9',
