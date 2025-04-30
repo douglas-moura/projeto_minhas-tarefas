@@ -2,7 +2,6 @@ import { SafeAreaView, ScrollView, StyleSheet, View, Text, Image } from "react-n
 import { layouts, paletaCores } from '../assets/styles/StylesGlobal'
 import { getUsuario } from "../functions/getUsuario"
 import { useState } from "react"
-import { formatarData } from "../functions/formatarData"
 import { localhost } from "../../infos_local"
 import Icon from 'react-native-vector-icons/Feather'
 import Rodape from "../components/Rodape"
@@ -10,7 +9,7 @@ import ItemMenuPerfil from "../components/ItemMenuPerfil"
 
 const menuPerfil = [
     {icone: 'user', texto: 'Dados Pessoais', page: 'PerfilDadosPessoais'},
-    {icone: 'bar-chart-2', texto: 'Informações da Conta', page: 'PerfilInformacoes'},
+    {icone: 'bar-chart-2', texto: 'Informações da Conta', page: 'PerfilMinhaConta'},
     {icone: 'settings', texto: 'Preferências', page: 'PerfilPreferencias'},
     {icone: 'help-circle', texto: 'Ajuda e Suporte', page: 'PerfilAjuda'},
     {icone: 'log-out', texto: 'Sair', page: 'Login'},
@@ -19,20 +18,14 @@ const menuPerfil = [
 export default function PerfilPage({navigation}) {
     const [nome, setNome] = useState(null)
     const [sobrenome, setSobrenome] = useState(null)
-    const [email, setEmail] = useState(null)
-    const [idade, setIdade] = useState(null)
-    const [sexo, setSexo] = useState(null)
-    const [tel, setTel] = useState(null)
+    const [cod, setCod] = useState(null)
 
     const buscarUsuario = async () => {
         const usuario = await getUsuario(localhost)
         if(usuario) {
             setNome(usuario.nome)
             setSobrenome(usuario.sobrenome)
-            setEmail(usuario.email)
-            setIdade(formatarData(usuario.nasc))
-            setSexo(definirGenero(usuario.genero))
-            setTel(usuario.tel)
+            setCod(usuario.cod)
         }        
     }
     
@@ -51,7 +44,7 @@ export default function PerfilPage({navigation}) {
                             <Image style={styles.fotoPerfil} source={require('../assets/img/foto-perfil.jpg')} />
                         </View>
                         <Text style={[layouts.textoTitulo01, {color: paletaCores.preto}]}>{nome} {sobrenome}</Text>
-                        <Text style={styles.infoEmail}>{email}</Text>
+                        <Text style={styles.infoEmail}>Cód. {cod}</Text>
                     </View>
                     <View style={styles.infoContainer}>
                         <Text style={[layouts.textoTitulo03, styles.tituloContainer]}>Minha Conta</Text>

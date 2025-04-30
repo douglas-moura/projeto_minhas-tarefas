@@ -7,22 +7,26 @@ export default function ItemMenuPerfil({icone, texto, page, navigation}) {
         <Pressable style={styles.infoLinha} onPress={() => navigation.navigate(page)}>
             <Icon name={icone} style={styles.infoIcone} />
             <Text style={styles.infoDescr}>{texto}</Text>
+            <Icon name='chevron-right' style={{fontSize: 18, position: 'absolute', right: 10}} />
         </Pressable>
     )
 }
 
 const styles = StyleSheet.create({
     infoLinha: {
-        paddingVertical: 24,
+        paddingVertical: 20,
         flexDirection: "row",
         alignItems: "center",
         borderBottomWidth: 0.75,
         borderBottomColor: paletaCores.cinza.medio,
     },
     infoIcone: {
-        fontSize: 28,
+        fontSize: 20,
         color: paletaCores.cinza.escuro,
         marginRight: 16,
+        backgroundColor: paletaCores.primaria.pelicula,
+        padding: 12,
+        borderRadius: 50,
     },
     infoDescr: {
         color: paletaCores.cinza.escuro,

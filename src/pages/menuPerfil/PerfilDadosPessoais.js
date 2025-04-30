@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { SafeAreaView, View, Text, StyleSheet } from 'react-native'
+import { SafeAreaView, View, Text } from 'react-native'
 import { layouts, paletaCores } from '../../assets/styles/StylesGlobal'
 import { layouts as layoutsPerfil } from '../../assets/styles/StylesPaginasPerfil'
 import { localhost } from '../../../infos_local'
@@ -42,38 +42,38 @@ export default function PerfilDadosPessoais({navigation}) {
                 </View>
                 <View style={layoutsPerfil.infoLinha}>
                     <View>
-                        <Text style={layoutsPerfil.infoLinhaDescr}>Nome</Text>
+                        <Text style={layoutsPerfil.infoLinhaDescr}>Nome Completo</Text>
                         <Text style={layoutsPerfil.infoLinhaValor}>{`${nome ? nome : ''} ${sobrenome ? sobrenome : ''}`}</Text>
                     </View>
-                    <Icon name="edit" style={{fontSize: 18}} />
+                    <Icon name="edit-2" style={{fontSize: 18}} />
                 </View>
                 <View style={layoutsPerfil.infoLinha}>
                     <View>
-                        <Text style={layoutsPerfil.infoLinhaDescr}>E-mail</Text>
-                        <Text style={layoutsPerfil.infoLinhaValor}>{email}</Text>
+                        <Text style={layoutsPerfil.infoLinhaDescr}>Data de Nascimento</Text>
+                        <Text style={layoutsPerfil.infoLinhaValor}>{nasc ? nasc : 'Não informado'}</Text>
                     </View>
-                    <Icon name="edit" style={{fontSize: 18}} />
+                    <Icon name="edit-2" style={{fontSize: 18}} />
                 </View>
                 <View style={layoutsPerfil.infoLinha}>
                     <View>
                         <Text style={layoutsPerfil.infoLinhaDescr}>Sexo</Text>
                         <Text style={layoutsPerfil.infoLinhaValor}>{sexo ? sexo : 'Não informado'}</Text>
                     </View>
-                    <Icon name="edit" style={{fontSize: 18}} />
+                    <Icon name="edit-2" style={{fontSize: 18}} />
+                </View>
+                <View style={layoutsPerfil.infoLinha}>
+                    <View>
+                        <Text style={layoutsPerfil.infoLinhaDescr}>E-mail</Text>
+                        <Text style={layoutsPerfil.infoLinhaValor}>{email}</Text>
+                    </View>
+                    <Icon name="edit-2" style={{fontSize: 18}} />
                 </View>
                 <View style={layoutsPerfil.infoLinha}>
                     <View>
                         <Text style={layoutsPerfil.infoLinhaDescr}>Telefone</Text>
                         <Text style={layoutsPerfil.infoLinhaValor}>{tel ? tel : 'Não informado'}</Text>
                     </View>
-                    <Icon name="edit" style={{fontSize: 18}} />
-                </View>
-                <View style={layoutsPerfil.infoLinha}>
-                    <View>
-                        <Text style={layoutsPerfil.infoLinhaDescr}>Nasc.</Text>
-                        <Text style={layoutsPerfil.infoLinhaValor}>{nasc ? nasc : 'Não informado'}</Text>
-                    </View>
-                    <Icon name="edit" style={{fontSize: 18}} />
+                    <Icon name="edit-2" style={{fontSize: 18}} />
                 </View>
             </View>
         </SafeAreaView>
