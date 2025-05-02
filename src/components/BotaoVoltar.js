@@ -1,12 +1,12 @@
-import { Pressable, Text, StyleSheet } from "react-native"
-import { paletaCores } from "../assets/styles/StylesGlobal"
+import { Pressable, Text, StyleSheet } from 'react-native'
+import { paletaCores } from '../assets/styles/StylesGlobal'
 import Icon from 'react-native-vector-icons/Feather'
 
-export default function BotaoVoltar({navigation}) {
+export default function BotaoVoltar({navigation, texto}) {
     return (
         <Pressable onPress={() => navigation.goBack()} style={styles.btnVoltar}>
             <Icon name="arrow-left" style={styles.icone} />
-            <Text style={styles.texto}>Voltar</Text>
+            <Text style={styles.texto}>{texto ? texto : "Voltar"}</Text>
         </Pressable>
     )
 }
@@ -23,11 +23,11 @@ const styles = StyleSheet.create({
     },
     icone: {
         marginRight: 24,
-        color: paletaCores.cinza.escuro,
+        color: paletaCores.preto,
         fontSize: 22,
     },
     texto: {
-        color: paletaCores.cinza.escuro,
+        color: paletaCores.preto,
         fontWeight: 'bold',
         fontSize: 18,
     }

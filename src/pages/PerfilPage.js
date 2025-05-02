@@ -38,16 +38,18 @@ export default function PerfilPage({navigation}) {
                     <Text style={[layouts.textoTitulo01, {color: paletaCores.branco}]}>Perfil</Text>
                 </View>
                 <View style={[layouts.sessao, styles.infoSessao]}>
-                    <View style={styles.infoContainer}>
+                    <View style={[styles.infoContainer, {flexDirection: 'row'}]}>
                         <View style={styles.fotoPerfilContainer}>
                             <Icon name="star" style={styles.perfilIcone} />
                             <Image style={styles.fotoPerfil} source={require('../assets/img/foto-perfil.jpg')} />
                         </View>
-                        <Text style={[layouts.textoTitulo01, {color: paletaCores.preto}]}>{nome} {sobrenome}</Text>
-                        <Text style={styles.infoEmail}>Cód. {cod}</Text>
+                        <View>
+                            <Text style={[layouts.textoTitulo02, {color: paletaCores.preto}]}>{nome} {sobrenome}</Text>
+                            <Text style={styles.infoEmail}>Cód. {cod}</Text>
+                        </View>
                     </View>
                     <View style={styles.infoContainer}>
-                        <Text style={[layouts.textoTitulo03, styles.tituloContainer]}>Minha Conta</Text>
+                        {/*<Text style={[layouts.textoTitulo03, styles.tituloContainer]}>Minha Conta</Text>*/}
                         {menuPerfil && menuPerfil.map((item, index) => (
                             <ItemMenuPerfil
                                 key={index}
@@ -70,7 +72,7 @@ const styles = StyleSheet.create({
         position: "relative",
         width: 60,
         height: 60,
-        marginBottom: 16,
+        marginRight: 28,
     },
     fotoPerfil: {
         borderWidth: 0,
@@ -88,7 +90,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'orange',
         borderWidth: 3,
         top: "-10%",
-        left: "75%",
+        left: "65%",
         borderColor: paletaCores.branco,
         borderRadius: 100,
     },
