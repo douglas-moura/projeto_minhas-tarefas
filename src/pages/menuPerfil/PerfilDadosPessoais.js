@@ -8,6 +8,7 @@ import { definirGenero } from '../../functions/definirGenero'
 import { formatarData } from '../../functions/formatarData'
 import Icon from 'react-native-vector-icons/Feather'
 import BotaoVoltar from '../../components/BotaoVoltar'
+import Rodape from '../../components/Rodape'
 
 export default function PerfilDadosPessoais({navigation}) {
     const [nome, setNome] = useState(null)
@@ -19,7 +20,6 @@ export default function PerfilDadosPessoais({navigation}) {
 
     const buscarUsuario = async () => {
         const usuario = await getUsuario(localhost)
-        console.log(usuario)
         if(usuario) {
             setNome(usuario.nome)
             setSobrenome(usuario.sobrenome)
@@ -35,46 +35,51 @@ export default function PerfilDadosPessoais({navigation}) {
     return (
         <SafeAreaView style={layouts.pagina}>
             <View style={layouts.sessao}>
-                <BotaoVoltar navigation={navigation} />
+                <BotaoVoltar navigation={navigation} texto="Dados Pessoais" />
+                {/*
                 <View style={layoutsPerfil.tituloPaginaContainer}>
                     <Icon name="user" style={layoutsPerfil.tituloIcone} />
                     <Text style={[layouts.textoTitulo02, {color: paletaCores.primaria.medio}]}>Dados Pessoais</Text>
                 </View>
+                */}
                 <View style={layoutsPerfil.infoLinha}>
                     <View>
                         <Text style={layoutsPerfil.infoLinhaDescr}>Nome Completo</Text>
                         <Text style={layoutsPerfil.infoLinhaValor}>{`${nome ? nome : ''} ${sobrenome ? sobrenome : ''}`}</Text>
                     </View>
-                    <Icon name="edit-2" style={{fontSize: 18}} />
+                    <Icon name="edit-2" style={{fontSize: 18, color: paletaCores.primaria.medio}} />
                 </View>
                 <View style={layoutsPerfil.infoLinha}>
                     <View>
                         <Text style={layoutsPerfil.infoLinhaDescr}>Data de Nascimento</Text>
                         <Text style={layoutsPerfil.infoLinhaValor}>{nasc ? nasc : 'Não informado'}</Text>
                     </View>
-                    <Icon name="edit-2" style={{fontSize: 18}} />
+                    <Icon name="edit-2" style={{fontSize: 18, color: paletaCores.primaria.medio}} />
                 </View>
                 <View style={layoutsPerfil.infoLinha}>
                     <View>
                         <Text style={layoutsPerfil.infoLinhaDescr}>Sexo</Text>
                         <Text style={layoutsPerfil.infoLinhaValor}>{sexo ? sexo : 'Não informado'}</Text>
                     </View>
-                    <Icon name="edit-2" style={{fontSize: 18}} />
+                    <Icon name="edit-2" style={{fontSize: 18, color: paletaCores.primaria.medio}} />
                 </View>
                 <View style={layoutsPerfil.infoLinha}>
                     <View>
                         <Text style={layoutsPerfil.infoLinhaDescr}>E-mail</Text>
                         <Text style={layoutsPerfil.infoLinhaValor}>{email}</Text>
                     </View>
-                    <Icon name="edit-2" style={{fontSize: 18}} />
+                    <Icon name="edit-2" style={{fontSize: 18, color: paletaCores.primaria.medio}} />
                 </View>
                 <View style={layoutsPerfil.infoLinha}>
                     <View>
                         <Text style={layoutsPerfil.infoLinhaDescr}>Telefone</Text>
                         <Text style={layoutsPerfil.infoLinhaValor}>{tel ? tel : 'Não informado'}</Text>
                     </View>
-                    <Icon name="edit-2" style={{fontSize: 18}} />
+                    <Icon name="edit-2" style={{fontSize: 18, color: paletaCores.primaria.medio}} />
                 </View>
+            </View>
+            <View style={layouts.sessao}>
+                <Rodape />
             </View>
         </SafeAreaView>
     )

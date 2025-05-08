@@ -1,21 +1,17 @@
-import { SafeAreaView, Text, View, StyleSheet } from "react-native"
-import { layouts } from "../../assets/styles/StylesGlobal"
-import { layouts as layoutsPerfil } from "../../assets/styles/StylesPaginasPerfil"
-import { paletaCores } from "../../assets/styles/StylesGlobal"
-import { localhost } from "../../../infos_local"
+import { SafeAreaView, Text, View, StyleSheet } from 'react-native'
+import { layouts } from '../../assets/styles/StylesGlobal'
+import { layouts as layoutsPerfil } from '../../assets/styles/StylesPaginasPerfil'
+import { paletaCores } from '../../assets/styles/StylesGlobal'
+import { localhost } from '../../../infos_local'
+import { LinearGradient } from 'expo-linear-gradient'
 import Icon from 'react-native-vector-icons/Feather'
-import BotaoVoltar from "../../components/BotaoVoltar"
-import { LinearGradient } from 'expo-linear-gradient';
+import BotaoVoltar from '../../components/BotaoVoltar'
 
 export default function PerfilMinhaConta({navigation}) {
     return (
         <SafeAreaView style={layouts.pagina}>
             <View style={layouts.sessao}>
-                <BotaoVoltar navigation={navigation} />
-                <View style={layoutsPerfil.tituloPaginaContainer}>
-                    <Icon name="bar-chart-2" style={layoutsPerfil.tituloIcone} />
-                    <Text style={[layouts.textoTitulo02, {color: paletaCores.primaria.medio}]}>Minha Conta</Text>
-                </View>
+                <BotaoVoltar navigation={navigation} texto="Minha Conta" />
                 <LinearGradient
                     colors={[paletaCores.primaria.medio, paletaCores.primaria.escuro]}
                     start={{ x: 0, y: 0 }}
@@ -43,6 +39,6 @@ const styles = StyleSheet.create({
         color: paletaCores.branco,
         fontSize: 38,
         fontWeight: 'bold',
-        marginTop: 16,
+        marginTop: 6,
     }
 })

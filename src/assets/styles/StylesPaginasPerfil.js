@@ -5,7 +5,7 @@ export const layouts = StyleSheet.create({
     tituloPaginaContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginVertical: 20,
+        marginVertical: 0,
     },
     tituloIcone: {
         marginRight: 10,
@@ -13,10 +13,10 @@ export const layouts = StyleSheet.create({
         color: paletaCores.primaria.medio,
     },
     infoLinha: {
-        padding: 18,
+        padding: 20,
         marginBottom: 14,
-        borderWidth: 0,
-        borderColor: paletaCores.cinza.claro,
+        borderWidth: 0.2,
+        borderColor: paletaCores.primaria.medio,
         backgroundColor: paletaCores.primaria.pelicula,
         borderRadius: 10,
         alignItems: 'center',
@@ -25,6 +25,7 @@ export const layouts = StyleSheet.create({
     },
     infoLinhaDescr: {
         fontSize: 12,
+        //fontWeight: 'bold',
         color: paletaCores.cinza.escuro,
     },
     infoLinhaValor: {
