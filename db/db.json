@@ -9,7 +9,11 @@
       "genero": 1,
       "tel": "11 98765-4321",
       "email": "douglas.moura@email.com",
-      "senha": "1234"
+      "senha": "1234",
+      "preferencias": [
+        {"id": "0", "titulo": "Notificações", "status": true},
+        {"id": "1", "titulo": "Tema escuro", "status": false}
+      ]
     }
   ],
   "users_tarefas": [
