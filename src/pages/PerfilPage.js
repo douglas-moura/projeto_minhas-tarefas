@@ -11,7 +11,7 @@ const menuPerfil = [
     {icone: 'user', texto: 'Dados Pessoais', page: 'PerfilDadosPessoais'},
     {icone: 'bar-chart-2', texto: 'Informações da Conta', page: 'PerfilMinhaConta'},
     {icone: 'settings', texto: 'Preferências', page: 'PerfilPreferencias'},
-    {icone: 'help-circle', texto: 'Ajuda e Suporte', page: 'PerfilAjuda'},
+    {icone: 'help-circle', texto: 'Ajuda e Suporte', page: 'PerfilAjudaSuporte'},
     {icone: 'log-out', texto: 'Sair', page: 'Login'},
 ]
 

@@ -12,6 +12,7 @@ import NovaTarefaPage from './src/pages/NovaTarefaPage'
 import PerfilDadosPessoais from './src/pages/menuPerfil/PerfilDadosPessoais'
 import PerfilMinhaConta from './src/pages/menuPerfil/PerfilMinhaConta'
 import PerfilPreferencias from './src/pages/menuPerfil/PerfilPreferencias'
+import PerfilAjudaSuporte from './src/pages/menuPerfil/PerfilAjudaSuporte'
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -54,6 +55,7 @@ export default function App() {
                 <Stack.Screen name='PerfilDadosPessoais' component={PerfilDadosPessoais} options={{}}/>
                 <Stack.Screen name='PerfilMinhaConta' component={PerfilMinhaConta} options={{}}/>
                 <Stack.Screen name='PerfilPreferencias' component={PerfilPreferencias} options={{}}/>
+                <Stack.Screen name='PerfilAjudaSuporte' component={PerfilAjudaSuporte} options={{}}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
