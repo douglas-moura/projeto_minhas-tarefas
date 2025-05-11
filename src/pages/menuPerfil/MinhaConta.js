@@ -7,7 +7,7 @@ import Rodape from '../../components/Rodape'
 import Icon from 'react-native-vector-icons/Feather'
 import BotaoVoltar from '../../components/BotaoVoltar'
 
-export default function PerfilMinhaConta({navigation}) {
+export default function MinhaConta({navigation}) {
     const listaPlanoBeneficios = [
         { id: '1', descr: '1.000 tarefas simultâneas' },
         { id: '2', descr: 'Assistente personalizado' },

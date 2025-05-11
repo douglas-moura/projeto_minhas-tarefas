@@ -11,8 +11,16 @@
       "email": "douglas.moura@email.com",
       "senha": "1234",
       "preferencias": [
-        {"id": "0", "titulo": "Notificações", "status": true},
-        {"id": "1", "titulo": "Tema escuro", "status": false}
+        {
+          "id": "0",
+          "titulo": "Notificações",
+          "status": true
+        },
+        {
+          "id": "1",
+          "titulo": "Tema escuro",
+          "status": false
+        }
       ]
     }
   ],
@@ -34,7 +42,7 @@
           "titulo": "Comprar uma calça",
           "data": "18/02/25",
           "descr": "Estou sem calças, preciso de uma nova urgente",
-          "status": false,
+          "status": true,
           "tags": [
             "tarefa urgente"
           ]
@@ -65,7 +73,7 @@
           "titulo": "Hehehe negão Shell",
           "data": "2025-04-16T21:13:07.132Z",
           "descr": "Jesus acaba mais outros Yamaha itens",
-          "status": true
+          "status": false
         },
         {
           "tarefa_id": 9,
@@ -86,7 +94,7 @@
           "titulo": "Jajá atadas gripe",
           "data": "2025-04-19T20:09:24.489Z",
           "descr": "Até vdd achei chegar crescer casou fechei vocês nosso abençoe chegar",
-          "status": false
+          "status": true
         },
         {
           "tarefa_id": 9,

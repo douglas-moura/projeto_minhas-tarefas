@@ -8,10 +8,10 @@ import Rodape from "../components/Rodape"
 import ItemMenuPerfil from "../components/ItemMenuPerfil"
 
 const menuPerfil = [
-    {icone: 'user', texto: 'Dados Pessoais', page: 'PerfilDadosPessoais'},
-    {icone: 'bar-chart-2', texto: 'Informações da Conta', page: 'PerfilMinhaConta'},
-    {icone: 'settings', texto: 'Preferências', page: 'PerfilPreferencias'},
-    {icone: 'help-circle', texto: 'Ajuda e Suporte', page: 'PerfilAjudaSuporte'},
+    {icone: 'user', texto: 'Dados Pessoais', page: 'DadosPessoais'},
+    {icone: 'bar-chart-2', texto: 'Informações da Conta', page: 'MinhaConta'},
+    {icone: 'settings', texto: 'Preferências', page: 'Preferencias'},
+    {icone: 'help-circle', texto: 'Ajuda e Suporte', page: 'AjudaSuporte'},
     {icone: 'log-out', texto: 'Sair', page: 'Login'},
 ]
 

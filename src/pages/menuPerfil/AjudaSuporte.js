@@ -4,7 +4,7 @@ import BotaoVoltar from "../../components/BotaoVoltar"
 import Rodape from "../../components/Rodape"
 
 
-export default function PerfilAjudaSuporte({ navigation }) {
+export default function AjudaSuporte({ navigation }) {
     const perguntasFrequentes = [
         { pergunta: "Como redefinir minha senha?", resposta: "Você pode redefinir sua senha na página de configurações." },
         { pergunta: "Como entrar em contato com o suporte?", resposta: "Envie um e-mail para suporte@exemplo.com." },

@@ -8,7 +8,7 @@ import BotaoVoltar from '../../components/BotaoVoltar'
 import Rodape from '../../components/Rodape'
 import BotaoToggle from '../../components/BotaoToggle'
 
-export default function PerfilDadosPessoais({ navigation }) {
+export default function Preferencias({ navigation }) {
     const [prefs, setPrefs] = useState(null)
 
     const buscarUsuario = async () => {

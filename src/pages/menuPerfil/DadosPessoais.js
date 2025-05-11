@@ -10,7 +10,7 @@ import Icon from 'react-native-vector-icons/Feather'
 import BotaoVoltar from '../../components/BotaoVoltar'
 import Rodape from '../../components/Rodape'
 
-export default function PerfilDadosPessoais({navigation}) {
+export default function DadosPessoais({navigation}) {
     const [nome, setNome] = useState(null)
     const [sobrenome, setSobrenome] = useState(null)
     const [email, setEmail] = useState(null)

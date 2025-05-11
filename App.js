@@ -9,10 +9,10 @@ import Icon from 'react-native-vector-icons/Feather'
 import HomePage from './src/pages/HomePage'
 import PerfilPage from './src/pages/PerfilPage'
 import NovaTarefaPage from './src/pages/NovaTarefaPage'
-import PerfilDadosPessoais from './src/pages/menuPerfil/PerfilDadosPessoais'
-import PerfilMinhaConta from './src/pages/menuPerfil/PerfilMinhaConta'
-import PerfilPreferencias from './src/pages/menuPerfil/PerfilPreferencias'
-import PerfilAjudaSuporte from './src/pages/menuPerfil/PerfilAjudaSuporte'
+import DadosPessoais from './src/pages/menuPerfil/DadosPessoais'
+import MinhaConta from './src/pages/menuPerfil/MinhaConta'
+import Preferencias from './src/pages/menuPerfil/Preferencias'
+import AjudaSuporte from './src/pages/menuPerfil/AjudaSuporte'
 
 const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
@@ -52,10 +52,10 @@ export default function App() {
             <Stack.Navigator screenOptions={{headerShown: false}} style={styles.appContainer}>
                 <Stack.Screen name='AppMain' component={Tabs} options={{}} />
                 <Stack.Screen name='Nova Tarefa' component={NovaTarefaPage} options={{}}/>
-                <Stack.Screen name='PerfilDadosPessoais' component={PerfilDadosPessoais} options={{}}/>
-                <Stack.Screen name='PerfilMinhaConta' component={PerfilMinhaConta} options={{}}/>
-                <Stack.Screen name='PerfilPreferencias' component={PerfilPreferencias} options={{}}/>
-                <Stack.Screen name='PerfilAjudaSuporte' component={PerfilAjudaSuporte} options={{}}/>
+                <Stack.Screen name='DadosPessoais' component={DadosPessoais} options={{}}/>
+                <Stack.Screen name='MinhaConta' component={MinhaConta} options={{}}/>
+                <Stack.Screen name='Preferencias' component={Preferencias} options={{}}/>
+                <Stack.Screen name='AjudaSuporte' component={AjudaSuporte} options={{}}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
