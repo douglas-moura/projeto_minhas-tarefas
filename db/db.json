@@ -9,7 +9,7 @@
       "genero": 1,
       "tel": "11 98765-4321",
       "email": "douglas.moura@email.com",
-      "senha": "1234",
+      "senha": "1234567",
       "preferencias": [
         {
           "id": "0",
@@ -32,20 +32,14 @@
           "titulo": "Banho no cachorro",
           "data": "22/01/25",
           "descr": "Agendar banho e tosa do cachorro no petshop",
-          "status": true,
-          "tags": [
-            "tarefa urgente"
-          ]
+          "status": true
         },
         {
           "tarefa_id": 1,
           "titulo": "Comprar uma calça",
           "data": "18/02/25",
           "descr": "Estou sem calças, preciso de uma nova urgente",
-          "status": true,
-          "tags": [
-            "tarefa urgente"
-          ]
+          "status": true
         },
         {
           "tarefa_id": 2,
@@ -108,6 +102,13 @@
           "titulo": "Verdade BB minutos certas",
           "data": "2025-04-22T15:36:36.165Z",
           "descr": "Versículo bandeja Barueri melhor Itaquera jeito brigada verdade",
+          "status": false
+        },
+        {
+          "tarefa_id": 11,
+          "titulo": "Ufa unidos então",
+          "data": "2025-05-12T19:15:07.855Z",
+          "descr": "Evelyn cheguei fechando jeito",
           "status": false
         }
       ],

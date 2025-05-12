@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { paletaCores } from './src/assets/styles/StylesGlobal'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import Icon from 'react-native-vector-icons/Feather'
+import LoginPage from './src/pages/LoginPage'
 import HomePage from './src/pages/HomePage'
 import PerfilPage from './src/pages/PerfilPage'
 import NovaTarefaPage from './src/pages/NovaTarefaPage'
@@ -51,6 +52,7 @@ export default function App() {
             <StatusBar barStyle='light-content' backgroundColor={paletaCores.primaria.medio} />
             <Stack.Navigator screenOptions={{headerShown: false}} style={styles.appContainer}>
                 <Stack.Screen name='AppMain' component={Tabs} options={{}} />
+                <Stack.Screen name='Login' component={LoginPage} options={{}} />
                 <Stack.Screen name='Nova Tarefa' component={NovaTarefaPage} options={{}}/>
                 <Stack.Screen name='DadosPessoais' component={DadosPessoais} options={{}}/>
                 <Stack.Screen name='MinhaConta' component={MinhaConta} options={{}}/>

@@ -34,7 +34,6 @@ export default function AjudaSuporte({ navigation }) {
                 <TouchableOpacity
                     style={{
                         marginTop: 30,
-                        marginBottom: 40,
                         padding: 15,
                         backgroundColor: paletaCores.primaria.medio,
                         borderRadius: 5,
@@ -45,8 +44,8 @@ export default function AjudaSuporte({ navigation }) {
                         Entrar em Contato
                     </Text>
                 </TouchableOpacity>
+                <Rodape style={{ marginTop: 12, marginBottom: 40 }} />
             </ScrollView>
-            <Rodape />
         </SafeAreaView>
     )
 }

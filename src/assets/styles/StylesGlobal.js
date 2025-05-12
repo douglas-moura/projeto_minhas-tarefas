@@ -31,18 +31,18 @@ export const layouts = StyleSheet.create({
     textoTitulo01: {
         fontSize: 28,
         fontWeight: 'bold',
-        color: paletaCores.cinza.escuro,
+        color: paletaCores.preto,
         //marginBottom: 12,
     },
     textoTitulo02: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: paletaCores.cinza.escuro,
+        color: paletaCores.preto,
     },
     textoTitulo03: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: paletaCores.cinza.escuro,
+        color: paletaCores.preto,
     },
     textoParagrafo: {
         fontSize: 16,
