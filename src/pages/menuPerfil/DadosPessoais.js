@@ -3,7 +3,7 @@ import { SafeAreaView, View, Text } from 'react-native'
 import { layouts, paletaCores } from '../../assets/styles/StylesGlobal'
 import { layouts as layoutsPerfil } from '../../assets/styles/StylesPaginasPerfil'
 import { localhost } from '../../../infos_local'
-import { getUsuario } from '../../functions/getUsuario'
+import { buscarUsuariosario } from '../../functions/gbuscarUsuariosetUsuario'
 import { definirGenero } from '../../functions/definirGenero'
 import { formatarData } from '../../functions/formatarData'
 import Icon from 'react-native-vector-icons/Feather'
@@ -18,8 +18,8 @@ export default function DadosPessoais({navigation}) {
     const [sexo, setSexo] = useState(null)
     const [tel, setTel] = useState(null)
 
-    const buscarUsuario = async () => {
-        const usuario = await getUsuario(localhost)
+    const buscarInfosUsuario = async () => {
+        const usuario = await buscarUsuarios(localhost)
         if(usuario) {
             setNome(usuario.nome)
             setSobrenome(usuario.sobrenome)
@@ -30,7 +30,7 @@ export default function DadosPessoais({navigation}) {
         }
     }
     
-    buscarUsuario()
+    buscarInfosUsuario()
 
     return (
         <SafeAreaView style={layouts.pagina}>

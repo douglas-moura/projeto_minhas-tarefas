@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { SafeAreaView, ScrollView, StyleSheet, View, Text, Pressable, TextInput } from "react-native"
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
 import { adicionarTarefa } from "../functions/adicionarTarefa"
-import { getTarefas } from "../functions/getTarefas"
+import { buscarTarefas } from "../functions/buscarTarefas"
 import { localhost } from "../../infos_local"
 
 export default function NovaTarefaPage({ navigation }) {
@@ -12,7 +12,7 @@ export default function NovaTarefaPage({ navigation }) {
         
     useEffect(() => {
         const fetchData = async () => {
-            const tarefasLista = await getTarefas(localhost)
+            const tarefasLista = await buscarTarefas(localhost)
             setTarefas(tarefasLista)
         }
         fetchData()

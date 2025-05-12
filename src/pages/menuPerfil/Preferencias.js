@@ -3,7 +3,7 @@ import { SafeAreaView, View, Text, FlatList, StyleSheet } from 'react-native'
 import { layouts, paletaCores } from '../../assets/styles/StylesGlobal'
 import { layouts as layoutsPerfil } from '../../assets/styles/StylesPaginasPerfil'
 import { localhost } from '../../../infos_local'
-import { getUsuario } from '../../functions/getUsuario'
+import { buscarUsuariosario } from '../../functions/buscarUsuarios'
 import BotaoVoltar from '../../components/BotaoVoltar'
 import Rodape from '../../components/Rodape'
 import BotaoToggle from '../../components/BotaoToggle'
@@ -11,8 +11,8 @@ import BotaoToggle from '../../components/BotaoToggle'
 export default function Preferencias({ navigation }) {
     const [prefs, setPrefs] = useState(null)
 
-    const buscarUsuario = async () => {
-        const usuario = await getUsuario(localhost)
+    const buscarPreferenciasUsuario = async () => {
+        const usuario = await buscarUsuarios(localhost)
         if (usuario) {
             setPrefs(usuario.preferencias)
         }
@@ -25,7 +25,7 @@ export default function Preferencias({ navigation }) {
         </View>
     )
 
-    buscarUsuario()
+    buscarPreferenciasUsuario()
 
     return (
         <SafeAreaView style={layouts.pagina}>

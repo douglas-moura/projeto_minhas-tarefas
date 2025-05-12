@@ -1,6 +1,6 @@
 import { SafeAreaView, ScrollView, StyleSheet, View, Text, Image } from "react-native"
 import { layouts, paletaCores } from '../assets/styles/StylesGlobal'
-import { getUsuario } from "../functions/getUsuario"
+import { buscarUsuarios } from "../functions/buscarUsuarios"
 import { useState } from "react"
 import { localhost } from "../../infos_local"
 import Icon from 'react-native-vector-icons/Feather'
@@ -20,8 +20,8 @@ export default function PerfilPage({navigation}) {
     const [sobrenome, setSobrenome] = useState(null)
     const [cod, setCod] = useState(null)
 
-    const buscarUsuario = async () => {
-        const usuario = await getUsuario(localhost)
+    const buscarInfosUsuario = async () => {
+        const usuario = await buscarUsuarios(localhost)
         if(usuario) {
             setNome(usuario.nome)
             setSobrenome(usuario.sobrenome)
@@ -29,7 +29,7 @@ export default function PerfilPage({navigation}) {
         }        
     }
     
-    buscarUsuario()
+    buscarInfosUsuario()
 
     return (
         <SafeAreaView style={[layouts.pagina, {backgroundColor: paletaCores.primaria.medio}]}>

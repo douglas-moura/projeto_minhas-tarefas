@@ -1,4 +1,4 @@
-export const getUsuario = async (host) => {
+export const buscarUsuarios = async (host) => {
     try {
         const response = await fetch(`http://${host}:3000/usuarios?id=0`)
         const data = await response.json()
