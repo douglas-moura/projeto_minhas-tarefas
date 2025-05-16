@@ -1,19 +1,15 @@
 import { SafeAreaView, StyleSheet, Pressable, Text, Image } from "react-native"
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
 import { useEffect, useState } from "react"
-import { buscarUsuarios } from "../functions/buscarUsuarios"
-import { localhost } from "../../infos_local"
+import { usuarioLogado } from "../functions/usuarioLogado"
 
 export default function TopBar({navigation}) {  
     const [usuario, setUsuario] = useState(null)
     
-    useEffect(() => {
-        const fetchData = async () => {
-            const usuarioData = await buscarUsuarios(localhost)
-            setUsuario(usuarioData)
-        }
-        fetchData() 
-    }, [])
+    const fetchData = async () => {
+        setUsuario(await usuarioLogado())
+    }
+    fetchData()
 
     return (
         <SafeAreaView style={{

@@ -1,5 +1,5 @@
 import { StyleSheet, StatusBar, Alert, ActivityIndicator } from 'react-native'
-import { useState } from 'react'
+import { use, useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -45,14 +45,29 @@ const Tabs = () => {
 
 export default function App() {
 
-    const [usuario, setUsuario] = useState(null)
+    const [userLogado, setUserLogado] = useState(false)
+
+    const checarUsuarioLogado = async () => {
+        try {
+            const dados = await AsyncStorage.getItem('@usuario')
+            if(dados !== null) {
+                const usuario = JSON.parse(dados)
+                setUserLogado(usuario)
+            }
+        } catch (error) {
+            console.error('Erro ao recuperar dados:', error)
+        }
+    }
+
+    checarUsuarioLogado()
 
     return (
         <NavigationContainer>
             <StatusBar barStyle='light-content' backgroundColor={paletaCores.primaria.medio} />
             <Stack.Navigator screenOptions={{headerShown: false}} style={styles.appContainer}>
-                <Stack.Screen name='AppMain' component={Tabs} options={{}} />
-                <Stack.Screen name='Login' component={LoginPage} options={{}} />
+
+                <Stack.Screen name='AppMain' component={userLogado ? Tabs : LoginPage} options={{}} />
+
                 <Stack.Screen name='Nova Tarefa' component={NovaTarefaPage} options={{}}/>
                 <Stack.Screen name='DadosPessoais' component={DadosPessoais} options={{}}/>
                 <Stack.Screen name='MinhaConta' component={MinhaConta} options={{}}/>

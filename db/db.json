@@ -22,6 +22,52 @@
           "status": false
         }
       ]
+    },
+    {
+      "id": "1",
+      "cod": "54321",
+      "nome": "Ana",
+      "sobrenome": "Silva",
+      "nasc": "1995-03-15T21:13:07.132Z",
+      "genero": 2,
+      "tel": "11 91234-5678",
+      "email": "ana.silva@email.com",
+      "senha": "abcdefg",
+      "preferencias": [
+        {
+          "id": "0",
+          "titulo": "Notificações",
+          "status": true
+        },
+        {
+          "id": "1",
+          "titulo": "Tema escuro",
+          "status": true
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "cod": "67890",
+      "nome": "Carlos",
+      "sobrenome": "Pereira",
+      "nasc": "1990-01-10T21:13:07.132Z",
+      "genero": 1,
+      "tel": "11 99876-5432",
+      "email": "carlos.pereira@email.com",
+      "senha": "hijklmn",
+      "preferencias": [
+        {
+          "id": "0",
+          "titulo": "Notificações",
+          "status": false
+        },
+        {
+          "id": "1",
+          "titulo": "Tema escuro",
+          "status": true
+        }
+      ]
     }
   ],
   "users_tarefas": [

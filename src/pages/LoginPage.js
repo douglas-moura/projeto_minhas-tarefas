@@ -1,13 +1,25 @@
 import { SafeAreaView, View, TextInput, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
+import AsyncStorage from "@react-native-async-storage/async-storage"
 import Rodape from "../components/Rodape"
+import { autenticarUsuario } from "../functions/autenticarUsuario"
 
 export default function LoginPage({ navigation }) {
 
-    const logar = () => {
-        //navigation.navigate("Inicio")
-        console.log('login')
-
+    const logar = async () => {
+        try {
+            const infosUsuario = await autenticarUsuario('douglas.moura@email.com', '1234567')
+            if(!infosUsuario) {
+                console.log('Usuário não encontrado')
+                return
+            } else {         
+                await AsyncStorage.setItem('@usuario', JSON.stringify({ id: infosUsuario.id, cod: infosUsuario.cod }))
+                console.log('Dados salvos com sucesso!')
+                navigation.navigate('AppMain')
+            }
+        } catch (error) {
+            console.error('Erro ao salvar dados:', error)
+        }
     }
 
     return (

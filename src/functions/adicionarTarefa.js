@@ -25,7 +25,6 @@ export const adicionarTarefa = async (userId, host, novaTarefa) => {
         })        
 
         if (!respostaAtualizacao.ok) throw new Error('Erro ao atualizar tarefa')
-        console.log('Tarefa adicionada com sucesso!')
     } catch (erro) {
         console.error('Erro:', erro.message)
     }
