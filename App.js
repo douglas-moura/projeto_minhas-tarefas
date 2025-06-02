@@ -1,5 +1,5 @@
 import { StyleSheet, StatusBar, Alert, ActivityIndicator } from 'react-native'
-import { use, useState } from 'react'
+import { useState } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
@@ -66,7 +66,8 @@ export default function App() {
             <StatusBar barStyle='light-content' backgroundColor={paletaCores.primaria.medio} />
             <Stack.Navigator screenOptions={{headerShown: false}} style={styles.appContainer}>
 
-                <Stack.Screen name='AppMain' component={userLogado ? Tabs : LoginPage} options={{}} />
+                <Stack.Screen name='AppMain' component={Tabs} options={{}} />
+                <Stack.Screen name='LoginPage' component={LoginPage} options={{}} />
 
                 <Stack.Screen name='Nova Tarefa' component={NovaTarefaPage} options={{}}/>
                 <Stack.Screen name='DadosPessoais' component={DadosPessoais} options={{}}/>

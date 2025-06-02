@@ -1,20 +1,27 @@
 import { SafeAreaView, View, TextInput, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
+import { autenticarUsuario } from "../functions/autenticarUsuario"
+import { useState } from "react"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import Rodape from "../components/Rodape"
-import { autenticarUsuario } from "../functions/autenticarUsuario"
 
 export default function LoginPage({ navigation }) {
+    const [email, setEmail] = useState('')
+    const [senha, setSenha] = useState('')
 
     const logar = async () => {
         try {
-            const infosUsuario = await autenticarUsuario('douglas.moura@email.com', '1234567')
-            if(!infosUsuario) {
+            const usuarioEncontrado = await autenticarUsuario(email, senha)
+            if(!usuarioEncontrado) {
                 console.log('Usuário não encontrado')
                 return
             } else {         
-                await AsyncStorage.setItem('@usuario', JSON.stringify({ id: infosUsuario.id, cod: infosUsuario.cod }))
-                console.log('Dados salvos com sucesso!')
+                await AsyncStorage.setItem('@usuario', JSON.stringify({ id: usuarioEncontrado.id, cod: usuarioEncontrado.cod }))
+
+                const keys = await AsyncStorage.getAllKeys()
+                const result = await AsyncStorage.multiGet(keys)
+                console.log(result)
+                
                 navigation.navigate('AppMain')
             }
         } catch (error) {
@@ -32,10 +39,15 @@ export default function LoginPage({ navigation }) {
                 <TextInput
                     style={styles.inputLogin}
                     placeholder="nome.sobrenome@email.com"
+                    value={email}
+                    onChangeText={setEmail}
                 />
                 <TextInput
                     style={styles.inputLogin}
                     placeholder="********"
+                    value={senha}
+                    onChangeText={setSenha}
+                    secureTextEntry={true}
                 />
                 <TouchableOpacity style={[layouts.btn, layouts.btnPrimario, {width: '100%'}]} onPress={() => logar()}>
                     <Text style={{color: paletaCores.branco}}>Entrar</Text>

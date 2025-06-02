@@ -1,35 +1,27 @@
 import { SafeAreaView, ScrollView, StyleSheet, View, Text, Image } from "react-native"
 import { layouts, paletaCores } from '../assets/styles/StylesGlobal'
-import { buscarUsuarios } from "../functions/buscarUsuarios"
 import { useState } from "react"
 import { localhost } from "../../infos_local"
 import Icon from 'react-native-vector-icons/Feather'
 import Rodape from "../components/Rodape"
 import ItemMenuPerfil from "../components/ItemMenuPerfil"
+import { usuarioLogado } from "../functions/usuarioLogado"
 
 const menuPerfil = [
     {icone: 'user', texto: 'Dados Pessoais', page: 'DadosPessoais'},
     {icone: 'bar-chart-2', texto: 'Informações da Conta', page: 'MinhaConta'},
     {icone: 'settings', texto: 'Preferências', page: 'Preferencias'},
     {icone: 'help-circle', texto: 'Ajuda e Suporte', page: 'AjudaSuporte'},
-    {icone: 'log-out', texto: 'Sair', page: 'Login'},
 ]
 
 export default function PerfilPage({navigation}) {
-    const [nome, setNome] = useState(null)
-    const [sobrenome, setSobrenome] = useState(null)
-    const [cod, setCod] = useState(null)
+    const [usuario, setUsuario] = useState(null)
 
-    const buscarInfosUsuario = async () => {
-        const usuario = await buscarUsuarios(localhost)
-        if(usuario) {
-            setNome(usuario.nome)
-            setSobrenome(usuario.sobrenome)
-            setCod(usuario.cod)
-        }        
+    const fetchData = async () => {
+        setUsuario(await usuarioLogado())
     }
+    fetchData()
     
-    buscarInfosUsuario()
 
     return (
         <SafeAreaView style={[layouts.pagina, {backgroundColor: paletaCores.primaria.medio}]}>
@@ -44,8 +36,8 @@ export default function PerfilPage({navigation}) {
                             <Image style={styles.fotoPerfil} source={require('../assets/img/foto-perfil.jpg')} />
                         </View>
                         <View>
-                            <Text style={[layouts.textoTitulo02, {color: paletaCores.preto}]}>{nome} {sobrenome}</Text>
-                            <Text style={styles.infoEmail}>Cód. {cod}</Text>
+                            <Text style={[layouts.textoTitulo02, {color: paletaCores.preto}]}>{usuario ? `${usuario.nome} ${usuario.sobrenome}` : ''}</Text>
+                            <Text style={styles.infoEmail}>Cód. {usuario ? usuario.cod : ''}</Text>
                         </View>
                     </View>
                     <View style={styles.infoContainer}>
@@ -59,6 +51,15 @@ export default function PerfilPage({navigation}) {
                                 navigation={navigation}
                             />
                         ))}
+                        <ItemMenuPerfil
+                            icone="log-out"
+                            texto="Sair"
+                            page="LoginPage"
+                            navigation={navigation}
+                            onPress={async () => {
+                                await AsyncStorage.removeItem('@usuario')
+                            }}
+                        />
                     </View>
                     <Rodape />
                 </View>
