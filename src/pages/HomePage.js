@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, View } from "react-native"
+import { SafeAreaView, View } from "react-native"
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
 import { useAuth } from "../contexts/AuthContext"
 import TarefasLista from "../components/TarefasLista"
@@ -18,7 +18,3 @@ export default function HomePage({navigation}) {
         </SafeAreaView>
     )
 }
-
-const styles = StyleSheet.create({
-
-})

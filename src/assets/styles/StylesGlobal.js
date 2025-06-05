@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, StatusBar, Platform } from 'react-native'
+
+const statusBarHeight = Platform.OS === 'android' ? StatusBar.currentHeight : 0
 
 export const paletaCores = StyleSheet.create({
     primaria: {
@@ -21,6 +23,7 @@ export const layouts = StyleSheet.create({
     pagina: {
         flex: 1,
         backgroundColor: paletaCores.branco,
+        paddingTop: statusBarHeight,
     },
     sessao: {
         padding: 20,
