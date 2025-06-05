@@ -20,9 +20,9 @@ export default function AjudaSuporte({ navigation }) {
 
     return (
         <SafeAreaView style={layouts.pagina}>
-            <ScrollView style={layouts.sessao}>
+            <ScrollView style={[layouts.sessao, { marginBottom: 32 }]}>
                 <BotaoVoltar navigation={navigation} texto="Ajuda e Suporte" />
-                <Text style={[layouts.textoTitulo03, { color: paletaCores.preto, marginBottom: 20 }]}>
+                <Text style={[layouts.textoTitulo02, { color: paletaCores.primaria.medio, marginBottom: 20, marginLeft: 15 }]}>
                     Perguntas Frequentes
                 </Text>
                 {perguntasFrequentes.map((item, index) => (
