@@ -2,7 +2,7 @@ import { SafeAreaView, ScrollView, StyleSheet, Image, View, Text, Pressable } fr
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
 import { useState, useEffect } from "react"
 import { buscarTarefas } from "../functions/buscarTarefas"
-import { localhost } from "../../infos_local"
+import { localhost } from "../helpers/infos_local"
 import TarefaListaItem from "./TarefasListaItem"
 import Icon from "react-native-vector-icons/Feather"
 

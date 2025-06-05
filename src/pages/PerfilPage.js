@@ -4,6 +4,7 @@ import { useAuth } from "../contexts/AuthContext"
 import Icon from 'react-native-vector-icons/Feather'
 import Rodape from "../components/Rodape"
 import ItemMenuPerfil from "../components/ItemMenuPerfil"
+import { imagensPerfil } from "../helpers/imagensPerfil"
 
 const menuPerfil = [
     {icone: 'user', texto: 'Dados Pessoais', page: 'DadosPessoais'},
@@ -15,7 +16,8 @@ const menuPerfil = [
 
 export default function PerfilPage({navigation}) {
     const { usuario } = useAuth()
-
+    console.log(usuario.fotoUrl)
+    
     return (
         <SafeAreaView style={[layouts.pagina, {backgroundColor: paletaCores.primaria.medio}]}>
             <ScrollView>
@@ -26,7 +28,14 @@ export default function PerfilPage({navigation}) {
                     <View style={[styles.infoContainer, {flexDirection: 'row'}]}>
                         <View style={styles.fotoPerfilContainer}>
                             <Icon name="star" style={styles.perfilIcone} />
-                            <Image style={styles.fotoPerfil} source={require('../assets/img/foto-perfil.jpg')} />
+                            <Image
+                                style={styles.fotoPerfil}
+                                source={
+                                    usuario?.id && imagensPerfil[usuario?.id]
+                                        ? imagensPerfil[usuario?.id]
+                                        : require('../assets/img/users-perfil/default.jpg')
+                                }
+                            />
                         </View>
                         <View>
                             <Text style={[layouts.textoTitulo02, {color: paletaCores.preto}]}>{usuario ? `${usuario.nome} ${usuario.sobrenome}` : ''}</Text>

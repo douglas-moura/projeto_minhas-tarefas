@@ -70,7 +70,7 @@ export default function App() {
         <AuthProvider>
 			<NavigationContainer>
                 <StatusBar
-                    barStyle="light-content" // ou "dark-content"
+                    //barStyle="light-content" // ou "dark-content"
                     backgroundColor={paletaCores.primaria.medio} // coloque a cor desejada
                 />
 				<AppRoutes />

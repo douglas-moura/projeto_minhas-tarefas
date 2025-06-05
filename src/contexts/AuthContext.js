@@ -9,7 +9,6 @@ export const AuthProvider = ({ children }) => {
 
     const fetchData = async () => {
         const user = await infosUsuarioLogado()
-        console.log('Usuário encontrado no Storage:', user)
         setUsuario(user)
     }
 

@@ -1,5 +1,6 @@
 import { SafeAreaView, StyleSheet, Pressable, Text, Image } from "react-native"
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
+import { imagensPerfil } from "../helpers/imagensPerfil"
 
 export default function TopBar({navigation, usuario}) {
     return (
@@ -12,7 +13,14 @@ export default function TopBar({navigation, usuario}) {
                 Olá, {usuario ? usuario.nome : 'Usuário'}
             </Text>
             <Pressable onPress={() => navigation.navigate("Perfil")}>
-                <Image style={styles.fotoPerfil} source={require('../assets/img/foto-perfil.jpg')} />
+                <Image
+                    style={styles.fotoPerfil}
+                    source={
+                        usuario?.id && imagensPerfil[usuario?.id]
+                            ? imagensPerfil[usuario?.id]
+                            : require('../assets/img/users-perfil/default.jpg')
+                    }
+                />
             </Pressable>
         </SafeAreaView>
     )

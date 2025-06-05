@@ -2,7 +2,7 @@
   "usuarios": [
     {
       "id": "0",
-      "cod": "DSM12345",
+      "cod": "972204",
       "nome": "Douglas",
       "sobrenome": "Moura",
       "nasc": "1997-04-22T21:13:07.132Z",
@@ -10,6 +10,7 @@
       "tel": "11 98765-4321",
       "email": "douglas.moura@email.com",
       "senha": "1234567",
+      "fotoUrl": "../assets/img/users-perfil/0.jpg",
       "preferencias": [
         {
           "id": "0",

@@ -1,5 +1,5 @@
 import { buscarUsuarios } from "./buscarUsuarios"
-import { localhost } from "../../infos_local"
+import { localhost } from "../helpers/infos_local"
 
 export const autenticarUsuario = async (email, senha) => {
     const usuarios = await buscarUsuarios(localhost)
