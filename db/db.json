@@ -10,7 +10,6 @@
       "tel": "11 98765-4321",
       "email": "douglas.moura@email.com",
       "senha": "1234567",
-      "fotoUrl": "../assets/img/users-perfil/0.jpg",
       "preferencias": [
         {
           "id": "0",
