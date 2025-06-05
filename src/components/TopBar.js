@@ -1,16 +1,7 @@
 import { SafeAreaView, StyleSheet, Pressable, Text, Image } from "react-native"
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
-import { useEffect, useState } from "react"
-import { usuarioLogado } from "../functions/usuarioLogado"
 
-export default function TopBar({navigation}) {  
-    const [usuario, setUsuario] = useState(null)
-    
-    const fetchData = async () => {
-        setUsuario(await usuarioLogado())
-    }
-    fetchData()
-
+export default function TopBar({navigation, usuario}) {
     return (
         <SafeAreaView style={{
             flexDirection: 'row',

@@ -1,27 +1,20 @@
 import { SafeAreaView, ScrollView, StyleSheet, View, Text, Image } from "react-native"
 import { layouts, paletaCores } from '../assets/styles/StylesGlobal'
-import { useState } from "react"
-import { localhost } from "../../infos_local"
+import { useAuth } from "../contexts/AuthContext"
 import Icon from 'react-native-vector-icons/Feather'
 import Rodape from "../components/Rodape"
 import ItemMenuPerfil from "../components/ItemMenuPerfil"
-import { usuarioLogado } from "../functions/usuarioLogado"
 
 const menuPerfil = [
     {icone: 'user', texto: 'Dados Pessoais', page: 'DadosPessoais'},
     {icone: 'bar-chart-2', texto: 'Informações da Conta', page: 'MinhaConta'},
     {icone: 'settings', texto: 'Preferências', page: 'Preferencias'},
     {icone: 'help-circle', texto: 'Ajuda e Suporte', page: 'AjudaSuporte'},
+    {icone: 'log-out', texto: 'Sair', page: 'LoginPage'},
 ]
 
 export default function PerfilPage({navigation}) {
-    const [usuario, setUsuario] = useState(null)
-
-    const fetchData = async () => {
-        setUsuario(await usuarioLogado())
-    }
-    fetchData()
-    
+    const { usuario } = useAuth()
 
     return (
         <SafeAreaView style={[layouts.pagina, {backgroundColor: paletaCores.primaria.medio}]}>
@@ -51,15 +44,6 @@ export default function PerfilPage({navigation}) {
                                 navigation={navigation}
                             />
                         ))}
-                        <ItemMenuPerfil
-                            icone="log-out"
-                            texto="Sair"
-                            page="LoginPage"
-                            navigation={navigation}
-                            onPress={async () => {
-                                await AsyncStorage.removeItem('@usuario')
-                            }}
-                        />
                     </View>
                     <Rodape />
                 </View>

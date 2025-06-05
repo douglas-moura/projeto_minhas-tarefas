@@ -1,13 +1,27 @@
 import { Text, StyleSheet, Pressable } from "react-native"
 import { paletaCores } from "../assets/styles/StylesGlobal"
+import { useAuth } from "../contexts/AuthContext"
+import AsyncStorage from "@react-native-async-storage/async-storage"
 import Icon from 'react-native-vector-icons/Feather'
 
-export default function ItemMenuPerfil({icone, texto, page, navigation}) {
+export default function ItemMenuPerfil({ icone, texto, page, navigation }) {
+    const { logout } = useAuth()
+
     return (
-        <Pressable style={styles.infoLinha} onPress={() => navigation.navigate(page)}>
+        <Pressable
+            style={styles.infoLinha}
+            onPress={async () => {
+                if (texto !== 'Sair') {
+                    navigation.navigate(page)
+                } else {
+                    await AsyncStorage.removeItem('@usuario')
+                    console.log('Sair do App')
+                    logout()
+                }
+            }}>
             <Icon name={icone} style={styles.infoIcone} />
             <Text style={styles.infoDescr}>{texto}</Text>
-            <Icon name='chevron-right' style={{fontSize: 18, position: 'absolute', right: 10}} />
+            <Icon name='chevron-right' style={{ fontSize: 18, position: 'absolute', right: 10 }} />
         </Pressable>
     )
 }

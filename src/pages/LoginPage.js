@@ -1,28 +1,28 @@
+import { useState } from "react"
 import { SafeAreaView, View, TextInput, Text, StyleSheet, TouchableOpacity, Image } from "react-native"
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
 import { autenticarUsuario } from "../functions/autenticarUsuario"
-import { useState } from "react"
+import { useAuth } from "../contexts/AuthContext"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import Rodape from "../components/Rodape"
 
 export default function LoginPage({ navigation }) {
+    const { usuario } = useAuth()
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
+    
+    const { login } = useAuth()
 
     const logar = async () => {
         try {
             const usuarioEncontrado = await autenticarUsuario(email, senha)
-            if(!usuarioEncontrado) {
+            if (!usuarioEncontrado) {
                 console.log('Usuário não encontrado')
                 return
-            } else {         
+            } else {
                 await AsyncStorage.setItem('@usuario', JSON.stringify({ id: usuarioEncontrado.id, cod: usuarioEncontrado.cod }))
-
-                const keys = await AsyncStorage.getAllKeys()
-                const result = await AsyncStorage.multiGet(keys)
-                console.log(result)
-                
-                navigation.navigate('AppMain')
+                login() // Chama a função de login do contexto
+                console.log('Entrar no App')
             }
         } catch (error) {
             console.error('Erro ao salvar dados:', error)
@@ -30,12 +30,12 @@ export default function LoginPage({ navigation }) {
     }
 
     return (
-        <SafeAreaView style={[layouts.pagina, {paddingTop: 64}]}>
+        <SafeAreaView style={[layouts.pagina, { paddingTop: 64 }]}>
             <View style={layouts.sessao}>
                 <Image style={styles.logoLogin} source={require('../assets/img/simbolo.png')} />
             </View>
             <View style={[layouts.sessao, styles.inputsContainer]}>
-                <Text style={[layouts.textoTitulo02, {marginBottom: 18}]}>Bem-vindo! Fazer login</Text>
+                <Text style={[layouts.textoTitulo02, { marginBottom: 18 }]}>Bem-vindo! Fazer login</Text>
                 <TextInput
                     style={styles.inputLogin}
                     placeholder="nome.sobrenome@email.com"
@@ -49,8 +49,8 @@ export default function LoginPage({ navigation }) {
                     onChangeText={setSenha}
                     secureTextEntry={true}
                 />
-                <TouchableOpacity style={[layouts.btn, layouts.btnPrimario, {width: '100%'}]} onPress={() => logar()}>
-                    <Text style={{color: paletaCores.branco}}>Entrar</Text>
+                <TouchableOpacity style={[layouts.btn, layouts.btnPrimario, { width: '100%' }]} onPress={() => logar()}>
+                    <Text style={{ color: paletaCores.branco }}>Entrar</Text>
                 </TouchableOpacity>
             </View>
             <Rodape />
