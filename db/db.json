@@ -21,7 +21,8 @@
           "titulo": "Tema escuro",
           "status": false
         }
-      ]
+      ],
+      "plano_id": 0
     },
     {
       "id": "1",
@@ -67,6 +68,51 @@
           "titulo": "Tema escuro",
           "status": true
         }
+      ]
+    }
+  ],
+  "planos": [
+    {
+      "id": 0,
+      "titulo": "Básico",
+      "descricao": "Acesso a funcionalidades básicas do aplicativo.",
+      "preco": 0.00,
+      "duracao": "Mensal",
+      "beneficios": [
+        "100 tarefas simultaneas",
+        "Notificações diárias",
+        "Suporte via e-mail"
+      ]
+    },
+    {
+      "id": 1,
+      "titulo": "Premium",
+      "descricao": "Acesso a todas as funcionalidades, incluindo tarefas ilimitadas.",
+      "preco": 9.99,
+      "duracao": "Mensal",
+      "beneficios": [
+        "500 tarefas simultaneas",
+        "Alerta para tarefas atrasadas",
+        "Relatórios mensais de produtividade",
+        "Notificações diárias",
+        "Suporte via e-mail"
+      ]
+    },
+    {
+      "id": 2,
+      "titulo": "Plano Pro",
+      "descricao": "Acesso a todas as funcionalidades, suporte prioritário e backups automáticos.",
+      "preco": 19.99,
+      "duracao": "Anual",
+      "beneficios": [
+        "Tarefas ilimitadas",
+        "Alerta para tarefas atrasadas",
+        "Tags para organização de tarefas",
+        "Relatórios mensais de produtividade",
+        "Exportação de tarefas em PDF",
+        "Suporte prioritário",
+        "Notificações diárias",
+        "Suporte via e-mail"
       ]
     }
   ],

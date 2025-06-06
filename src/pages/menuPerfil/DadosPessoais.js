@@ -21,7 +21,6 @@ export default function DadosPessoais({ navigation }) {
     const [senha, setSenha] = useState(usuario ? usuario.senha : null)
 
     const [visibilidadeSenha, setVisibilidadeSenha] = useState(false)
-    const senhaTeste = 12345
 
     return (
         <SafeAreaView style={layouts.pagina}>
