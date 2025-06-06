@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { SafeAreaView, View, Text, FlatList, StyleSheet } from 'react-native'
 import { layouts, paletaCores } from '../../assets/styles/StylesGlobal'
 import { layouts as layoutsPerfil } from '../../assets/styles/StylesPaginasPerfil'
-import { localhost } from '../../helpers/infos_local'
+import { localhost_ip } from '../../helpers/localhost'
 import { buscarUsuarios } from '../../functions/buscarUsuarios'
 import BotaoVoltar from '../../components/BotaoVoltar'
 import Rodape from '../../components/Rodape'
@@ -10,9 +10,9 @@ import BotaoToggle from '../../components/BotaoToggle'
 
 export default function Preferencias({ navigation }) {
     const [prefs, setPrefs] = useState(null)
-
+    ''
     const buscarPreferenciasUsuario = async () => {
-        const usuario = await buscarUsuarios(localhost)
+        const usuario = await buscarUsuarios(localhost_ip)
         if (usuario) {
             setPrefs(usuario.preferencias)
         }

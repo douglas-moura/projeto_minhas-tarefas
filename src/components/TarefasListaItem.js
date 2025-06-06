@@ -3,7 +3,7 @@ import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
 import { concluirTarefa } from "../functions/concluirTarefa"
 import { formatarData } from "../functions/formatarData"
 import { useState } from "react"
-import { localhost } from "../helpers/infos_local"
+import { localhost_ip } from "../helpers/localhost"
 import Icon from "react-native-vector-icons/Feather"
 
 export default function TarefasListaItem(props) {

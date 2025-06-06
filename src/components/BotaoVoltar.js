@@ -16,19 +16,23 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         borderWidth: 0,
+        width: '100%',
         padding: 10,
         borderRadius: 8,
         marginBottom: 20,
         alignSelf: 'flex-start',
     },
     icone: {
-        marginRight: 24,
         color: paletaCores.preto,
         fontSize: 22,
+        position: 'absolute',
+        left: 10,
     },
     texto: {
         color: paletaCores.preto,
         fontWeight: 'bold',
-        fontSize: 18,
+        width: '100%',
+        textAlign: 'center',
+        fontSize: 24,
     }
 })

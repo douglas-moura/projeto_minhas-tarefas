@@ -24,9 +24,11 @@ export const layouts = StyleSheet.create({
         flex: 1,
         backgroundColor: paletaCores.branco,
         paddingTop: statusBarHeight,
+        borderWidth: 0,
+        borderColor: 'red',
     },
     sessao: {
-        padding: 20,
+        padding: 24,
     },
     container: {
         marginBottom: 16,

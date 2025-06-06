@@ -16,7 +16,6 @@ const menuPerfil = [
 
 export default function PerfilPage({navigation}) {
     const { usuario } = useAuth()
-    console.log(usuario.fotoUrl)
     
     return (
         <SafeAreaView style={[layouts.pagina, {backgroundColor: paletaCores.primaria.medio}]}>
@@ -33,7 +32,7 @@ export default function PerfilPage({navigation}) {
                                 source={
                                     usuario?.id && imagensPerfil[usuario?.id]
                                         ? imagensPerfil[usuario?.id]
-                                        : require('../assets/img/users-perfil/default.jpg')
+                                        : imagensPerfil.default
                                 }
                             />
                         </View>

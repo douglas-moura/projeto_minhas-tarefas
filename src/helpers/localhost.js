@@ -1,0 +1,1 @@
+export const localhost_ip = '192.168.15.148'

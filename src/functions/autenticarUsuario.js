@@ -1,8 +1,8 @@
 import { buscarUsuarios } from "./buscarUsuarios"
-import { localhost } from "../helpers/infos_local"
+import { localhost_ip } from "../helpers/localhost"
 
 export const autenticarUsuario = async (email, senha) => {
-    const usuarios = await buscarUsuarios(localhost)
+    const usuarios = await buscarUsuarios(localhost_ip)
     
     for (const user of usuarios) {
         if (user.email === email && user.senha === senha) {

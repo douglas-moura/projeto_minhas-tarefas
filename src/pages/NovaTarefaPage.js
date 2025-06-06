@@ -3,7 +3,7 @@ import { SafeAreaView, ScrollView, StyleSheet, View, Text, Pressable, TextInput 
 import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
 import { adicionarTarefa } from "../functions/adicionarTarefa"
 import { buscarTarefas } from "../functions/buscarTarefas"
-import { localhost } from "../helpers/infos_local"
+import { localhost_ip } from "../helpers/localhost"
 
 export default function NovaTarefaPage({ navigation }) {
     const [novaTarefaTitulo, setNovaTarefaTitulo] = useState(null)
@@ -12,7 +12,7 @@ export default function NovaTarefaPage({ navigation }) {
         
     useEffect(() => {
         const fetchData = async () => {
-            const tarefasLista = await buscarTarefas(localhost)
+            const tarefasLista = await buscarTarefas(localhost_ip)
             setTarefas(tarefasLista)
         }
         fetchData()

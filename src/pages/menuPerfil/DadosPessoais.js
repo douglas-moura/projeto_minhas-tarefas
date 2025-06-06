@@ -1,81 +1,74 @@
 import { useState } from 'react'
-import { SafeAreaView, View, Text } from 'react-native'
+import { SafeAreaView, View, Text, Image, StyleSheet } from 'react-native'
 import { layouts, paletaCores } from '../../assets/styles/StylesGlobal'
-import { layouts as layoutsPerfil } from '../../assets/styles/StylesPaginasPerfil'
-import { localhost } from '../../helpers/infos_local'
-import { buscarUsuarios } from '../../functions/buscarUsuarios'
 import { definirGenero } from '../../functions/definirGenero'
 import { formatarData } from '../../functions/formatarData'
+import { useAuth } from '../../contexts/AuthContext'
+import { imagensPerfil } from '../../helpers/imagensPerfil'
 import Icon from 'react-native-vector-icons/Feather'
 import BotaoVoltar from '../../components/BotaoVoltar'
 import Rodape from '../../components/Rodape'
 
-export default function DadosPessoais({navigation}) {
-    const [nome, setNome] = useState(null)
-    const [sobrenome, setSobrenome] = useState(null)
-    const [email, setEmail] = useState(null)
-    const [nasc, setNasc] = useState(null)
-    const [sexo, setSexo] = useState(null)
-    const [tel, setTel] = useState(null)
+export default function DadosPessoais({ navigation }) {
+    const { usuario } = useAuth()
 
-    const buscarInfosUsuario = async () => {
-        const usuario = await buscarUsuarios(localhost)
-        if(usuario) {
-            setNome(usuario.nome)
-            setSobrenome(usuario.sobrenome)
-            setEmail(usuario.email)
-            setTel(usuario.tel)
-            setNasc(formatarData(usuario.nasc))
-            setSexo(definirGenero(usuario.genero))
-        }
-    }
-    
-    buscarInfosUsuario()
+    const [nome, setNome] = useState(usuario ? usuario.nome : null)
+    const [sobrenome, setSobrenome] = useState(usuario ? usuario.sobrenome : null)
+    const [email, setEmail] = useState(usuario ? usuario.email : null)
+    const [nasc, setNasc] = useState(usuario ? formatarData(usuario.nasc) : null)
+    const [sexo, setSexo] = useState(usuario ? definirGenero(usuario.genero) : null)
+    const [tel, setTel] = useState(usuario ? usuario.tel : null)
+    const [senha, setSenha] = useState(usuario ? usuario.senha : null)
+
+    const [visibilidadeSenha, setVisibilidadeSenha] = useState(false)
+    const senhaTeste = 12345
 
     return (
         <SafeAreaView style={layouts.pagina}>
             <View style={layouts.sessao}>
-                <BotaoVoltar navigation={navigation} texto="Dados Pessoais" />
-                {/*
-                <View style={layoutsPerfil.tituloPaginaContainer}>
-                    <Icon name="user" style={layoutsPerfil.tituloIcone} />
-                    <Text style={[layouts.textoTitulo02, {color: paletaCores.primaria.medio}]}>Dados Pessoais</Text>
+                <BotaoVoltar navigation={navigation} texto="Meus Dados" />
+                <View style={styles.imagemUsuarioContainer}>
+                    <Image
+                        style={styles.imagemUsuario}
+                        source={
+                            usuario?.id && imagensPerfil[usuario?.id]
+                                ? imagensPerfil[usuario?.id]
+                                : imagensPerfil.default
+                        }
+                    />
+                    <Icon name="camera" style={styles.iconeEditImagemPerfil} />
                 </View>
-                */}
-                <View style={layoutsPerfil.infoLinha}>
-                    <View>
-                        <Text style={layoutsPerfil.infoLinhaDescr}>Nome Completo</Text>
-                        <Text style={layoutsPerfil.infoLinhaValor}>{`${nome ? nome : ''} ${sobrenome ? sobrenome : ''}`}</Text>
+                <View style={styles.infoLinha}>
+                    <Text style={styles.infoLinhaDescr}>Nome</Text>
+                    <View style={styles.infoLinhaValorContainer}>
+                        <Text style={styles.infoLinhaValor}>{`${nome ? nome : 'Não informado'} ${sobrenome ? sobrenome : ''}`}</Text>
                     </View>
-                    <Icon name="edit-2" style={{fontSize: 18, color: paletaCores.primaria.medio}} />
                 </View>
-                <View style={layoutsPerfil.infoLinha}>
-                    <View>
-                        <Text style={layoutsPerfil.infoLinhaDescr}>Data de Nascimento</Text>
-                        <Text style={layoutsPerfil.infoLinhaValor}>{nasc ? nasc : 'Não informado'}</Text>
+                <View style={styles.infoLinha}>
+                    <Text style={styles.infoLinhaDescr}>E-mail</Text>
+                    <View style={styles.infoLinhaValorContainer}>
+                        <Text style={styles.infoLinhaValor}>{email ? email : 'Não informado'}</Text>
                     </View>
-                    <Icon name="edit-2" style={{fontSize: 18, color: paletaCores.primaria.medio}} />
                 </View>
-                <View style={layoutsPerfil.infoLinha}>
-                    <View>
-                        <Text style={layoutsPerfil.infoLinhaDescr}>Sexo</Text>
-                        <Text style={layoutsPerfil.infoLinhaValor}>{sexo ? sexo : 'Não informado'}</Text>
+                <View style={styles.infoLinha}>
+                    <Text style={styles.infoLinhaDescr}>Senha</Text>
+                    <View style={styles.infoLinhaValorContainer}>
+                        <Text style={styles.infoLinhaValor}>
+                            {visibilidadeSenha ? (senha ? senha : 'Não informado') : <Text>********</Text>}
+                        </Text>
+                        <Icon
+                            name={visibilidadeSenha ? "eye" : "eye-off"}
+                            size={16}
+                            color={paletaCores.cinza.escuro}
+                            onPress={() => setVisibilidadeSenha(!visibilidadeSenha)}
+                        />
                     </View>
-                    <Icon name="edit-2" style={{fontSize: 18, color: paletaCores.primaria.medio}} />
                 </View>
-                <View style={layoutsPerfil.infoLinha}>
-                    <View>
-                        <Text style={layoutsPerfil.infoLinhaDescr}>E-mail</Text>
-                        <Text style={layoutsPerfil.infoLinhaValor}>{email}</Text>
+                <View style={styles.infoLinha}>
+                    <Text style={styles.infoLinhaDescr}>Telefone</Text>
+                    <View style={styles.infoLinhaValorContainer}>
+                        <Text style={styles.infoLinhaValor}>{tel ? tel : 'Não informado'}</Text>
                     </View>
-                    <Icon name="edit-2" style={{fontSize: 18, color: paletaCores.primaria.medio}} />
-                </View>
-                <View style={layoutsPerfil.infoLinha}>
-                    <View>
-                        <Text style={layoutsPerfil.infoLinhaDescr}>Telefone</Text>
-                        <Text style={layoutsPerfil.infoLinhaValor}>{tel ? tel : 'Não informado'}</Text>
-                    </View>
-                    <Icon name="edit-2" style={{fontSize: 18, color: paletaCores.primaria.medio}} />
                 </View>
             </View>
             <View style={layouts.sessao}>
@@ -84,3 +77,48 @@ export default function DadosPessoais({navigation}) {
         </SafeAreaView>
     )
 }
+
+const styles = StyleSheet.create({
+    imagemUsuarioContainer: {
+        alignItems: 'center',
+        marginBottom: 16,
+        marginHorizontal: 'auto',
+        width: 120,
+        height: 120,
+    },
+    imagemUsuario: {
+        borderRadius: 100,
+        width: '100%',
+        height: '100%',
+    },
+    iconeEditImagemPerfil: {
+        position: 'absolute',
+        fontSize: 16,
+        bottom: 10,
+        right: 5,
+        backgroundColor: paletaCores.branco,
+        borderRadius: 50,
+        padding: 6,
+        elevation: 2,
+    },
+    infoLinha: {
+        paddingVertical: 8,
+    },
+    infoLinhaDescr: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        marginBottom: 4,
+    },
+    infoLinhaValorContainer: {
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        paddingHorizontal: 16,
+        paddingVertical: 18,
+        borderRadius: 8,
+        backgroundColor: paletaCores.cinza.pelicula,
+    },
+    infoLinhaValor: {
+        color: paletaCores.cinza.escuro,
+        fontSize: 16,
+    }
+})

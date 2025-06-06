@@ -20,7 +20,11 @@ export default function LoginPage({ navigation }) {
                 console.log('Usuário não encontrado')
                 return
             } else {
-                await AsyncStorage.setItem('@usuario', JSON.stringify({ id: usuarioEncontrado.id, cod: usuarioEncontrado.cod }))
+                // Salva os dados do usuário no AsyncStorage
+                await AsyncStorage.setItem('@usuario', JSON.stringify({
+                    id: usuarioEncontrado.id,
+                    cod: usuarioEncontrado.cod
+                }))
                 login() // Chama a função de login do contexto
                 console.log('Entrar no App')
             }

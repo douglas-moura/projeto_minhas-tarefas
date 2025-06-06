@@ -18,7 +18,7 @@ export default function TopBar({navigation, usuario}) {
                     source={
                         usuario?.id && imagensPerfil[usuario?.id]
                             ? imagensPerfil[usuario?.id]
-                            : require('../assets/img/users-perfil/default.jpg')
+                            : imagensPerfil.default
                     }
                 />
             </Pressable>
