@@ -1,31 +1,30 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { SafeAreaView, View, Text, FlatList, StyleSheet } from 'react-native'
 import { layouts, paletaCores } from '../../assets/styles/StylesGlobal'
 import { layouts as layoutsPerfil } from '../../assets/styles/StylesPaginasPerfil'
-import { localhost_ip } from '../../helpers/localhost'
-import { buscarUsuarios } from '../../functions/buscarUsuarios'
+import { useAuth } from '../../contexts/AuthContext'
+import Icon from 'react-native-vector-icons/Feather'
 import BotaoVoltar from '../../components/BotaoVoltar'
 import Rodape from '../../components/Rodape'
 import BotaoToggle from '../../components/BotaoToggle'
 
 export default function Preferencias({ navigation }) {
     const [prefs, setPrefs] = useState(null)
-    ''
-    const buscarPreferenciasUsuario = async () => {
-        const usuario = await buscarUsuarios(localhost_ip)
-        if (usuario) {
-            setPrefs(usuario.preferencias)
-        }
-    }
+    const { usuario } = useAuth()
+
+    useEffect(() => {
+        if (usuario && usuario.preferencias) setPrefs(usuario.preferencias)
+    }, [usuario])
 
     const renderItem = ({ item }) => (
         <View style={styles.preferenciaContent}>
-            <Text style={styles.preferenciaNome}>{item.titulo}</Text>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Icon name={item.icon} size={24} style={styles.preferenciaIcon} />
+                <Text style={styles.preferenciaTitulo}>{item.titulo}</Text>
+            </View>
             <BotaoToggle />
         </View>
     )
-
-    buscarPreferenciasUsuario()
 
     return (
         <SafeAreaView style={layouts.pagina}>
@@ -47,15 +46,18 @@ export default function Preferencias({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    preferenciaContent:{
+    preferenciaContent: {
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingHorizontal: 32,
-        paddingVertical: 8,
     },
-    preferenciaNome:{
-        fontSize: 16,
+    preferenciaIcon: {
+        marginRight: 16,
+    },
+    preferenciaTitulo: {
+        fontSize: 18,
         color: paletaCores.preto,
+        fontWeight: 'bold',
     },
 })
