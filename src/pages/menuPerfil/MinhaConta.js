@@ -52,7 +52,7 @@ export default function MinhaConta({navigation}) {
                     <FlatList
                         data={plano && plano.beneficios ? plano.beneficios : []} // Array de dados
                         renderItem={renderItem} // Função para renderizar cada item
-                        keyExtractor={(item) => item.id} // Chave única para cada item
+                        keyExtractor={(_, index) => index.toString()} // Corrigido aqui!
                     />
                 </View>
                 {/*<Botao texto="Alterar Plano" onPress={() => {}} />*/}
