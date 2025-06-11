@@ -1,20 +1,17 @@
-import { View, Switch } from "react-native"
-import { useState } from 'react'
-import { paletaCores } from "../assets/styles/StylesGlobal"
+import { View, TouchableOpacity } from "react-native"
+import { paletaCores } from "../assets/styles/stylesGlobal"
 
-export default function BotaoToggle({ valor, setValor }) {
-    // Estado inicial do switch
-    const [val, setVal] = useState(valor)
-
+export default function BotaoToggle({  }) {
     return (
-        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Switch
-                value={val}
-                onValueChange={() => setVal(!val)}
-                trackColor={{ false: '#767577', true: paletaCores.primaria.medio }}
-                thumbColor={valor ? '#f5dd4b' : '#f4f3f4'}
-                ios_backgroundColor="#3e3e3e"
-            />
-        </View>
+        <TouchableOpacity
+            activeOpacity={1}
+            onPress={() => acoes[item.acao]?.()}
+            style={[
+                styles.toggleContainer,
+                estadoTemaEscuro && item.acao === 'alternarTema' ? { justifyContent: 'flex-start' } : { justifyContent: 'flex-end' }
+            ]}
+        >
+            <View style={styles.toggleBotao}></View>
+        </TouchableOpacity>
     )
 }
