@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { SafeAreaView, Text, View, StyleSheet, FlatList } from 'react-native'
 import { layouts } from '../../assets/styles/StylesGlobal'
-import { layouts as layoutsPerfil } from '../../assets/styles/StylesPaginasPerfil'
 import { paletaCores } from '../../assets/styles/StylesGlobal'
 import { LinearGradient } from 'expo-linear-gradient'
 import { buscarPlano } from '../../functions/buscarPlano'

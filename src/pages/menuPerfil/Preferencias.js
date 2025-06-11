@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { SafeAreaView, View, Text, FlatList, StyleSheet } from 'react-native'
 import { layouts, paletaCores } from '../../assets/styles/StylesGlobal'
-import { layouts as layoutsPerfil } from '../../assets/styles/StylesPaginasPerfil'
 import { useAuth } from '../../contexts/AuthContext'
 import Icon from 'react-native-vector-icons/Feather'
 import BotaoVoltar from '../../components/BotaoVoltar'
@@ -31,7 +30,7 @@ export default function Preferencias({ navigation }) {
             <View style={layouts.sessao}>
                 <BotaoVoltar navigation={navigation} texto="Preferências" />
             </View>
-            <View style={layoutsPerfil.sessao}>
+            <View style={layouts.sessao}>
                 <FlatList
                     data={prefs} // Array de dados
                     renderItem={renderItem} // Função para renderizar cada item
@@ -50,7 +49,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingHorizontal: 32,
+        borderWidth: 1,
+        borderColor: paletaCores.cinza.claro,
+        paddingVertical: 16,
+        borderRadius: 8,
+        marginBottom: 8,
     },
     preferenciaIcon: {
         marginRight: 16,
