@@ -14,11 +14,13 @@
         {
           "id": "0",
           "titulo": "Notificações",
+          "icon": "bell",
           "status": true
         },
         {
           "id": "1",
           "titulo": "Tema escuro",
+          "icon": "moon",
           "status": false
         }
       ],

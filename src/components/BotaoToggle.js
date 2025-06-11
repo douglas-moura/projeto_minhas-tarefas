@@ -13,6 +13,7 @@ export default function BotaoToggle({ valor, setValor }) {
                 onValueChange={() => setVal(!val)}
                 trackColor={{ false: '#767577', true: paletaCores.primaria.medio }}
                 thumbColor={valor ? '#f5dd4b' : '#f4f3f4'}
+                ios_backgroundColor="#3e3e3e"
             />
         </View>
     )

@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         borderWidth: 1,
         borderColor: paletaCores.cinza.claro,
-        paddingVertical: 16,
+        padding: 16,
         borderRadius: 8,
         marginBottom: 8,
     },
