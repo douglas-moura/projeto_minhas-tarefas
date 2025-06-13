@@ -1,5 +1,4 @@
 import { View, TouchableOpacity } from "react-native"
-import { paletaCores } from "../assets/styles/stylesGlobal"
 
 export default function BotaoToggle({  }) {
     return (

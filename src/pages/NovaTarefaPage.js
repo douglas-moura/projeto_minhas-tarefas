@@ -1,15 +1,17 @@
 import { useState, useEffect } from "react"
 import { SafeAreaView, ScrollView, StyleSheet, View, Text, Pressable, TextInput } from "react-native"
-import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
+import { createEstilosGlobais, createPaletaCores } from "../assets/styles"
 import { adicionarTarefa } from "../functions/adicionarTarefa"
 import { buscarTarefas } from "../functions/buscarTarefas"
 import { localhost_ip } from "../helpers/localhost"
+import { usePrefs } from "../contexts/PrefsContext"
+
 
 export default function NovaTarefaPage({ navigation }) {
     const [novaTarefaTitulo, setNovaTarefaTitulo] = useState(null)
     const [novaTarefaDescr, setNovaTarefaDescr] = useState(null)
     const [tarefas, setTarefas] = useState(null)
-        
+
     useEffect(() => {
         const fetchData = async () => {
             const tarefasLista = await buscarTarefas(localhost_ip)
@@ -18,13 +20,41 @@ export default function NovaTarefaPage({ navigation }) {
         fetchData()
     }, [])
 
+    const { estadoTemaEscuro } = usePrefs()
+    const estilosGlobais = createEstilosGlobais(estadoTemaEscuro)
+    const coresGlobais = createPaletaCores(estadoTemaEscuro)
+
+    const styles = StyleSheet.create({
+        campoInput: {
+            flexDirection: 'column',
+            marginBottom: 12,
+        },
+        labelInput: {
+            color: coresGlobais.primaria.medio,
+            fontWeight: 'bold',
+            fontSize: 16,
+            marginVertical: 6,
+        },
+        input: {
+            borderWidth: 0,
+            borderColor: coresGlobais.cinza.claro,
+            backgroundColor: coresGlobais.cinza.claro,
+            borderRadius: 6,
+            height: 56,
+            paddingHorizontal: 20,
+        },
+        btnsAddTarefas: {
+            width: '49%',
+        }
+    })
+
     return (
-        <SafeAreaView style={layouts.pagina}>
+        <SafeAreaView style={estilosGlobais.pagina}>
             <ScrollView>
-                <View style={layouts.sessao}>
+                <View style={estilosGlobais.sessao}>
                     <Text style={[
-                        layouts.textoTitulo01,
-                        { marginVertical: 22, textAlign: 'center', color: paletaCores.cinza.escuro }
+                        estilosGlobais.textoTitulo01,
+                        { marginVertical: 22, textAlign: 'center', color: coresGlobais.cinza.escuro }
                     ]}>Insira nova tarefa</Text>
                     <View style={styles.campoInput}>
                         <Text style={styles.labelInput}>Título:</Text>
@@ -53,21 +83,39 @@ export default function NovaTarefaPage({ navigation }) {
                         width: '100%',
                     }}>
                         <Pressable
-                            style={[layouts.btn, layouts.btnPrimario, styles.btnsAddTarefas]}
+                            style={[
+                                estilosGlobais.btn,
+                                estilosGlobais.btnPrimario,
+                                styles.btnsAddTarefas
+                            ]}
                             onPress={() => {
-                                adicionarTarefa("0", localhost, {tarefa_id: tarefas.length, titulo: novaTarefaTitulo, data: new Date(), descr: novaTarefaDescr, status: false})
+                                adicionarTarefa(
+                                    "0",
+                                    localhost,
+                                    {
+                                        tarefa_id: tarefas.length,
+                                        titulo: novaTarefaTitulo,
+                                        data: new Date(),
+                                        descr: novaTarefaDescr,
+                                        status: false
+                                    }
+                                )
                                 setTimeout(() => {
                                     navigation.navigate('AppMain')
                                 }, 1000)
                             }}
                         >
-                            <Text style={layouts.btnTextoPrimario}>Salvar</Text>
+                            <Text style={estilosGlobais.btnTextoPrimario}>Salvar</Text>
                         </Pressable>
                         <Pressable
-                            style={[layouts.btn, layouts.btnSecundario, styles.btnsAddTarefas]}
+                            style={[
+                                estilosGlobais.btn,
+                                estilosGlobais.btnSecundario,
+                                styles.btnsAddTarefas
+                            ]}
                             onPress={() => navigation.goBack()}
                         >
-                            <Text style={layouts.btnTextoSecundario}>Cancelar</Text>
+                            <Text style={estilosGlobais.btnTextoSecundario}>Cancelar</Text>
                         </Pressable>
                     </View>
                 </View>
@@ -75,27 +123,3 @@ export default function NovaTarefaPage({ navigation }) {
         </SafeAreaView>
     )
 }
-
-const styles = StyleSheet.create({
-    campoInput: {
-        flexDirection: 'column',
-        marginBottom: 12,
-    },
-    labelInput: {
-        color: paletaCores.primaria.medio,
-        fontWeight: 'bold',
-        fontSize: 16,
-        marginVertical: 6,
-    },
-    input: {
-        borderWidth: 0,
-        borderColor: paletaCores.cinza.claro,
-        backgroundColor: paletaCores.cinza.claro,
-        borderRadius: 6,
-        height: 56,
-        paddingHorizontal: 20,
-    },
-    btnsAddTarefas: {
-        width: '49%',
-    }
-})

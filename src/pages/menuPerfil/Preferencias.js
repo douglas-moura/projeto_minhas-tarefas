@@ -1,20 +1,18 @@
 import { useState, useEffect } from 'react'
 import { SafeAreaView, View, Text, FlatList, StyleSheet, Switch, TouchableOpacity } from 'react-native'
-import { layouts, paletaCores } from '../../assets/styles/stylesGlobal'
 import { useAuth } from '../../contexts/AuthContext'
 import { usePrefs } from '../../contexts/PrefsContext'
+import { createEstilosGlobais, createPaletaCores } from '../../assets/styles'
 import Icon from 'react-native-vector-icons/Feather'
 import BotaoVoltar from '../../components/BotaoVoltar'
 import Rodape from '../../components/Rodape'
-import BotaoToggle from '../../components/BotaoToggle'
-import { estilosGlobais } from '../../assets/styles'
 
 export default function Preferencias({ navigation }) {
     const { usuario } = useAuth()
     const { estadoTemaEscuro, alternarTema } = usePrefs()
-
     const [prefs, setPrefs] = useState(null)
-    const estilos = estilosGlobais()
+    const estilosGlobais = createEstilosGlobais(estadoTemaEscuro)
+    const coresGlobais = createPaletaCores(estadoTemaEscuro)
 
     const acoes = {
         alternarTema: alternarTema,
@@ -25,9 +23,46 @@ export default function Preferencias({ navigation }) {
         if (usuario && usuario.preferencias) setPrefs(usuario.preferencias)
     }, [usuario])
 
+    const styles = StyleSheet.create({
+        preferenciaContent: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            borderWidth: 1,
+            borderColor: coresGlobais.cinza.claro,
+            padding: 16,
+            borderRadius: 8,
+            marginBottom: 8,
+        },
+        preferenciaIcon: {
+            marginRight: 16,
+            //color: coresGlobais.primaria.medio,
+        },
+        preferenciaTitulo: {
+            fontSize: 18,
+            color: coresGlobais.preto,
+            fontWeight: 'bold',
+        },
+        toggleContainer: {
+            backgroundColor: coresGlobais.branco,
+            borderWidth: 1,
+            borderColor: coresGlobais.cinza.medio,
+            borderRadius: 16,
+            width: 50,
+            padding: 4,
+            flexDirection: 'row',
+            alignItems: 'center',
+        },
+        toggleBotao: {
+            width: 20,
+            height: 20,
+            borderRadius: 20,
+            backgroundColor: coresGlobais.primaria.medio,
+        }
+    })
+
     const renderItem = ({ item }) => (
         <View style={styles.preferenciaContent}>
-            {console.log(item)}
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                 <Icon name={item.icon} size={24} style={styles.preferenciaIcon} />
                 <Text style={styles.preferenciaTitulo}>{item.titulo}</Text>
@@ -46,58 +81,21 @@ export default function Preferencias({ navigation }) {
     )
 
     return (
-        <SafeAreaView style={layouts.pagina}>
-            <View style={layouts.sessao}>
+        <SafeAreaView style={estilosGlobais.pagina}>
+            <View style={estilosGlobais.sessao}>
                 <BotaoVoltar navigation={navigation} texto="Preferências" />
             </View>
-            <View style={layouts.sessao}>
+            <Text style={{color: coresGlobais.primaria.medio}}>Teste</Text>
+            <View style={estilosGlobais.sessao}>
                 <FlatList
                     data={prefs} // Array de dados
                     renderItem={renderItem} // Função para renderizar cada item
                     keyExtractor={(item) => item.id} // Chave única para cada item
                 />
             </View>
-            <View style={layouts.sessao}>
+            <View style={estilosGlobais.sessao}>
                 <Rodape />
             </View>
         </SafeAreaView>
     )
 }
-
-const styles = StyleSheet.create({
-    preferenciaContent: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        borderWidth: 0,
-        borderColor: paletaCores.cinza.claro,
-        padding: 16,
-        borderRadius: 8,
-        marginBottom: 8,
-    },
-    preferenciaIcon: {
-        marginRight: 16,
-        //color: paletaCores.primaria.medio,
-    },
-    preferenciaTitulo: {
-        fontSize: 18,
-        color: paletaCores.preto,
-        fontWeight: 'bold',
-    },
-    toggleContainer: {
-        backgroundColor: paletaCores.branco,
-        borderWidth: 1,
-        borderColor: paletaCores.cinza.medio,
-        borderRadius: 16,
-        width: 50,
-        padding: 4,
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    toggleBotao: {
-        width: 20,
-        height: 20,
-        borderRadius: 20,
-        backgroundColor: paletaCores.primaria.medio,
-    }
-})

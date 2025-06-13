@@ -1,10 +1,11 @@
-import { StyleSheet, StatusBar, Alert, ActivityIndicator } from 'react-native'
+import { StatusBar } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { paletaCores } from './src/assets/styles/StylesGlobal'
+import { createPaletaCores } from './src/assets/styles'
 
 import { AuthProvider, useAuth } from './src/contexts/AuthContext'
+import { PrefsProvider, usePrefs } from './src/contexts/PrefsContext'
 
 import Icon from 'react-native-vector-icons/Feather'
 
@@ -48,6 +49,7 @@ const Tabs = () => {
 
 const AppRoutes = () => {
     const { estaLogado } = useAuth()
+    const { estadoTemaEscuro } = usePrefs()
 
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -66,15 +68,19 @@ const AppRoutes = () => {
 }
 
 export default function App() {
+    const coresGlobais = createPaletaCores()
+
     return (
         <AuthProvider>
-			<NavigationContainer>
-                <StatusBar
-                    barStyle="light-content" // ou "dark-content"
-                    backgroundColor={paletaCores.primaria.medio} // coloque a cor desejada
-                />
-				<AppRoutes />
-			</NavigationContainer>
-		</AuthProvider>
+            <PrefsProvider>
+                <NavigationContainer>
+                    <StatusBar
+                        barStyle="light-content" // ou "dark-content"
+                        backgroundColor={coresGlobais.primaria.medio} // coloque a cor desejada
+                    />
+                    <AppRoutes />
+                </NavigationContainer>
+            </PrefsProvider>
+        </AuthProvider>
     )
 }

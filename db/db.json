@@ -15,12 +15,14 @@
           "id": "0",
           "titulo": "Notificações",
           "icon": "bell",
+          "acao": "desativarNotificacoes",
           "status": true
         },
         {
           "id": "1",
           "titulo": "Tema escuro",
           "icon": "moon",
+          "acao": "alternarTema",
           "status": false
         }
       ],

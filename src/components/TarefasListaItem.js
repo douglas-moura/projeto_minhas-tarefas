@@ -1,13 +1,16 @@
 import { Pressable, StyleSheet, View, Text } from "react-native"
-import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
+import { createEstilosGlobais, createPaletaCores } from "../assets/styles"
 import { concluirTarefa } from "../functions/concluirTarefa"
 import { formatarData } from "../functions/formatarData"
 import { useState } from "react"
-import { localhost_ip } from "../helpers/localhost"
+import { usePrefs } from "../contexts/PrefsContext"
 import Icon from "react-native-vector-icons/Feather"
 
 export default function TarefasListaItem(props) {
     const [statusItem, setStatusItem] = useState(props?.infosTarefa.status)
+    const { estadoTemaEscuro } = usePrefs()
+    const estilosGlobais = createEstilosGlobais(estadoTemaEscuro)
+    const coresGlobais = createPaletaCores(estadoTemaEscuro)
 
     const atualizarLista = () => {
         setTimeout(() => {
@@ -15,8 +18,79 @@ export default function TarefasListaItem(props) {
         }, 500)
     }
 
+    const styles = StyleSheet.create({
+        tarefa: {
+            padding: 20,
+            marginBottom: 14,
+            borderWidth: 1,
+            borderColor: coresGlobais.cinza.medio,
+            borderRadius: 6,
+            backgroundColor: coresGlobais.branco,
+            //elevation: 2,
+            //margin: 2,
+        },
+        tarefaData: {
+            fontSize: 10,
+            width: "70%",
+            borderBottomWidth: 0.5,
+            borderColor: coresGlobais.cinza.medio,
+            color: coresGlobais.cinza.escuro,
+            paddingBottom: 6,
+        },
+        tarefaContent: {
+            marginTop: 6,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+        },
+        tituloTarefa: {
+            color: coresGlobais.preto,
+        },
+        tarefaDescr: {
+            color: coresGlobais.cinza.escuro,
+            fontSize: 12,
+        },
+        tarefaTags: {
+            marginTop: 16,
+            flexDirection: "row",
+        },
+        tarefaObs: {
+            paddingVertical: 4,
+            paddingHorizontal: 8,
+            borderRadius: 50,
+            fontSize: 10,
+            backgroundColor: "#dd0000",
+            color: coresGlobais.branco,
+            alignSelf: 'flex-start',
+            fontWeight: 'bold',
+            marginRight: 6,
+        },
+        tarefaCheck: {
+            opacity: 0.6,
+            color: coresGlobais.cinza.medio,
+        },
+        tarefaObsCheck: {
+            backgroundColor: coresGlobais.cinza.claro,
+        },
+        checkbox: {
+            fontSize: 16,
+            padding: 4,
+            borderWidth: 1,
+            borderRadius: 4,
+            color: coresGlobais.branco,
+        },
+        check: {
+            borderColor: coresGlobais.primaria.medio,
+            backgroundColor: coresGlobais.primaria.medio,
+        },
+        noCheck: {
+            backgroundColor: coresGlobais.branco,
+            borderColor: coresGlobais.cinza.medio,
+        },
+    })
+
     return (
-        <Pressable style={[styles.tarefa, statusItem ? {backgroundColor: paletaCores.cinza.pelicula} : null]} onPress={() => {
+        <Pressable style={[styles.tarefa, statusItem ? { backgroundColor: coresGlobais.cinza.pelicula } : null]} onPress={() => {
             concluirTarefa("0", props?.infosTarefa.tarefa_id, localhost)
             atualizarLista()
         }}>
@@ -24,8 +98,8 @@ export default function TarefasListaItem(props) {
                 {formatarData(props?.infosTarefa.data)}
             </Text>
             <View style={styles.tarefaContent}>
-                <View style={{width: '85%', borderWidth: 0}}>
-                    <Text style={[layouts.textoTitulo03, styles.tituloTarefa, statusItem ? styles.tarefaCheck : null]}>
+                <View style={{ width: '85%', borderWidth: 0 }}>
+                    <Text style={[estilosGlobais.textoTitulo03, styles.tituloTarefa, statusItem ? styles.tarefaCheck : null]}>
                         {props?.infosTarefa.titulo}
                     </Text>
                     <Text style={[styles.tarefaDescr, statusItem ? styles.tarefaCheck : null]}>
@@ -45,78 +119,7 @@ export default function TarefasListaItem(props) {
                         {props?.infosTarefa.tags}
                     </Text>
                 </View>
-            : null}
+                : null}
         </Pressable>
     )
 }
-
-const styles = StyleSheet.create({
-    tarefa: {
-        padding: 20,
-        marginBottom: 14,
-        borderWidth: 1,
-        borderColor: paletaCores.cinza.medio,
-        borderRadius: 6,
-        backgroundColor: paletaCores.branco,
-        //elevation: 2,
-        //margin: 2,
-    },
-    tarefaData: {
-        fontSize: 10,
-        width: "70%",
-        borderBottomWidth: 0.5,
-        borderColor: paletaCores.cinza.medio,
-        color: paletaCores.cinza.escuro,
-        paddingBottom: 6,
-    },
-    tarefaContent: {
-        marginTop: 6,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
-    tituloTarefa: {
-        color: paletaCores.preto,
-    },
-    tarefaDescr: {
-        color: paletaCores.cinza.escuro,
-        fontSize: 12,
-    },
-    tarefaTags: {
-        marginTop: 16,
-        flexDirection: "row",
-    },
-    tarefaObs: {
-        paddingVertical: 4,
-        paddingHorizontal: 8,
-        borderRadius: 50,
-        fontSize: 10,
-        backgroundColor: "#dd0000",
-        color: paletaCores.branco,
-        alignSelf: 'flex-start',
-        fontWeight: 'bold',
-        marginRight: 6,
-    },
-    tarefaCheck: {
-        opacity: 0.6,
-        color: paletaCores.cinza.medio,
-    },
-    tarefaObsCheck: {
-        backgroundColor: paletaCores.cinza.claro,
-    },
-    checkbox: {
-        fontSize: 16,
-        padding: 4,
-        borderWidth: 1,
-        borderRadius: 4,
-        color: paletaCores.branco,
-    },
-    check: {
-        borderColor: paletaCores.primaria.medio,
-        backgroundColor: paletaCores.primaria.medio,
-    },
-    noCheck: {
-        backgroundColor: paletaCores.branco,
-        borderColor: paletaCores.cinza.medio,
-    },
-})

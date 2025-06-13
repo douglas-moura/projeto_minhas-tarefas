@@ -1,15 +1,31 @@
 import { SafeAreaView, StyleSheet, Pressable, Text, Image } from "react-native"
-import { layouts, paletaCores } from "../assets/styles/StylesGlobal"
+import { createEstilosGlobais, createPaletaCores } from "../assets/styles"
 import { imagensPerfil } from "../helpers/imagensPerfil"
+import { usePrefs } from "../contexts/PrefsContext"
 
-export default function TopBar({navigation, usuario}) {
+export default function TopBar({ navigation, usuario }) {
+    const { estadoTemaEscuro } = usePrefs()
+    const estilosGlobais = createEstilosGlobais(estadoTemaEscuro)
+    const coresGlobais = createPaletaCores(estadoTemaEscuro)
+
+    const styles = StyleSheet.create({
+        fotoPerfil: {
+            height: 40,
+            width: 40,
+            backgroundColor: coresGlobais.branco,
+            borderRadius: 50,
+            borderWidth: 1,
+            borderColor: coresGlobais.branco,
+        }
+    })
+
     return (
         <SafeAreaView style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
         }}>
-            <Text style={[layouts.textoTitulo03, {color: paletaCores.branco}]}>
+            <Text style={[estilosGlobais.textoTitulo03, { color: coresGlobais.branco }]}>
                 Olá, {usuario ? usuario.nome : 'Usuário'}
             </Text>
             <Pressable onPress={() => navigation.navigate("Perfil")}>
@@ -25,14 +41,3 @@ export default function TopBar({navigation, usuario}) {
         </SafeAreaView>
     )
 }
-
-const styles = StyleSheet.create({
-    fotoPerfil: {
-        height: 40,
-        width: 40,
-        backgroundColor: paletaCores.branco,
-        borderRadius: 50,
-        borderWidth: 1,
-        borderColor: paletaCores.branco,
-    }
-})

@@ -1,11 +1,36 @@
 import { Text, StyleSheet, Pressable } from "react-native"
-import { paletaCores } from "../assets/styles/StylesGlobal"
+import { createPaletaCores } from "../assets/styles"
 import { useAuth } from "../contexts/AuthContext"
+import { usePrefs } from "../contexts/PrefsContext"
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import Icon from 'react-native-vector-icons/Feather'
 
 export default function ItemMenuPerfil({ icone, texto, page, navigation }) {
     const { logout } = useAuth()
+    const { estadoTemaEscuro } = usePrefs()
+    const coresGlobais = createPaletaCores(estadoTemaEscuro)
+
+    const styles = StyleSheet.create({
+        infoLinha: {
+            paddingVertical: 20,
+            flexDirection: "row",
+            alignItems: "center",
+            borderBottomWidth: 0.75,
+            borderBottomColor: coresGlobais.cinza.medio,
+        },
+        infoIcone: {
+            fontSize: 20,
+            color: coresGlobais.cinza.escuro,
+            marginRight: 16,
+            backgroundColor: coresGlobais.primaria.pelicula,
+            padding: 12,
+            borderRadius: 50,
+        },
+        infoDescr: {
+            color: coresGlobais.cinza.escuro,
+            fontSize: 20,
+        }
+    })
 
     return (
         <Pressable
@@ -25,25 +50,3 @@ export default function ItemMenuPerfil({ icone, texto, page, navigation }) {
         </Pressable>
     )
 }
-
-const styles = StyleSheet.create({
-    infoLinha: {
-        paddingVertical: 20,
-        flexDirection: "row",
-        alignItems: "center",
-        borderBottomWidth: 0.75,
-        borderBottomColor: paletaCores.cinza.medio,
-    },
-    infoIcone: {
-        fontSize: 20,
-        color: paletaCores.cinza.escuro,
-        marginRight: 16,
-        backgroundColor: paletaCores.primaria.pelicula,
-        padding: 12,
-        borderRadius: 50,
-    },
-    infoDescr: {
-        color: paletaCores.cinza.escuro,
-        fontSize: 20,
-    }
-})
