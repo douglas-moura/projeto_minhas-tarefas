@@ -8,18 +8,18 @@ import Rodape from "../components/Rodape"
 import ItemMenuPerfil from "../components/ItemMenuPerfil"
 
 
-export default function PerfilPage({navigation}) {
+export default function PerfilPage({ navigation }) {
     const menuPerfil = [
-        {icone: 'user', texto: 'Dados Pessoais', page: 'DadosPessoais'},
-        {icone: 'bar-chart-2', texto: 'Informações da Conta', page: 'MinhaConta'},
-        {icone: 'settings', texto: 'Preferências', page: 'Preferencias'},
-        {icone: 'help-circle', texto: 'Ajuda e Suporte', page: 'AjudaSuporte'},
-        {icone: 'log-out', texto: 'Sair', page: 'LoginPage'},
+        { icone: 'user', texto: 'Dados Pessoais', page: 'DadosPessoais' },
+        { icone: 'bar-chart-2', texto: 'Informações da Conta', page: 'MinhaConta' },
+        { icone: 'settings', texto: 'Preferências', page: 'Preferencias' },
+        { icone: 'help-circle', texto: 'Ajuda e Suporte', page: 'AjudaSuporte' },
+        { icone: 'log-out', texto: 'Sair', page: 'LoginPage' },
     ]
-    
+
     const { usuario } = useAuth()
     const { estadoTemaEscuro } = usePrefs()
-    
+
     const estilosGlobais = createEstilosGlobais(estadoTemaEscuro)
     const coresGlobais = createPaletaCores(estadoTemaEscuro)
 
@@ -32,6 +32,8 @@ export default function PerfilPage({navigation}) {
         },
         fotoPerfil: {
             borderRadius: 200,
+            borderWidth: 4,
+            borderColor: coresGlobais.branco,
             width: "100%",
             height: "100%",
         },
@@ -42,7 +44,7 @@ export default function PerfilPage({navigation}) {
             zIndex: 100,
             padding: 6,
             backgroundColor: 'orange',
-            borderWidth: 3,
+            borderWidth: 2,
             top: "-10%",
             left: "65%",
             borderColor: coresGlobais.branco,
@@ -50,47 +52,47 @@ export default function PerfilPage({navigation}) {
         },
         infoEmail: {
             marginTop: 4,
-            color: coresGlobais.cinza.escuro,
+            color: coresGlobais.cores.textoDefault,
         },
         infoSessao: {
             height: "100%",
-            backgroundColor: coresGlobais.branco,
             borderStartStartRadius: 40,
             borderEndStartRadius: 40,
         },
         tituloContainer: {
-            marginBottom: 10, 
-            color: coresGlobais.primaria.medio
+            marginBottom: 10,
         },
         infoContainer: {
-            marginBottom: 36,
+            marginTop: 18,
         },
         infoLinha: {
             paddingVertical: 24,
             flexDirection: "row",
             alignItems: "center",
             borderBottomWidth: 1,
-            borderBottomColor: coresGlobais.cinza.medio,
+            borderBottomColor: coresGlobais.cores.borda,
         },
         infoIcone: {
             fontSize: 28,
-            color: coresGlobais.cinza.escuro,
+            color: coresGlobais.cores.textoDefault,
             marginRight: 16,
         },
         infoDescr: {
-            color: coresGlobais.cinza.escuro,
+            color: coresGlobais.cores.textoDefault,
             fontSize: 20,
         }
     })
-    
+
     return (
-        <SafeAreaView style={[estilosGlobais.pagina, {backgroundColor: coresGlobais.primaria.medio}]}>
+        <SafeAreaView style={[estilosGlobais.pagina]}>
             <ScrollView>
+                {/*}
                 <View style={estilosGlobais.sessao}>
-                    <Text style={[estilosGlobais.textoTitulo01, {color: coresGlobais.branco}]}>Perfil</Text>
+                    <Text style={[estilosGlobais.textoTitulo01, {color: coresGlobais.cores.textoInvert}]}>Perfil</Text>
                 </View>
+                */}
                 <View style={[estilosGlobais.sessao, styles.infoSessao]}>
-                    <View style={[styles.infoContainer, {flexDirection: 'row'}]}>
+                    <View style={[styles.infoContainer, { flexDirection: 'row' }]}>
                         <View style={styles.fotoPerfilContainer}>
                             <Icon name="star" style={styles.perfilIcone} />
                             <Image
@@ -103,7 +105,7 @@ export default function PerfilPage({navigation}) {
                             />
                         </View>
                         <View>
-                            <Text style={[estilosGlobais.textoTitulo02, {color: coresGlobais.preto}]}>{usuario ? `${usuario.nome} ${usuario.sobrenome}` : ''}</Text>
+                            <Text style={[estilosGlobais.textoTitulo02, { color: coresGlobais.cores.textoDefault }]}>{usuario ? `${usuario.nome} ${usuario.sobrenome}` : ''}</Text>
                             <Text style={styles.infoEmail}>Cód. {usuario ? usuario.cod : ''}</Text>
                         </View>
                     </View>

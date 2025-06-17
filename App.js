@@ -23,9 +23,15 @@ const Stack = createNativeStackNavigator()
 const Tab = createBottomTabNavigator()
 
 const Tabs = () => {
+    const { estadoTemaEscuro } = usePrefs()
+    const coresGlobais = createPaletaCores(estadoTemaEscuro)
+
     return (
-        <Tab.Navigator screenOptions={{headerShown: false}}>
-            <Tab.Screen 
+        <Tab.Navigator screenOptions={{
+            headerShown: false,
+            tabBarStyle: { backgroundColor: coresGlobais.cores.backgroundDefault, borderWidth: 0, },
+        }}>
+            <Tab.Screen
                 name="Inicio"
                 component={HomePage}
                 options={{
@@ -49,7 +55,6 @@ const Tabs = () => {
 
 const AppRoutes = () => {
     const { estaLogado } = useAuth()
-    const { estadoTemaEscuro } = usePrefs()
 
     return (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -76,7 +81,7 @@ export default function App() {
                 <NavigationContainer>
                     <StatusBar
                         barStyle="light-content" // ou "dark-content"
-                        backgroundColor={coresGlobais.cores.backgroundDefault} // coloque a cor desejada
+                        backgroundColor={coresGlobais.cores.backgroundDestaque} // Cor de fundo da StatusBar
                     />
                     <AppRoutes />
                 </NavigationContainer>

@@ -5,10 +5,10 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { buscarPlano } from '../../functions/buscarPlano'
 import { localhost_ip } from '../../helpers/localhost'
 import { useAuth } from '../../contexts/AuthContext'
+import { usePrefs } from '../../contexts/PrefsContext'
 import Icon from 'react-native-vector-icons/Feather'
 import BotaoVoltar from '../../components/BotaoVoltar'
 import Rodape from '../../components/Rodape'
-import { usePrefs } from '../../contexts/PrefsContext'
 
 
 export default function MinhaConta({ navigation }) {
@@ -60,7 +60,7 @@ export default function MinhaConta({ navigation }) {
         itemBeneficioNome: {
             marginLeft: 12,
             fontSize: 16,
-            color: coresGlobais.cinza.escuro,
+            color: coresGlobais.cores.textoAlt,
         }
     })
 
@@ -87,8 +87,8 @@ export default function MinhaConta({ navigation }) {
                     </View>
                     <Text style={styles.planoValor}>{plano ? plano.titulo : 'Free'}</Text>
                 </LinearGradient>
-                <View style={[layoutsPerfil.sessao, styles.sessaoBeneficios]}>
-                    <Text style={[estilosGlobais.textoTitulo02, { marginBottom: 12, color: coresGlobais.preto }]}>Benefícios</Text>
+                <View style={[estilosGlobais.sessao, styles.sessaoBeneficios]}>
+                    <Text style={[estilosGlobais.textoTitulo02, { marginBottom: 12, color: coresGlobais.cores.textoDefault }]}>Benefícios</Text>
                     <FlatList
                         data={plano && plano.beneficios ? plano.beneficios : []} // Array de dados
                         renderItem={renderItem} // Função para renderizar cada item

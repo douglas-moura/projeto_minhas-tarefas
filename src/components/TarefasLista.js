@@ -33,16 +33,16 @@ export default function TarefasLista({ tituloLista, navigation }) {
 
     return (
         <SafeAreaView style={{ heigth: 'auto' }}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 18 }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 28 }}>
                 <Image style={styles.logoTitulo} source={require('../assets/img/simbolo.png')} />
                 <Text style={[estilosGlobais.textoTitulo02, { color: coresGlobais.cores.textoDefault }]}>{tituloLista}</Text>
             </View>
-            <ScrollView showsVerticalScrollIndicator={false} style={{ height: '75%' }}>
+            <ScrollView showsVerticalScrollIndicator={false} style={{ height: 450 }}>
                 {tarefas && tarefas.map((item, index) => (
                     <TarefaListaItem key={index} infosTarefa={item} />
                 ))}
             </ScrollView>
-            <Pressable style={[estilosGlobais.btn, estilosGlobais.btnPrimario, { marginTop: 12 }]} onPress={() => navigation.navigate("Nova Tarefa")} >
+            <Pressable style={[estilosGlobais.btn, estilosGlobais.btnPrimario, { marginTop: 18 }]} onPress={() => navigation.navigate("Nova Tarefa")} >
                 <View style={estilosGlobais.iconeContainer}>
                     <Icon name="plus-circle" style={estilosGlobais.iconeAlt} size={20} />
                 </View>

@@ -16,18 +16,18 @@ export default function ItemMenuPerfil({ icone, texto, page, navigation }) {
             flexDirection: "row",
             alignItems: "center",
             borderBottomWidth: 0.75,
-            borderBottomColor: coresGlobais.cinza.medio,
+            borderBottomColor: coresGlobais.cores.textoAlt,
         },
         infoIcone: {
             fontSize: 20,
-            color: coresGlobais.cinza.escuro,
+            color: coresGlobais.cores.textoDefault,
             marginRight: 16,
-            backgroundColor: coresGlobais.primaria.pelicula,
+            //backgroundColor: coresGlobais.cores.backgroundDestaque,
             padding: 12,
             borderRadius: 50,
         },
         infoDescr: {
-            color: coresGlobais.cinza.escuro,
+            color: coresGlobais.cores.textoDefault,
             fontSize: 20,
         }
     })

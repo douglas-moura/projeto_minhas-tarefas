@@ -13,7 +13,7 @@ export default function TopBar({ navigation, usuario }) {
             height: 40,
             width: 40,
             borderRadius: 50,
-            borderWidth: 2,
+            borderWidth: 3,
             borderColor: coresGlobais.cores.textoInvert,
         }
     })
@@ -23,8 +23,9 @@ export default function TopBar({ navigation, usuario }) {
             flexDirection: 'row',
             justifyContent: 'space-between',
             alignItems: 'center',
+            height: 50,
         }}>
-            <Text style={[estilosGlobais.textoTitulo02, {color: coresGlobais.cores.textoInvert}]}>
+            <Text style={[estilosGlobais.textoTitulo01, {color: coresGlobais.cores.textoInvert}]}>
                 Olá, {usuario ? usuario.nome : 'Usuário'}
             </Text>
             <Pressable onPress={() => navigation.navigate("Perfil")}>

@@ -11,6 +11,7 @@ export const createPaletaCores = (tema) => {
             textoDefault: temaAtivo.cores.textoDefault,
             textoInvert: temaAtivo.cores.textoInvert,
             textoAlt: temaAtivo.cores.textoAlt,
+            textoDestaque: temaAtivo.cores.textoDestaque,
             backgroundDefault: temaAtivo.cores.backgroundDefault,               // Cor principal de fundo da página
             backgroundDestaque: temaAtivo.cores.backgroundDestaque,   // Fundo de cards, modais, etc.
             backgroundSecundario: temaAtivo.cores.backgroundSecundario,   // Fundo de cards, modais, etc.
@@ -60,7 +61,6 @@ export const createEstilosGlobais = (tema) => {
         textoTitulo01: {
             fontSize: temaAtivo.fonte.tamanhoExtraGrande,
             fontWeight: 'bold',
-            marginBottom: temaAtivo.espacamento.gigante,
         },
         textoTitulo02: {
             fontSize: temaAtivo.fonte.tamanhoGrande,
@@ -117,6 +117,9 @@ export const createEstilosGlobais = (tema) => {
             padding: temaAtivo.espacamento.grande,
             backgroundColor: cores.branco,
             color: cores.preto,
+        },
+        containerArredondado: {
+            borderRadius: temaAtivo.borda.raio,
         },
     })
 }

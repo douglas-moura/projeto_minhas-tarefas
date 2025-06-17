@@ -25,20 +25,20 @@ export default function AjudaSuporte({ navigation }) {
         <SafeAreaView style={estilosGlobais.pagina}>
             <ScrollView style={[estilosGlobais.sessao, { marginBottom: 32 }]}>
                 <BotaoVoltar navigation={navigation} texto="Ajuda e Suporte" />
-                <Text style={[estilosGlobais.textoTitulo02, { color: coresGlobais.primaria.medio, marginBottom: 20, marginLeft: 15 }]}>
+                <Text style={[estilosGlobais.textoTitulo02, { color: coresGlobais.cores.textoDestaque, marginBottom: 20, marginLeft: 15 }]}>
                     Perguntas Frequentes
                 </Text>
                 {perguntasFrequentes.map((item, index) => (
                     <View key={index} style={{ marginVertical: 15, marginLeft: 15 }}>
-                        <Text style={[estilosGlobais.textoParagrafo, { fontWeight: "bold" }]}>{item.pergunta}</Text>
-                        <Text style={{color: coresGlobais.cinza.escuro}}>{item.resposta}</Text>
+                        <Text style={{ color: coresGlobais.cores.textoDefault, fontWeight: "bold", marginBottom: 5 }}>{item.pergunta}</Text>
+                        <Text style={{ color: coresGlobais.cores.textoAlt }}>{item.resposta}</Text>
                     </View>
                 ))}
                 <TouchableOpacity
                     style={{
                         marginTop: 30,
                         padding: 15,
-                        backgroundColor: coresGlobais.primaria.medio,
+                        backgroundColor: coresGlobais.cores.backgroundDestaque,
                         borderRadius: 5,
                     }}
                     onPress={{}}

@@ -13,6 +13,7 @@ export default function LoginPage({ navigation }) {
     const { login } = useAuth()
     const { estadoTemaEscuro } = usePrefs()
     const estilosGlobais = createEstilosGlobais(estadoTemaEscuro)
+    const coresGlobais = createPaletaCores(estadoTemaEscuro)
 
     const logar = async () => {
         try {
@@ -63,7 +64,7 @@ export default function LoginPage({ navigation }) {
                 <Image style={styles.logoLogin} source={require('../assets/img/simbolo.png')} />
             </View>
             <View style={[estilosGlobais.sessao, styles.inputsContainer]}>
-                <Text style={estilosGlobais.textoTitulo01}>Bem-vindo! Fazer login</Text>
+                <Text style={[estilosGlobais.textoTitulo01, { color: coresGlobais.cores.textoDefault, marginBottom: 20 }]}>Bem-vindo! Fazer login</Text>
                 <TextInput
                     style={styles.inputLogin}
                     placeholder="nome.sobrenome@email.com"

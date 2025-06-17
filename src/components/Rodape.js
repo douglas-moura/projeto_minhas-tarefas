@@ -8,7 +8,7 @@ export default function Rodape() {
     const coresGlobais = createPaletaCores(estadoTemaEscuro)
 
     return (
-        <Text style={[estilosGlobais.textoAl, {textAlign: 'center', marginTop: 40, fontSize: 12}]}>
+        <Text style={[{ color: coresGlobais.cores.textoAlt, textAlign: 'center', marginTop: 40, fontSize: 12 }]}>
             &copy; {new Date().getFullYear()} Minhas Tarefas v0.0.01
         </Text>
     )

@@ -35,11 +35,12 @@ export const temaClaro = {
     cores: {
         textoDefault: cores.cinza._500,
         textoInvert: cores.branco,
-        textoAlt: cores.cinza._300, 
+        textoAlt: cores.cinza._300,
+        textoDestaque: cores.primaria._500, // Cor para textos destacados
         backgroundDefault: cores.branco,               // Cor principal de fundo da página
         backgroundDestaque: cores.primaria._500,   // Fundo de cards, modais, etc.
         backgroundSecundario: cores.secundaria._500,   // Fundo de cards, modais, etc.
-        borda: cores.cinza._300,                // Cor padrão das bordas
+        borda: cores.cinza._100,                // Cor padrão das bordas
         icone: cores.primaria._500,             // Cor padrão dos ícones
         aviso: '#FF503D',                       // Cor para avisos / alertas (ex: vermelho)
         sucesso: '#80BA16',                     // Cor para sucesso (ex: verde)
@@ -83,6 +84,7 @@ export const temaEscuro = {
         textoDefault: cores.cinza._100,
         textoInvert: cores.branco,
         textoAlt: cores.cinza._300, 
+        textoDestaque: cores.primaria._500, // Cor para textos destacados
         backgroundDefault: cores.preto,               // Cor principal de fundo da página
         backgroundDestaque: cores.primaria._500,   // Fundo de cards, modais, etc.
         backgroundSecundario: cores.secundaria._500,   // Fundo de cards, modais, etc.

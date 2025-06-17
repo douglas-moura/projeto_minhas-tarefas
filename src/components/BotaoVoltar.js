@@ -19,13 +19,13 @@ export default function BotaoVoltar({ navigation, texto }) {
             alignSelf: 'flex-start',
         },
         icone: {
-            color: coresGlobais.preto,
+            color: coresGlobais.cores.textoDefault,
             fontSize: 22,
             position: 'absolute',
             left: 10,
         },
         texto: {
-            color: coresGlobais.preto,
+            color: coresGlobais.cores.textoDefault,
             fontWeight: 'bold',
             width: '100%',
             textAlign: 'center',

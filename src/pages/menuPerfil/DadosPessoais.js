@@ -9,6 +9,7 @@ import { imagensPerfil } from '../../helpers/imagensPerfil'
 import Icon from 'react-native-vector-icons/Feather'
 import BotaoVoltar from '../../components/BotaoVoltar'
 import Rodape from '../../components/Rodape'
+import { cores } from '../../assets/styles/temas'
 
 export default function DadosPessoais({ navigation }) {
     const { usuario } = useAuth()
@@ -55,17 +56,19 @@ export default function DadosPessoais({ navigation }) {
             fontSize: 20,
             fontWeight: 'bold',
             marginBottom: 4,
+            color: coresGlobais.cores.textoDefault,
         },
         infoLinhaValorContainer: {
             justifyContent: 'space-between',
             flexDirection: 'row',
             paddingHorizontal: 16,
             paddingVertical: 18,
-            borderRadius: 8,
-            backgroundColor: coresGlobais.cinza.pelicula,
+            backgroundColor: coresGlobais.branco,
+            borderWidth: 0.5,
+            borderColor: coresGlobais.cores.borda,
         },
         infoLinhaValor: {
-            color: coresGlobais.cinza.escuro,
+            color: coresGlobais.cores.textoDefault,
             fontSize: 16,
         }
     })
@@ -87,19 +90,19 @@ export default function DadosPessoais({ navigation }) {
                 </View>
                 <View style={styles.infoLinha}>
                     <Text style={styles.infoLinhaDescr}>Nome</Text>
-                    <View style={styles.infoLinhaValorContainer}>
+                    <View style={[styles.infoLinhaValorContainer, estilosGlobais.containerArredondado]}>
                         <Text style={styles.infoLinhaValor}>{`${nome ? nome : 'Não informado'} ${sobrenome ? sobrenome : ''}`}</Text>
                     </View>
                 </View>
                 <View style={styles.infoLinha}>
                     <Text style={styles.infoLinhaDescr}>E-mail</Text>
-                    <View style={styles.infoLinhaValorContainer}>
+                    <View style={[styles.infoLinhaValorContainer, estilosGlobais.containerArredondado]}>
                         <Text style={styles.infoLinhaValor}>{email ? email : 'Não informado'}</Text>
                     </View>
                 </View>
                 <View style={styles.infoLinha}>
                     <Text style={styles.infoLinhaDescr}>Senha</Text>
-                    <View style={styles.infoLinhaValorContainer}>
+                    <View style={[styles.infoLinhaValorContainer, estilosGlobais.containerArredondado]}>
                         <Text style={styles.infoLinhaValor}>
                             {visibilidadeSenha ? (senha ? senha : 'Não informado') : <Text>********</Text>}
                         </Text>
@@ -113,7 +116,7 @@ export default function DadosPessoais({ navigation }) {
                 </View>
                 <View style={styles.infoLinha}>
                     <Text style={styles.infoLinhaDescr}>Telefone</Text>
-                    <View style={styles.infoLinhaValorContainer}>
+                    <View style={[styles.infoLinhaValorContainer, estilosGlobais.containerArredondado]}>
                         <Text style={styles.infoLinhaValor}>{tel ? tel : 'Não informado'}</Text>
                     </View>
                 </View>

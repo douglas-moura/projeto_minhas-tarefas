@@ -29,24 +29,24 @@ export default function Preferencias({ navigation }) {
             alignItems: 'center',
             justifyContent: 'space-between',
             borderWidth: 1,
-            borderColor: coresGlobais.cinza.claro,
+            borderColor: coresGlobais.cores.borda,
             padding: 16,
             borderRadius: 8,
             marginBottom: 8,
         },
         preferenciaIcon: {
             marginRight: 16,
-            //color: coresGlobais.primaria.medio,
+            color: coresGlobais.cores.textoDestaque,
         },
         preferenciaTitulo: {
             fontSize: 18,
-            color: coresGlobais.preto,
+            color: coresGlobais.cores.textoDefault,
             fontWeight: 'bold',
         },
         toggleContainer: {
-            backgroundColor: coresGlobais.branco,
+            backgroundColor: coresGlobais.cores.backgroundDefault,
             borderWidth: 1,
-            borderColor: coresGlobais.cinza.medio,
+            borderColor: coresGlobais.cores.borda,
             borderRadius: 16,
             width: 50,
             padding: 4,
@@ -57,7 +57,7 @@ export default function Preferencias({ navigation }) {
             width: 20,
             height: 20,
             borderRadius: 20,
-            backgroundColor: coresGlobais.primaria.medio,
+            backgroundColor: coresGlobais.cores.backgroundDestaque,
         }
     })
 
