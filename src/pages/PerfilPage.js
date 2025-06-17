@@ -31,8 +31,6 @@ export default function PerfilPage({navigation}) {
             marginRight: 28,
         },
         fotoPerfil: {
-            borderWidth: 0,
-            borderColor: coresGlobais.branco,
             borderRadius: 200,
             width: "100%",
             height: "100%",

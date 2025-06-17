@@ -77,10 +77,10 @@
   ],
   "planos": [
     {
-      "id": 0,
+      "id": "0",
       "titulo": "Básico",
       "descricao": "Acesso a funcionalidades básicas do aplicativo.",
-      "preco": 0.00,
+      "preco": 0,
       "duracao": "Mensal",
       "beneficios": [
         "100 tarefas simultaneas",
@@ -89,7 +89,7 @@
       ]
     },
     {
-      "id": 1,
+      "id": "1",
       "titulo": "Premium",
       "descricao": "Acesso a todas as funcionalidades, incluindo tarefas ilimitadas.",
       "preco": 9.99,
@@ -103,7 +103,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "titulo": "Plano Pro",
       "descricao": "Acesso a todas as funcionalidades, suporte prioritário e backups automáticos.",
       "preco": 19.99,
@@ -135,7 +135,7 @@
           "titulo": "Comprar uma calça",
           "data": "18/02/25",
           "descr": "Estou sem calças, preciso de uma nova urgente",
-          "status": true
+          "status": false
         },
         {
           "tarefa_id": 2,
@@ -149,7 +149,7 @@
           "titulo": "Estudar React Native/Expo",
           "data": "20/03/25",
           "descr": "Preciso estudar e dominar esta ferrementa logo",
-          "status": false
+          "status": true
         },
         {
           "tarefa_id": 7,
@@ -170,7 +170,7 @@
           "titulo": "Hehehe negão Shell",
           "data": "2025-04-16T21:14:05.291Z",
           "descr": "Jesus acaba mais outros Yamaha itens",
-          "status": false
+          "status": true
         },
         {
           "tarefa_id": 10,
@@ -191,7 +191,7 @@
           "titulo": "Brecou baguete hahaha",
           "data": "2025-04-19T20:11:11.146Z",
           "descr": "Escrevendo vendo outras carne podia acredito porque calor haha",
-          "status": false
+          "status": true
         },
         {
           "tarefa_id": 10,
@@ -205,7 +205,7 @@
           "titulo": "Ufa unidos então",
           "data": "2025-05-12T19:15:07.855Z",
           "descr": "Evelyn cheguei fechando jeito",
-          "status": false
+          "status": true
         },
         {
           "tarefa_id": 12,

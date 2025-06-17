@@ -35,14 +35,6 @@ export default function NovaTarefaPage({ navigation }) {
             fontSize: 16,
             marginVertical: 6,
         },
-        input: {
-            borderWidth: 0,
-            borderColor: coresGlobais.cinza.claro,
-            backgroundColor: coresGlobais.cinza.claro,
-            borderRadius: 6,
-            height: 56,
-            paddingHorizontal: 20,
-        },
         btnsAddTarefas: {
             width: '49%',
         }
@@ -54,12 +46,12 @@ export default function NovaTarefaPage({ navigation }) {
                 <View style={estilosGlobais.sessao}>
                     <Text style={[
                         estilosGlobais.textoTitulo01,
-                        { marginVertical: 22, textAlign: 'center', color: coresGlobais.cinza.escuro }
+                        { marginVertical: 22, textAlign: 'center', color: coresGlobais.cores.textoDefault, fontWeight: 'bold'}
                     ]}>Insira nova tarefa</Text>
                     <View style={styles.campoInput}>
                         <Text style={styles.labelInput}>Título:</Text>
                         <TextInput
-                            style={styles.input}
+                            style={estilosGlobais.inputDefault}
                             placeholder="Ex.: Fazer compras"
                             keyboardType="alphaNumeric"
                             value={novaTarefaTitulo}
@@ -69,7 +61,7 @@ export default function NovaTarefaPage({ navigation }) {
                     <View style={styles.campoInput}>
                         <Text style={styles.labelInput}>Descrição:</Text>
                         <TextInput
-                            style={styles.input}
+                            style={estilosGlobais.inputDefault}
                             placeholder="Ex.: Ir ao mercado para comprar frutas e verduras"
                             keyboardType="alphaNumeric"
                             value={novaTarefaDescr}
@@ -110,7 +102,8 @@ export default function NovaTarefaPage({ navigation }) {
                         <Pressable
                             style={[
                                 estilosGlobais.btn,
-                                estilosGlobais.btnSecundario,
+                                estilosGlobais.btnTextoSecundario,
+                                estilosGlobais.btnAlerta,
                                 styles.btnsAddTarefas
                             ]}
                             onPress={() => navigation.goBack()}

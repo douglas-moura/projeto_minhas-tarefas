@@ -76,7 +76,7 @@ export default function App() {
                 <NavigationContainer>
                     <StatusBar
                         barStyle="light-content" // ou "dark-content"
-                        backgroundColor={coresGlobais.primaria.medio} // coloque a cor desejada
+                        backgroundColor={coresGlobais.cores.backgroundDefault} // coloque a cor desejada
                     />
                     <AppRoutes />
                 </NavigationContainer>

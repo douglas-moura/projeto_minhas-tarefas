@@ -4,7 +4,8 @@ import { concluirTarefa } from "../functions/concluirTarefa"
 import { formatarData } from "../functions/formatarData"
 import { useState } from "react"
 import { usePrefs } from "../contexts/PrefsContext"
-import Icon from "react-native-vector-icons/Feather"
+import { localhost_ip } from "../helpers/localhost"
+import Icon from "react-native-vector-icons/FontAwesome5"
 
 export default function TarefasListaItem(props) {
     const [statusItem, setStatusItem] = useState(props?.infosTarefa.status)
@@ -23,19 +24,18 @@ export default function TarefasListaItem(props) {
             padding: 20,
             marginBottom: 14,
             borderWidth: 1,
-            borderColor: coresGlobais.cinza.medio,
             borderRadius: 6,
-            backgroundColor: coresGlobais.branco,
             //elevation: 2,
             //margin: 2,
+            borderColor: coresGlobais.cores.borda,
+            backgroundColor: coresGlobais.cores.backgroundDefault,
         },
         tarefaData: {
             fontSize: 10,
             width: "70%",
             borderBottomWidth: 0.5,
-            borderColor: coresGlobais.cinza.medio,
-            color: coresGlobais.cinza.escuro,
             paddingBottom: 6,
+            borderColor: coresGlobais.cores.borda,
         },
         tarefaContent: {
             marginTop: 6,
@@ -44,10 +44,8 @@ export default function TarefasListaItem(props) {
             alignItems: 'center',
         },
         tituloTarefa: {
-            color: coresGlobais.preto,
         },
         tarefaDescr: {
-            color: coresGlobais.cinza.escuro,
             fontSize: 12,
         },
         tarefaTags: {
@@ -60,66 +58,57 @@ export default function TarefasListaItem(props) {
             borderRadius: 50,
             fontSize: 10,
             backgroundColor: "#dd0000",
-            color: coresGlobais.branco,
             alignSelf: 'flex-start',
             fontWeight: 'bold',
             marginRight: 6,
         },
         tarefaCheck: {
-            opacity: 0.6,
-            color: coresGlobais.cinza.medio,
+            opacity: 0.2,
         },
         tarefaObsCheck: {
-            backgroundColor: coresGlobais.cinza.claro,
+            opacity: 1,
+        },
+        checkboxContainer: {
+            width: 30,
+            height: 30,
+            alignItems: 'center',
+            justifyContent: 'center',   
+            borderWidth: 1,
+            borderColor: coresGlobais.cores.borda,
+        },
+        checkboxContainerCheck: {
+            backgroundColor: coresGlobais.cores.backgroundDestaque,
+            borderColor: coresGlobais.cores.backgroundDestaque,
         },
         checkbox: {
             fontSize: 16,
             padding: 4,
-            borderWidth: 1,
-            borderRadius: 4,
-            color: coresGlobais.branco,
-        },
-        check: {
-            borderColor: coresGlobais.primaria.medio,
-            backgroundColor: coresGlobais.primaria.medio,
-        },
-        noCheck: {
-            backgroundColor: coresGlobais.branco,
-            borderColor: coresGlobais.cinza.medio,
+            borderColor: coresGlobais.cores.borda,
+            color: coresGlobais.cores.backgroundDefault,
         },
     })
 
     return (
-        <Pressable style={[styles.tarefa, statusItem ? { backgroundColor: coresGlobais.cinza.pelicula } : null]} onPress={() => {
-            concluirTarefa("0", props?.infosTarefa.tarefa_id, localhost)
+        <Pressable style={[styles.tarefa, statusItem ? {borderWidth: 0.25} : null]} onPress={() => {
+            concluirTarefa("0", props?.infosTarefa.tarefa_id, localhost_ip)
             atualizarLista()
         }}>
-            <Text style={[styles.tarefaData, statusItem ? styles.tarefaCheck : null]}>
+            <Text style={[styles.tarefaData, {color: coresGlobais.cores.textoDefault}, statusItem ? styles.tarefaCheck : null]}>
                 {formatarData(props?.infosTarefa.data)}
             </Text>
             <View style={styles.tarefaContent}>
-                <View style={{ width: '85%', borderWidth: 0 }}>
-                    <Text style={[estilosGlobais.textoTitulo03, styles.tituloTarefa, statusItem ? styles.tarefaCheck : null]}>
+                <View style={[{ width: '85%', borderWidth: 0 }, statusItem ? styles.tarefaCheck : null]}>
+                    <Text style={[estilosGlobais.textoTitulo03, {color: coresGlobais.cores.textoDefault}]}>
                         {props?.infosTarefa.titulo}
                     </Text>
-                    <Text style={[styles.tarefaDescr, statusItem ? styles.tarefaCheck : null]}>
+                    <Text style={[styles.tarefaDescr, styles.tituloTarefa, {color: coresGlobais.cores.textoDefault}]}>
                         {props?.infosTarefa.descr}
                     </Text>
                 </View>
-                <View>
-                    <Icon
-                        name="check"
-                        style={[styles.checkbox, statusItem ? styles.check : styles.noCheck]}
-                    />
+                <View style={[styles.checkboxContainer, estilosGlobais.iconeContainer, statusItem ? styles.checkboxContainerCheck : null]}>
+                    <Icon name="check" style={[styles.checkbox, statusItem ? styles.check : styles.noCheck]} />
                 </View>
             </View>
-            {props?.infosTarefa.tags ?
-                <View style={styles.tarefaTags}>
-                    <Text style={[styles.tarefaObs, statusItem ? styles.tarefaObsCheck : null]}>
-                        {props?.infosTarefa.tags}
-                    </Text>
-                </View>
-                : null}
         </Pressable>
     )
 }

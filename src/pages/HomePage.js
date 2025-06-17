@@ -9,11 +9,10 @@ export default function HomePage({ navigation }) {
     const { usuario } = useAuth()
     const { estadoTemaEscuro } = usePrefs()
     const estilosGlobais = createEstilosGlobais(estadoTemaEscuro)
-    const coresGlobais = createPaletaCores(estadoTemaEscuro)
 
     return (
         <SafeAreaView style={estilosGlobais.pagina}>
-            <View style={[estilosGlobais.sessao, { backgroundColor: coresGlobais.primaria.medio, }]}>
+            <View style={[estilosGlobais.sessaoDestaque]}>
                 <TopBar navigation={navigation} usuario={usuario} />
             </View>
             <View style={estilosGlobais.sessao}>

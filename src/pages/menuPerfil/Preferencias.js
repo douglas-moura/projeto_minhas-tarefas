@@ -85,7 +85,6 @@ export default function Preferencias({ navigation }) {
             <View style={estilosGlobais.sessao}>
                 <BotaoVoltar navigation={navigation} texto="Preferências" />
             </View>
-            <Text style={{color: coresGlobais.primaria.medio}}>Teste</Text>
             <View style={estilosGlobais.sessao}>
                 <FlatList
                     data={prefs} // Array de dados

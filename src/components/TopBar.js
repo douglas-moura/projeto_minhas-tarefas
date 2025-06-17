@@ -12,10 +12,9 @@ export default function TopBar({ navigation, usuario }) {
         fotoPerfil: {
             height: 40,
             width: 40,
-            backgroundColor: coresGlobais.branco,
             borderRadius: 50,
-            borderWidth: 1,
-            borderColor: coresGlobais.branco,
+            borderWidth: 2,
+            borderColor: coresGlobais.cores.textoInvert,
         }
     })
 
@@ -25,7 +24,7 @@ export default function TopBar({ navigation, usuario }) {
             justifyContent: 'space-between',
             alignItems: 'center',
         }}>
-            <Text style={[estilosGlobais.textoTitulo03, { color: coresGlobais.branco }]}>
+            <Text style={[estilosGlobais.textoTitulo02, {color: coresGlobais.cores.textoInvert}]}>
                 Olá, {usuario ? usuario.nome : 'Usuário'}
             </Text>
             <Pressable onPress={() => navigation.navigate("Perfil")}>

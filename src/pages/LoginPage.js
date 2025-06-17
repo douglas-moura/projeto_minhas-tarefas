@@ -13,7 +13,6 @@ export default function LoginPage({ navigation }) {
     const { login } = useAuth()
     const { estadoTemaEscuro } = usePrefs()
     const estilosGlobais = createEstilosGlobais(estadoTemaEscuro)
-    const coresGlobais = createPaletaCores(estadoTemaEscuro)
 
     const logar = async () => {
         try {
@@ -64,7 +63,7 @@ export default function LoginPage({ navigation }) {
                 <Image style={styles.logoLogin} source={require('../assets/img/simbolo.png')} />
             </View>
             <View style={[estilosGlobais.sessao, styles.inputsContainer]}>
-                <Text style={[estilosGlobais.textoTitulo02, { marginBottom: 18 }]}>Bem-vindo! Fazer login</Text>
+                <Text style={estilosGlobais.textoTitulo01}>Bem-vindo! Fazer login</Text>
                 <TextInput
                     style={styles.inputLogin}
                     placeholder="nome.sobrenome@email.com"
@@ -79,7 +78,7 @@ export default function LoginPage({ navigation }) {
                     secureTextEntry={true}
                 />
                 <TouchableOpacity style={[estilosGlobais.btn, estilosGlobais.btnPrimario, { width: '100%' }]} onPress={() => logar()}>
-                    <Text style={{ color: coresGlobais.branco }}>Entrar</Text>
+                    <Text style={estilosGlobais.btnTextoPrimario}>Entrar</Text>
                 </TouchableOpacity>
             </View>
             <Rodape />

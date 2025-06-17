@@ -1,26 +1,39 @@
 import { StyleSheet, StatusBar, Platform } from 'react-native'
-import { temaClaro, temaEscuro } from "./temas"
+import { cores, temaClaro, temaEscuro } from "./temas"
 
 const statusBarHeight = Platform.OS === 'android' ? StatusBar.currentHeight : 0
 
 export const createPaletaCores = (tema) => {
     const temaAtivo = tema ? temaEscuro : temaClaro
 
-    return StyleSheet.create({  
+    return StyleSheet.create({
+        cores: {
+            textoDefault: temaAtivo.cores.textoDefault,
+            textoInvert: temaAtivo.cores.textoInvert,
+            textoAlt: temaAtivo.cores.textoAlt,
+            backgroundDefault: temaAtivo.cores.backgroundDefault,               // Cor principal de fundo da página
+            backgroundDestaque: temaAtivo.cores.backgroundDestaque,   // Fundo de cards, modais, etc.
+            backgroundSecundario: temaAtivo.cores.backgroundSecundario,   // Fundo de cards, modais, etc.
+            borda: temaAtivo.cores.borda,                // Cor padrão das bordas
+            icone: temaAtivo.cores.icone,             // Cor padrão dos ícones
+            aviso: '#FF503D',                       // Cor para avisos / alertas (ex: vermelho)
+            sucesso: '#80BA16',                     // Cor para sucesso (ex: verde)
+        },
         primaria: {
-            pelicula: temaAtivo.primaria.pelicula,
-            claro: temaAtivo.primaria.claro,
-            medio: temaAtivo.primaria.medio,
-            escuro: temaAtivo.primaria.escuro,
+            pelicula: cores.primaria.medio,
+            claro: '#D0F2FE',
+            medio: '#1A8EF4',
+            escuro: '#0D52AF',
         },
         cinza: {
-            pelicula: temaAtivo.cinza.pelicula,
-            claro: temaAtivo.cinza.claro,
-            medio: temaAtivo.cinza.medio,
-            escuro: temaAtivo.cinza.escuro,
+            pelicula: '#f9f9f9',
+            claro: '#f3f3f3',
+            medio: '#d7d7d7',
+            escuro: '#888888',
         },
-        branco: temaAtivo.branco,
-        preto: temaAtivo.preto,
+        branco: '#ffffff',
+        preto: '#252525',
+        texto: '#252525',
     })
 }
 
@@ -30,54 +43,80 @@ export const createEstilosGlobais = (tema) => {
     return StyleSheet.create({
         pagina: {
             flex: 1,
-            backgroundColor: temaAtivo.branco,
+            backgroundColor: temaAtivo.cores.backgroundDefault,
             paddingTop: statusBarHeight,
             borderWidth: 0,
         },
         sessao: {
-            padding: 24,
+            padding: temaAtivo.espacamento.gigante,
+        },
+        sessaoDestaque: {
+            padding: temaAtivo.espacamento.gigante,
+            backgroundColor: temaAtivo.cores.backgroundDestaque,
         },
         container: {
-            marginBottom: 16,
+            marginBottom: temaAtivo.espacamento.grande,
         },
         textoTitulo01: {
-            fontSize: 28,
+            fontSize: temaAtivo.fonte.tamanhoExtraGrande,
             fontWeight: 'bold',
-            color: temaAtivo.preto,
-            //marginBottom: 12,
+            marginBottom: temaAtivo.espacamento.gigante,
         },
         textoTitulo02: {
-            fontSize: 24,
+            fontSize: temaAtivo.fonte.tamanhoGrande,
             fontWeight: 'bold',
-            color: temaAtivo.preto,
         },
         textoTitulo03: {
-            fontSize: 20,
+            fontSize: temaAtivo.fonte.tamanhoMedio,
             fontWeight: 'bold',
-            color: temaAtivo.preto,
         },
         textoParagrafo: {
-            fontSize: 16,
+            fontSize: temaAtivo.fonte.tamanhoMedio,
         },
-        btn: {  
-            padding: 14,
-            borderRadius: 6,
+        btn: {
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            padding: temaAtivo.espacamento.grande,
+            borderRadius: temaAtivo.borda.raio,
             alignItems: 'center',
         },
         btnPrimario: {
-            backgroundColor: temaAtivo.primaria.medio,
+            backgroundColor: temaAtivo.cores.backgroundDestaque,
         },
         btnTextoPrimario: {
-            color: temaAtivo.branco,
-            fontSize: 16,
+            color: temaAtivo.cores.textoInvert,
+            fontSize: temaAtivo.fonte.tamanhoGrande,
+            fontWeight: 'bold',
         },
         btnSecundario: {
             borderWidth: 1,
-            borderColor: temaAtivo.primaria.medio,
+            borderColor: temaAtivo.cores.backgroundSecundario,
         },
         btnTextoSecundario: {
-            color: temaAtivo.primaria.medio,
-            fontSize: 16,
-        }
+            color: temaAtivo.cores.textoInvert,
+            fontSize: temaAtivo.fonte.tamanhoMedio,
+        },
+        btnAlerta: {
+            backgroundColor: temaAtivo.cores.aviso,
+        },
+        iconeDefault: {
+            color: temaAtivo.cores.icone,
+        },
+        iconeAlt: {
+            color: temaAtivo.cores.textoInvert,
+        },
+        iconeContainer: {
+            margin: temaAtivo.espacamento.medio,
+            borderRadius: temaAtivo.borda.raio,
+        },
+        inputDefault: {
+            borderWidth: 1,
+            borderColor: temaAtivo.cores.borda,
+            borderRadius: temaAtivo.borda.raio,
+            padding: temaAtivo.espacamento.grande,
+            backgroundColor: cores.branco,
+            color: cores.preto,
+        },
     })
 }
