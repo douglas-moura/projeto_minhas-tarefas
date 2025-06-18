@@ -46,7 +46,7 @@ export default function ItemMenuPerfil({ icone, texto, page, navigation }) {
             }}>
             <Icon name={icone} style={styles.infoIcone} />
             <Text style={styles.infoDescr}>{texto}</Text>
-            <Icon name='chevron-right' style={{ fontSize: 18, position: 'absolute', right: 10 }} />
+            <Icon name='chevron-right' style={{ color: coresGlobais.cores.textoDefault, fontSize: 18, position: 'absolute', right: 10 }} />
         </Pressable>
     )
 }

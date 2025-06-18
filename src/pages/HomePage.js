@@ -1,6 +1,6 @@
 import { SafeAreaView, View } from "react-native"
 import { useAuth } from "../contexts/AuthContext"
-import { createEstilosGlobais, createPaletaCores } from "../assets/styles"
+import { createEstilosGlobais } from "../assets/styles"
 import { usePrefs } from "../contexts/PrefsContext"
 import TarefasLista from "../components/TarefasLista"
 import TopBar from "../components/TopBar"

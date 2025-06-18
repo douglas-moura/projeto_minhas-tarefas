@@ -135,7 +135,7 @@
           "titulo": "Comprar uma calça",
           "data": "18/02/25",
           "descr": "Estou sem calças, preciso de uma nova urgente",
-          "status": false
+          "status": true
         },
         {
           "tarefa_id": 2,

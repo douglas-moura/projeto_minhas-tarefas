@@ -86,7 +86,7 @@ export default function DadosPessoais({ navigation }) {
                                 : imagensPerfil.default
                         }
                     />
-                    <Icon name="camera" style={styles.iconeEditImagemPerfil} />
+                    {/*<Icon name="camera" style={styles.iconeEditImagemPerfil} />*/}
                 </View>
                 <View style={styles.infoLinha}>
                     <Text style={styles.infoLinhaDescr}>Nome</Text>

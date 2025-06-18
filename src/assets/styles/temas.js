@@ -26,6 +26,7 @@ export const cores = {
         _300: '#A2A2A2',
         _500: '#6B6B6B',
         _600: '#4F4F4F',
+        _800: '#2e2e2e',
     },
     branco: '#ffffff',
     preto: '#252525',
@@ -85,7 +86,7 @@ export const temaEscuro = {
         textoInvert: cores.branco,
         textoAlt: cores.cinza._300, 
         textoDestaque: cores.primaria._500, // Cor para textos destacados
-        backgroundDefault: cores.preto,               // Cor principal de fundo da página
+        backgroundDefault: cores.cinza._800,               // Cor principal de fundo da página
         backgroundDestaque: cores.primaria._500,   // Fundo de cards, modais, etc.
         backgroundSecundario: cores.secundaria._500,   // Fundo de cards, modais, etc.
         borda: cores.branco,                // Cor padrão das bordas
