@@ -23,7 +23,7 @@
           "titulo": "Tema escuro",
           "icon": "moon",
           "acao": "alternarTema",
-          "status": false
+          "status": true
         }
       ],
       "plano_id": 0

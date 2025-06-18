@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react"
 import { useAuth } from "./AuthContext"
+import { alterarUserPreferenciaTema } from "../functions/alterarUserPreferenciaTema"
 
 const PrefsContext = createContext()
 
@@ -17,8 +18,9 @@ export const PrefsProvider = ({ children }) => {
 
     const alternarTema = () => {
         setEstadoTemaEscuro(prev => !prev)
+        alterarUserPreferenciaTema(usuario.id, !estadoTemaEscuro)
     }
-
+    
     const desativarNotificacoes = () => {
         setNotificacoes(false)
     }

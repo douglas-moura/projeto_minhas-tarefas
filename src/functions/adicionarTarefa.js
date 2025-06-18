@@ -22,7 +22,7 @@ export const adicionarTarefa = async (userId, host, novaTarefa) => {
                 ...userData,
                 tarefas: tarefasAtualizadas,
             }),
-        })        
+        })
 
         if (!respostaAtualizacao.ok) throw new Error('Erro ao atualizar tarefa')
     } catch (erro) {
